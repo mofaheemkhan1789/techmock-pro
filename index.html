@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1120">
+<meta name="description" content="TechMock Pro - Maths and technical entrance mock tests in Hindi and English.">
+<title>TechMock Pro | Mock Tests</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0b1120;color:#f8fafc}
+header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #263248}
+.logo{font-size:23px;font-weight:800;color:#f4c95d}
+.logo span{color:white}
+select,button{padding:11px;border-radius:9px;border:1px solid #475569;background:#172338;color:white}
+.hero{padding:55px 6% 40px;text-align:center;background:radial-gradient(ellipse at top,#203657,#0b1120 70%)}
+.tag{color:#f4c95d;font-size:13px;font-weight:bold;letter-spacing:2px}
+h1{font-size:clamp(34px,7vw,58px);margin:18px 0}
+h1 span{color:#f4c95d}
+.hero p{color:#cbd5e1;line-height:1.7;max-width:550px;margin:0 auto 25px}
+.primary{background:#f4c95d;color:#111827;border:0;font-weight:bold;cursor:pointer}
+section{padding:25px 6% 45px}
+h2{font-size:25px}
+.sub{color:#94a3b8;font-size:14px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
+.card{background:#131e31;border:1px solid #29374d;border-radius:15px;padding:20px 16px;transition:.2s}
+.card:hover{border-color:#f4c95d;transform:translateY(-3px)}
+.emoji{font-size:28px}
+.card h3{margin:14px 0 8px;font-size:17px}
+.card p{color:#aebbd0;font-size:13px;line-height:1.5;min-height:38px}
+.card button{width:100%;cursor:pointer}
+.badge{font-size:11px;color:#f4c95d;border:1px solid #66562b;padding:5px 8px;border-radius:20px}
+.notice{padding:18px;background:#131e31;border-radius:12px;color:#cbd5e1;line-height:1.7}
+footer{text-align:center;padding:28px;color:#94a3b8;border-top:1px solid #263248;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">TechMock <span>Pro</span></div>
+ <select id="language" onchange="changeLanguage()">
+  <option value="en">English</option>
+  <option value="hi">हिंदी</option>
+ </select>
+</header>
+
+<div class="hero">
+ <div class="tag">LEARN • PRACTICE • IMPROVE</div>
+ <h1 id="headline">Your Exam. <span>Your Rank.</span></h1>
+ <p id="intro">Prepare for Maths and technical entrance exams with practice tests designed for your goals.</p>
+ <button class="primary" onclick="document.getElementById('exams').scrollIntoView({behavior:'smooth'})" id="explore">Explore Mock Tests ↓</button>
+</div>
+
+<section id="exams">
+ <div class="tag">CHOOSE YOUR GOAL</div>
+ <h2 id="examTitle">Explore Exam Categories</h2>
+ <p class="sub" id="examSub">Choose a category to explore available practice tests.</p>
+ <div class="grid">
+  <div class="card">
+   <div class="emoji">📐</div><h3>Class 10 Maths</h3>
+   <p id="c1">Board syllabus and mathematics practice.</p>
+   <button onclick="openTest('Class 10 Maths')">Explore Tests →</button>
+  </div>
+  <div class="card">
+   <div class="emoji">⚛️</div><h3>Class 12 PCM</h3>
+   <p id="c2">Physics, Chemistry and Mathematics.</p>
+   <button onclick="openTest('Class 12 PCM')">Explore Tests →</button>
+  </div>
+  <div class="card">
+   <div class="emoji">🎯</div><h3>JEE Main</h3>
+   <p id="c3">Engineering entrance practice questions.</p>
+   <button onclick="openTest('JEE Main')">Explore Tests →</button>
+  </div>
+  <div class="card">
+   <div class="emoji">💻</div><h3>NIMCET</h3>
+   <p id="c4">Mathematics, reasoning and computer awareness.</p>
+   <button onclick="openTest('NIMCET')">Explore Tests →</button>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="tag">YOUR PREPARATION, YOUR WAY</div>
+ <h2 id="plansTitle">Free Practice + Pro</h2>
+ <div class="grid">
+  <div class="card">
+   <span class="badge">FREE</span>
+   <h3 id="freeTitle">Free Practice</h3>
+   <p id="freeDesc">Explore sample questions and start preparing.</p>
+  </div>
+  <div class="card">
+   <span class="badge">PRO</span>
+   <h3 id="proTitle">Pro Mock Tests</h3>
+   <p id="proDesc">Premium test packages are coming soon.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="notice" id="notice">
+  <strong>Coming soon:</strong> Timed mock tests, automatic scoring, detailed solutions and student performance reports.
+ </div>
+</section>
+
+<footer>© 2026 TechMock Pro · <span id="foot">Built for ambitious learners.</span></footer>
+
+<script>
+function openTest(name){
+ alert(name+" practice tests are coming soon! Sample questions will be added in the next update.");
+}
+function changeLanguage(){
+ const hi=document.getElementById('language').value==='hi';
+ document.documentElement.lang=hi?'hi':'en';
+ document.getElementById('headline').innerHTML=hi?'Aapki Taiyari. <span>Aapki Rank.</span>':'Your Exam. <span>Your Rank.</span>';
+ document.getElementById('intro').textContent=hi?'Maths aur technical entrance exams ki taiyari apni pasand ki bhasha mein karein.':'Prepare for Maths and technical entrance exams with practice tests designed for your goals.';
+ document.getElementById('explore').textContent=hi?'Mock Tests Dekhein ↓':'Explore Mock Tests ↓';
+ document.getElementById('examTitle').textContent=hi?'Exam Categories':'Explore Exam Categories';
+ document.getElementById('examSub').textContent=hi?'Apni category chunein aur practice shuru karein.':'Choose a category to explore available practice tests.';
+ document.getElementById('c1').textContent=hi?'Class 10 syllabus aur Maths practice.':'Board syllabus and mathematics practice.';
+ document.getElementById('c2').textContent=hi?'Physics, Chemistry aur Mathematics.':'Physics, Chemistry and Mathematics.';
+ document.getElementById('c3').textContent=hi?'Engineering entrance ki practice.':'Engineering entrance practice questions.';
+ document.getElementById('c4').textContent=hi?'Maths, reasoning aur computer awareness.':'Mathematics, reasoning and computer awareness.';
+ document.getElementById('plansTitle').textContent=hi?'Free Practice + Pro':'Free Practice + Pro';
+ document.getElementById('freeTitle').textContent=hi?'Free Practice':'Free Practice';
+ document.getElementById('freeDesc').textContent=hi?'Sample questions se taiyari shuru karein.':'Explore sample questions and start preparing.';
+ document.getElementById('proTitle').textContent=hi?'Pro Mock Tests':'Pro Mock Tests';
+ document.getElementById('proDesc').textContent=hi?'Premium tests jald aa rahe hain.':'Premium test packages are coming soon.';
+ document.getElementById('notice').innerHTML=hi?'<strong>Jald aa raha hai:</strong> Timer, automatic score, solutions aur performance reports.':'<strong>Coming soon:</strong> Timed mock tests, automatic scoring, detailed solutions and student performance reports.';
+ document.getElementById('foot').textContent=hi?'Mehnati students ke liye banaya gaya.':'Built for ambitious learners.';
+ document.querySelectorAll('#exams .card button').forEach(b=>b.textContent=hi?'Tests Dekhein →':'Explore Tests →');
+}
+</script>
+</body>
+</html>
