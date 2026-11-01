@@ -7,16 +7,103 @@
 <title>TechMock Pro | All Exams</title>
 <style>
 :root{--bg:#0b1020;--panel:#121a2d;--panel2:#18233b;--text:#f4f7ff;--muted:#9aa8c4;--accent:#6d7cff;--accent2:#24c6a5;--border:#293550;--danger:#ff6b7a;--warning:#ffc857}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top right,#192752 0,#0b1020 45%);color:var(--text);min-height:100vh}button,input{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700;transition:.15s}button:active{transform:scale(.98)}.primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white}.secondary{background:var(--panel2);border:1px solid var(--border);color:var(--text)}.success{background:var(--accent2);color:#06231d}.danger{background:#4a2030;color:#ffd9df;border:1px solid #743247}.muted{color:var(--muted)}.app{max-width:1100px;margin:auto;padding:18px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#6d7cff,#24c6a5);color:white}.top-actions{display:flex;gap:8px}.hero{padding:28px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(135deg,rgba(109,124,255,.18),rgba(36,198,165,.08));margin-bottom:22px}.eyebrow{color:#aeb8ff;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.08;margin:12px 0}.hero p{max-width:620px;color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{padding:14px;border-radius:15px;background:rgba(10,16,32,.45);border:1px solid var(--border)}.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 14px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.exam-card,.panel{background:rgba(18,26,45,.94);border:1px solid var(--border);border-radius:19px;padding:18px}.exam-card{display:flex;flex-direction:column;gap:12px}.card-top{display:flex;align-items:center;gap:12px}.exam-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:var(--panel2);font-size:24px}.exam-card h3{margin:0 0 4px}.exam-card p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:5px 9px;border:1px solid var(--border);border-radius:999px;color:#c5cee4;font-size:11px}.exam-card button{margin-top:auto;width:100%}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:15px;text-align:left;color:var(--text)}.quick span{display:block;font-size:23px;margin-bottom:8px}.quick strong{display:block;font-size:13px}.quick small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}.view{display:none}.view.active{display:block}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.timer{padding:10px 13px;background:#2c2030;border:1px solid #61364b;color:#ffb5c0;border-radius:12px;font-weight:900;font-variant-numeric:tabular-nums}.progress{height:7px;background:#26314a;border-radius:99px;overflow:hidden;margin:12px 0 20px}.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .2s}.test-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:15px}.question-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.question-text{font-size:20px;line-height:1.5;margin:22px 0}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:#151f35;border:1px solid #2b3855;color:var(--text);padding:13px}.option .letter{width:28px;height:28px;flex-shrink:0;display:grid;place-items:center;border:1px solid #405071;border-radius:9px;color:#c9d4ef}.option.selected{border-color:var(--accent);background:#242b55}.option.selected .letter{background:var(--accent);border-color:var(--accent);color:white}.test-nav{display:flex;justify-content:space-between;gap:8px;margin-top:20px}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0 18px}.pal{padding:8px 0;border-radius:8px;background:#222d45;border:1px solid #35425f;color:#dbe4ff;font-size:12px}.pal.current{outline:2px solid var(--accent)}.pal.answered{background:#145a50;border-color:#258b7b}.pal.review{background:#694d19;border-color:#a57c27}.legend{font-size:11px;color:var(--muted);display:grid;gap:8px}.legend span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px;background:#222d45}.legend .lg-a:before{background:#145a50}.legend .lg-r:before{background:#694d19}.result-score{font-size:50px;font-weight:950;margin:10px 0}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.result-box{background:var(--panel2);padding:14px;border-radius:14px}.result-box strong{display:block;font-size:22px}.result-box span{font-size:12px;color:var(--muted)}.review-item{padding:15px 0;border-bottom:1px solid var(--border)}.review-item:last-child{border:0}.correct{color:#55e0bd}.incorrect{color:#ff8795}.history-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--border)}.history-row:last-child{border:0}.empty{padding:25px;text-align:center;color:var(--muted)}.notice{border:1px solid #665326;background:#322a19;color:#ffe3a1;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:15px}.footer{text-align:center;color:#6f7e9b;font-size:12px;padding:28px 0 10px}.hide{display:none!important}
-@media(max-width:700px){.app{padding:13px}.hero{padding:21px}.grid{grid-template-columns:1fr}.test-layout{grid-template-columns:1fr}.palette-panel{order:-1}.palette{grid-template-columns:repeat(8,1fr)}.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:18px}.quick-grid{grid-template-columns:repeat(3,1fr)}.quick{padding:11px}.quick strong{font-size:12px}.topbar{align-items:flex-start}.brand{font-size:17px}.top-actions button{padding:9px 10px}.question-text{font-size:18px}.result-grid{gap:7px}.result-box{padding:11px}.result-box strong{font-size:19px}}
-@media(max-width:380px){.quick-grid{grid-template-columns:1fr}.quick{display:flex;gap:12px;align-items:center}.quick span{margin:0}.palette{grid-template-columns:repeat(6,1fr)}}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top right,#192752 0,#0b1020 45%);color:var(--text);min-height:100vh;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700;transition:.15s}button:active{transform:scale(.98)}.primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white}.secondary{background:var(--panel2);border:1px solid var(--border);color:var(--text)}.success{background:var(--accent2);color:#06231d}.danger{background:#4a2030;color:#ffd9df;border:1px solid #743247}.muted{color:var(--muted)}.app{max-width:1100px;margin:auto;padding:18px 18px 100px;min-height:100vh}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#6d7cff,#24c6a5);color:white}.top-actions{display:flex;gap:8px}.hero{padding:28px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(135deg,rgba(109,124,255,.18),rgba(36,198,165,.08));margin-bottom:22px}.eyebrow{color:#aeb8ff;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.08;margin:12px 0}.hero p{max-width:620px;color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{padding:14px;border-radius:15px;background:rgba(10,16,32,.45);border:1px solid var(--border)}.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 14px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.exam-card,.panel{background:rgba(18,26,45,.94);border:1px solid var(--border);border-radius:19px;padding:18px}.exam-card{display:flex;flex-direction:column;gap:12px}.card-top{display:flex;align-items:center;gap:12px}.exam-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:var(--panel2);font-size:24px}.exam-card h3{margin:0 0 4px}.exam-card p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:5px 9px;border:1px solid var(--border);border-radius:999px;color:#c5cee4;font-size:11px}.exam-card button{margin-top:auto;width:100%}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:15px;text-align:left;color:var(--text)}.quick span{display:block;font-size:23px;margin-bottom:8px}.quick strong{display:block;font-size:13px}.quick small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}.view{display:none}.view.active{display:block;animation:screenIn .18s ease}@keyframes screenIn{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.timer{padding:10px 13px;background:#2c2030;border:1px solid #61364b;color:#ffb5c0;border-radius:12px;font-weight:900;font-variant-numeric:tabular-nums}.progress{height:7px;background:#26314a;border-radius:99px;overflow:hidden;margin:12px 0 20px}.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .2s}.test-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:15px}.question-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.question-text{font-size:20px;line-height:1.5;margin:22px 0}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:#151f35;border:1px solid #2b3855;color:var(--text);padding:13px}.option .letter{width:28px;height:28px;flex-shrink:0;display:grid;place-items:center;border:1px solid #405071;border-radius:9px;color:#c9d4ef}.option.selected{border-color:var(--accent);background:#242b55}.option.selected .letter{background:var(--accent);border-color:var(--accent);color:white}.test-nav{display:flex;justify-content:space-between;gap:8px;margin-top:20px}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0 18px}.pal{padding:8px 0;border-radius:8px;background:#222d45;border:1px solid #35425f;color:#dbe4ff;font-size:12px}.pal.current{outline:2px solid var(--accent)}.pal.answered{background:#145a50;border-color:#258b7b}.pal.review{background:#694d19;border-color:#a57c27}.legend{font-size:11px;color:var(--muted);display:grid;gap:8px}.legend span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px;background:#222d45}.legend .lg-a:before{background:#145a50}.legend .lg-r:before{background:#694d19}.result-score{font-size:50px;font-weight:950;margin:10px 0}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.result-box{background:var(--panel2);padding:14px;border-radius:14px}.result-box strong{display:block;font-size:22px}.result-box span{font-size:12px;color:var(--muted)}.review-item{padding:15px 0;border-bottom:1px solid var(--border)}.review-item:last-child{border:0}.correct{color:#55e0bd}.incorrect{color:#ff8795}.history-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--border)}.history-row:last-child{border:0}.empty{padding:25px;text-align:center;color:var(--muted)}.notice{border:1px solid #665326;background:#322a19;color:#ffe3a1;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:15px}.footer{text-align:center;color:#6f7e9b;font-size:12px;padding:18px 0 10px}.hide{display:none!important}.bottom-nav{position:fixed;z-index:1000;left:0;right:0;bottom:0;padding:8px max(10px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));background:rgba(10,15,29,.96);backdrop-filter:blur(18px);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:1100px;margin:0 auto}.nav-btn{background:transparent;color:var(--muted);padding:7px 3px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;min-height:52px}.nav-btn .nav-icon{font-size:20px;line-height:1.1}.nav-btn.active{background:rgba(109,124,255,.18);color:#b9c0ff}.nav-btn.active .nav-icon{filter:drop-shadow(0 0 5px rgba(109,124,255,.3))}.screen-title{display:flex;align-items:center;gap:10px}.screen-title h2{margin:0}textarea{font:inherit}.profile-avatar{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));font-size:28px;font-weight:900}
+@media(max-width:700px){.app{padding:13px 13px 95px}.hero{padding:21px}.grid{grid-template-columns:1fr}.test-layout{grid-template-columns:1fr}.palette-panel{order:-1}.palette{grid-template-columns:repeat(8,1fr)}.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:18px}.quick-grid{grid-template-columns:repeat(3,1fr)}.quick{padding:11px}.quick strong{font-size:12px}.topbar{align-items:flex-start}.brand{font-size:17px}.top-actions button{padding:9px 10px}.question-text{font-size:18px}.result-grid{gap:7px}.hero{margin-bottom:15px}.section-head{margin:18px 0 12px}.exam-card{padding:15px}.result-box{padding:11px}.result-box strong{font-size:19px}}
+@media(max-width:380px){.top-actions{gap:4px}.top-actions button{padding:7px 8px;font-size:11px}.quick-grid{grid-template-columns:1fr}.quick{display:flex;gap:12px;align-items:center}.quick span{margin:0}.palette{grid-template-columns:repeat(6,1fr)}}
+
+/* Home is a single-screen dashboard; other sections may scroll when needed. */
+body.home-mode{height:100dvh;min-height:0;overflow:hidden}
+body.home-mode .app{height:100dvh;min-height:0;overflow:hidden;padding-bottom:78px;display:flex;flex-direction:column}
+body.home-mode .topbar{flex:0 0 auto;margin-bottom:10px}
+body.home-mode #homeView{display:flex;flex:1 1 auto;min-height:0;flex-direction:column;overflow:hidden;gap:10px}
+body.home-mode #homeView .hero{flex:0 0 auto;padding:15px 17px;margin:0;border-radius:18px}
+body.home-mode #homeView .hero h1{font-size:clamp(23px,5vw,32px);margin:7px 0}
+body.home-mode #homeView .hero p{font-size:12px;line-height:1.35;margin:6px 0}
+body.home-mode #homeView .stats{margin-top:10px;gap:7px}
+body.home-mode #homeView .stat{padding:8px 10px}
+body.home-mode #homeView .stat strong{font-size:18px}
+body.home-mode #homeView .stat span{font-size:10px}
+body.home-mode #homeView .section-head{flex:0 0 auto;margin:1px 0 0}
+body.home-mode #homeView .section-head h2{font-size:16px}
+body.home-mode #homeView .section-head p{font-size:11px;margin-top:2px}
+body.home-mode #homeView #examGrid{flex:1 1 auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px}
+body.home-mode #homeView .exam-card{min-height:0;padding:10px;gap:6px;border-radius:14px;overflow:hidden}
+body.home-mode #homeView .exam-icon{width:34px;height:34px;border-radius:10px;font-size:18px}
+body.home-mode #homeView .card-top{gap:8px}
+body.home-mode #homeView .exam-card h3{font-size:13px;margin:0}
+body.home-mode #homeView .exam-card .muted{font-size:10px!important}
+body.home-mode #homeView .exam-card p{display:none}
+body.home-mode #homeView .chips{display:none}
+body.home-mode #homeView .exam-card button{padding:8px 5px;font-size:11px;border-radius:9px}
+body.home-mode #homeView .section-head:has(h2) ~ .quick-grid,
+body.home-mode #homeView .section-head:has(h2) ~ .quick-grid + .notice{display:none}
+body.home-mode .footer{display:none}
+body:not(.home-mode) .app{min-height:100dvh}
+@media(max-width:700px){
+  body.home-mode .app{padding:10px 10px 78px}
+  body.home-mode .brand{font-size:15px}
+  body.home-mode .logo{width:34px;height:34px;border-radius:11px}
+  body.home-mode .topbar{align-items:center}
+  body.home-mode .top-actions button{padding:7px 9px;font-size:12px}
+  body.home-mode #homeView .hero{padding:12px 13px}
+  body.home-mode #homeView .eyebrow{font-size:9px;letter-spacing:1px}
+  body.home-mode #homeView .hero h1{font-size:24px}
+  body.home-mode #homeView .stats{margin-top:8px}
+  body.home-mode #homeView .stat{padding:7px}
+  body.home-mode #homeView .stat strong{font-size:16px}
+  body.home-mode #homeView .exam-card{padding:8px}
+}
+@media(max-height:700px){
+  body.home-mode #homeView .hero{padding:9px 12px}
+  body.home-mode #homeView .hero h1{font-size:21px;margin:5px 0}
+  body.home-mode #homeView .hero p{display:none}
+  body.home-mode #homeView .stats{margin-top:6px}
+  body.home-mode #homeView .section-head p{display:none}
+}
+
+
+.wallet-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}.wallet-stat{background:var(--panel2);border:1px solid var(--border);border-radius:13px;padding:13px}.wallet-stat strong{display:block;font-size:21px;margin-top:5px}.wallet-stat span{font-size:11px;color:var(--muted)}.wallet-form{display:grid;gap:9px;margin-top:12px}.wallet-form input{width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text)}.wallet-row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px}.wallet-row:last-child{border:0}@media(max-width:520px){.wallet-grid{grid-template-columns:1fr 1fr}.wallet-grid .wallet-stat:last-child{grid-column:1/-1}}/* FIX: Exam card layout */
+body.home-mode #homeView .exam-card {
+    padding: 9px !important;
+    gap: 6px !important;
+    overflow: hidden;
+}
+
+body.home-mode #homeView .exam-icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    font-size: 25px !important;
+    border-radius: 12px !important;
+}
+
+body.home-mode #homeView .exam-card h3 {
+    font-size: 13px !important;
+}
+
+body.home-mode #homeView .exam-card p {
+    display: none !important;
+}
+
+body.home-mode #homeView .exam-card button {
+    width: 100%;
+    padding: 8px 3px !important;
+    font-size: 10px !important;
+    margin-top: auto;
+    white-space: nowrap;
+}
+
+body.home-mode #homeView .card-top {
+    gap: 7px !important;
+    align-items: center;
+}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
   <div class="brand"><div class="logo">TM</div><div>TechMock <span style="color:#8e9aff">Pro</span><div class="muted" style="font-size:10px;font-weight:600;letter-spacing:1px">PRACTICE • IMPROVE • ACHIEVE</div></div></div>
-  <div class="top-actions"><button class="secondary" id="themeBtn" title="Toggle theme">☼ Theme</button><button class="secondary" id="fontBtn" title="Change text size">A+</button></div>
+  <div class="top-actions"><button class="secondary hide" id="backBtn" title="Go back">← Back</button><button class="secondary" id="themeBtn" title="Toggle theme">☼ Theme</button><button class="secondary" id="fontBtn" title="Change text size">A+</button></div>
 </header>
 
 <section id="homeView" class="view active">
@@ -99,7 +186,83 @@
   <div class="toolbar"><button class="secondary" data-home>← Dashboard</button><h2 style="margin:0">My Performance</h2></div>
   <div class="panel"><div class="toolbar"><div><strong>Recent attempts</strong><div class="muted" style="font-size:12px">Saved locally on this device</div></div><button class="danger" id="clearHistory">Clear history</button></div><div id="historyList"></div></div>
 </section>
+
+<section id="profileView" class="view">
+  <div class="section-head" style="margin-top:5px"><div><h2>My Profile</h2><p>Your local study profile</p></div></div>
+  <div class="panel">
+    <div class="card-top" style="margin-bottom:18px"><div class="profile-avatar">S</div><div style="flex:1"><h3 id="profileNameDisplay" style="margin:0 0 5px">Student</h3><p class="muted" style="margin:0;font-size:13px">Mock test learner</p></div></div>
+    <label for="profileName" class="muted" style="font-size:12px;display:block;margin-bottom:7px">Your display name</label>
+    <input id="profileName" type="text" maxlength="35" placeholder="Enter your name" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:12px">
+    <button class="primary" id="saveProfile" style="width:100%">Save profile</button>
+    <div class="notice">This profile is stored only in this browser on this device. Secure accounts and syncing across devices will be added with the backend.</div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3 style="margin-top:0">Login / Student account</h3>
+    <p class="muted" style="font-size:12px">Demo login is saved on this device only. Real secure login needs a backend.</p>
+    <label class="muted" for="loginEmail" style="display:block;font-size:12px;margin:8px 0 5px">Email or mobile</label>
+    <input id="loginEmail" type="text" autocomplete="username" placeholder="Email or mobile number" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:10px">
+    <label class="muted" for="loginPassword" style="display:block;font-size:12px;margin:0 0 5px">Password (demo only)</label>
+    <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter password" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:10px">
+    <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button class="primary" id="loginBtn">Login</button><button class="secondary" id="logoutBtn">Logout</button></div>
+    <div id="loginStatus" class="muted" style="font-size:12px;margin-top:9px">Not logged in</div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3 style="margin-top:0">Premium plans & access unlock</h3>
+    <p class="muted" style="font-size:12px">Demo unlock only. Connect verified payment backend before selling access.</p>
+    <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="exam-card"><h3>7-Day Pass</h3><strong>₹49</strong><p>Demo plan label</p><button class="primary" data-plan="7-Day Pass" data-price="49">Select plan</button></div>
+      <div class="exam-card"><h3>30-Day Pass</h3><strong>₹99</strong><p>Demo plan label</p><button class="primary" data-plan="30-Day Pass" data-price="99">Select plan</button></div>
+    </div>
+    <div class="notice">Payment gateway and merchant UPI settlement must be configured in the secure backend. Do not treat a screenshot or client-side click as proof of payment.</div>
+    <label for="upiIdField" class="muted hide" style="display:block;font-size:12px;margin:12px 0 5px">Your merchant UPI ID (placeholder only)</label>
+    <input id="upiIdField" class="hide" type="text" placeholder="YOUR-UPI-ID@BANK" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:10px">
+    <button class="secondary hide" id="saveUpiBtn" style="width:100%">Save UPI placeholder on this device</button>
+    <div id="planStatus" class="muted" style="font-size:12px;margin-top:10px">Current access: Free</div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3 style="margin-top:0">Transaction history</h3>
+    <div id="transactionList" class="muted" style="font-size:13px">No transactions yet.</div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3 style="margin-top:0">Refer & Earn</h3>
+    <p class="muted" style="font-size:12px">Apna referral code share karein. Aapke code se aaye student ke paid plan ki payment backend par verify hone ke baad hi commission credit hoga.</p>
+    <div class="row" style="display:flex;gap:8px;align-items:center"><input id="referralCode" readonly style="min-width:0;flex:1;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text)"><button class="secondary" id="copyReferralBtn">Copy</button></div>
+    <button class="primary" id="shareBtn" style="width:100%;margin-top:10px">↗ Share referral link</button>
+    <div class="wallet-grid"><div class="wallet-stat"><span>Available balance</span><strong id="walletAvailable">₹0.00</strong></div><div class="wallet-stat"><span>Pending commission</span><strong id="walletPending">₹0.00</strong></div><div class="wallet-stat"><span>Successful paid referrals</span><strong id="walletReferrals">0</strong></div></div>
+    <div class="notice">Demo commission: 10% of a verified paid plan. Real referral tracking and commission credit must be calculated by the secure backend.</div>
+  </div>
+  <div class="panel" style="margin-top:14px">
+    <h3 style="margin-top:0">UPI withdrawal</h3>
+    <p class="muted" style="font-size:12px">Withdrawal request bhejein. Minimum demo withdrawal ₹100 hai. Admin payment ko manually verify karke process karega.</p>
+    <div class="wallet-form"><label class="muted" for="studentUpi" style="font-size:12px">Your UPI ID</label><input id="studentUpi" type="text" placeholder="yourname@bank" autocomplete="off"><label class="muted" for="withdrawAmount" style="font-size:12px">Withdrawal amount (₹)</label><input id="withdrawAmount" type="number" min="100" step="1" placeholder="Minimum ₹100"><button class="primary" id="withdrawBtn">Request withdrawal</button><div id="withdrawStatus" class="muted" style="font-size:12px" aria-live="polite"></div></div>
+    <h4>Withdrawal requests</h4><div id="withdrawalList" class="muted" style="font-size:13px">No withdrawal requests yet.</div>
+  </div>
+  <div class="panel hide" id="ownerQuestionBankPanel" style="margin-top:14px">
+    <h3 style="margin-top:0">Question bank — 10,000 question space</h3>
+    <p class="muted" style="font-size:12px">Paste a JSON array of questions here. Keep each question in this format: examId, topic, text, options (4 items), answer (0–3), explanation. This is a local import prototype.</p>
+    <textarea id="questionBankInput" rows="5" placeholder='[{"examId":"nimcet","topic":"math","text":"2 + 2 = ?","options":["3","4","5","6"],"answer":1,"explanation":"2 + 2 equals 4."}]' style="width:100%;resize:vertical;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin:8px 0"></textarea>
+    <button class="secondary" id="importQuestionsBtn" style="width:100%">Validate & save question bank</button>
+    <div id="questionBankStatus" class="muted" style="font-size:12px;margin-top:9px">0 imported questions saved on this device.</div>
+    <!-- ===== 10,000-QUESTION INSERTION SPACE: extend the question bank here; keep each item with a correct answer and explanation. ===== -->
+  </div>
+
+  <div class="panel" style="margin-top:14px"><h3 style="margin-top:0">About TechMock Pro</h3><p class="muted" style="line-height:1.6;font-size:13px">Practice for Class 10, Class 12, JEE Main and NIMCET. Use demo tests to practise navigation, timing and reviewing answers.</p><button class="secondary" id="profileToHistory" style="width:100%">View my performance</button></div>
+</section>
+
 <div class="footer">TechMock Pro • Demo frontend • Built for learning</div>
+
+<nav class="bottom-nav" aria-label="Main navigation">
+  <button class="nav-btn active" data-nav="home" aria-label="Dashboard"><span class="nav-icon">⌂</span><span>Home</span></button>
+  <button class="nav-btn" data-nav="practice" aria-label="Practice"><span class="nav-icon">⚡</span><span>Practice</span></button>
+  <button class="nav-btn" data-nav="syllabus" aria-label="Syllabus"><span class="nav-icon">▤</span><span>Syllabus</span></button>
+  <button class="nav-btn" data-nav="history" aria-label="History"><span class="nav-icon">▥</span><span>History</span></button>
+  <button class="nav-btn" data-nav="profile" aria-label="Profile"><span class="nav-icon">●</span><span>Profile</span></button>
+</nav>
+
 </div>
 <script>
 const EXAMS = [
@@ -148,4 +311,193 @@ function renderHome(){
  const h=loadHistory();$("statTests").textContent=h.length;
  if(h.length){$("statAvg").textContent=Math.round(h.reduce((s,x)=>s+x.percent,0)/h.length)+"%";$("statBest").textContent=Math.max(...h.map(x=>x.percent))+"%"}else{$("statAvg").textContent="—";$("statBest").textContent="—"}
 }
-function showView(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));$(id+"View").cl
+function showView(id){
+ document.body.classList.toggle("home-mode", id==="home");
+ document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+ const target=$(id+"View"); if(target) target.classList.add("active");
+ const navId=(id==="test"||id==="result")?"home":id;
+ document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.nav===navId));
+ window.scrollTo({top:0,behavior:"auto"});
+ if(id==="history")renderHistory();
+ if(id==="profile")loadProfile();
+}
+function startTest(id,mode="exam"){
+ clearInterval(timerHandle);testMode=mode;
+ if(mode==="practice"){activeExam={id:"practice-"+id,name:"Daily Practice: "+({math:"Quantitative Aptitude",reasoning:"Logical Reasoning",computer:"Computer Awareness",english:"English"}[id]||id),duration:3};questions=[...(PRACTICE[id]||PRACTICE.math)];}
+ else{activeExam=EXAMS.find(e=>e.id===id)||EXAMS[0];questions=[...activeExam.questions];}
+ answers=Array(questions.length).fill(null);reviews=Array(questions.length).fill(false);current=0;timeLeft=(activeExam.duration||5)*60;
+ $("testExamName").textContent=activeExam.name;$("testSub").textContent=`${questions.length} questions • +4 correct • −1 incorrect`;showView("test");renderQuestion();timerHandle=setInterval(()=>{timeLeft--;renderTimer();if(timeLeft<=0){clearInterval(timerHandle);submitTest(true)}},1000);renderTimer();
+}
+function renderTimer(){$("timer").textContent=String(Math.floor(timeLeft/60)).padStart(2,"0")+":"+String(Math.max(0,timeLeft%60)).padStart(2,"0")}
+function renderQuestion(){
+ const item=questions[current];$("questionCounter").textContent=`Question ${current+1} of ${questions.length}`;$("questionMarks").textContent="+4 correct / −1 incorrect";$("questionText").textContent=item.text;$("progressBar").style.width=((current+1)/questions.length*100)+"%";
+ $("options").innerHTML=item.options.map((op,i)=>`<button class="option ${answers[current]===i?"selected":""}" data-option="${i}"><span class="letter">${String.fromCharCode(65+i)}</span><span>${escapeHtml(op)}</span></button>`).join("");
+ $("prevBtn").disabled=current===0;$("prevBtn").style.opacity=current===0?".45":"1";$("nextBtn").textContent=current===questions.length-1?"Last question":"Next →";$("reviewBtn").textContent=reviews[current]?"★ Remove review":"☆ Mark review";renderPalette();
+}
+function renderPalette(){$("palette").innerHTML=questions.map((_,i)=>`<button class="pal ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${reviews[i]?"review":""}" data-jump="${i}">${i+1}</button>`).join("")}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function submitTest(auto=false){
+ if(!auto&&!confirm("Submit this test now? You cannot change answers after submission."))return;
+ clearInterval(timerHandle);let correct=0,wrong=0,unanswered=0;
+ questions.forEach((item,i)=>{if(answers[i]===null)unanswered++;else if(answers[i]===item.answer)correct++;else wrong++});
+ const score=correct*4-wrong;const max=questions.length*4;const percent=Math.max(0,Math.round(score/max*100));
+ lastResult={id:activeExam.id,name:activeExam.name,correct,wrong,unanswered,score,max,percent,date:new Date().toLocaleString(),questions:questions.map((x,i)=>({...x,userAnswer:answers[i]}))};
+ const history=loadHistory();history.unshift({...lastResult,questions:undefined});saveHistory(history.slice(0,50));
+ $("resultExam").textContent=activeExam.name+" • "+(auto?"Auto-submitted when time ended":"Submitted successfully");$("scoreValue").textContent=`${score}/${max}`;$("scoreMessage").textContent=percent>=75?"Great work! Keep practising to stay consistent.":percent>=45?"Good attempt. Review explanations and try again.":"Keep going — review the concepts and practise again.";
+ $("correctCount").textContent=correct;$("wrongCount").textContent=wrong;$("unansweredCount").textContent=unanswered;$("answerReview").style.display="none";showView("result");renderHome();
+}
+function renderAnswers(){if(!lastResult)return;$("reviewList").innerHTML=lastResult.questions.map((item,i)=>{let ok=item.userAnswer===item.answer;return `<div class="review-item"><strong>Q${i+1}. ${escapeHtml(item.text)}</strong><p class="${ok?"correct":item.userAnswer===null?"muted":"incorrect"}">${item.userAnswer===null?"Not answered":(ok?"Correct":"Your answer: "+escapeHtml(item.options[item.userAnswer]))}</p><p class="correct">Correct answer: ${escapeHtml(item.options[item.answer])}</p><p class="muted" style="font-size:13px">${escapeHtml(item.explanation)}</p></div>`}).join("");$("answerReview").style.display="block"}
+function renderHistory(){const h=loadHistory();$("historyList").innerHTML=h.length?h.map(x=>`<div class="history-row"><div><strong>${escapeHtml(x.name)}</strong><div class="muted" style="font-size:12px;margin-top:4px">${escapeHtml(x.date||"")}</div><div class="muted" style="font-size:12px">${x.correct} correct • ${x.wrong} incorrect • ${x.unanswered} unanswered</div></div><div style="text-align:right"><strong>${x.score}/${x.max}</strong><div class="muted" style="font-size:12px">${x.percent}%</div></div></div>`).join(""):'<div class="empty">No attempts yet. Complete a mock test and your results will appear here.</div>'}
+document.addEventListener("click",e=>{
+ const start=e.target.closest("[data-start]");if(start){startTest(start.dataset.start);return}
+ const option=e.target.closest("[data-option]");if(option){answers[current]=Number(option.dataset.option);renderQuestion();return}
+ const jump=e.target.closest("[data-jump]");if(jump){current=Number(jump.dataset.jump);renderQuestion();return}
+ const go=e.target.closest("[data-go]");if(go){showView(go.dataset.go);return}
+ const prac=e.target.closest("[data-practice]");if(prac){startTest(prac.dataset.practice,"practice");return}
+ if(e.target.closest("[data-home]"))showView("home");
+});
+$("prevBtn").addEventListener("click",()=>{if(current>0){current--;renderQuestion()}});
+$("nextBtn").addEventListener("click",()=>{if(current<questions.length-1){current++;renderQuestion()}else{submitTest(false)}});
+$("reviewBtn").addEventListener("click",()=>{reviews[current]=!reviews[current];renderQuestion()});
+$("submitBtn").addEventListener("click",()=>submitTest(false));
+$("exitTest").addEventListener("click",()=>{if(confirm("Exit this test? Your current answers will not be saved.")){clearInterval(timerHandle);showView("home")}});
+$("homeFromResult").addEventListener("click",()=>showView("home"));
+$("reviewAnswersBtn").addEventListener("click",renderAnswers);
+$("retryBtn").addEventListener("click",()=>{if(lastResult)startTest(lastResult.id.replace("practice-",""),lastResult.id.startsWith("practice-")?"practice":"exam")});
+$("clearHistory").addEventListener("click",()=>{if(confirm("Clear all locally saved test history?")){saveHistory([]);renderHistory();renderHome()}});
+$("themeBtn").addEventListener("click",()=>{light=!light;document.documentElement.style.setProperty("--bg",light?"#f3f6fc":"#0b1020");document.documentElement.style.setProperty("--panel",light?"#ffffff":"#121a2d");document.documentElement.style.setProperty("--panel2",light?"#e8eef9":"#18233b");document.documentElement.style.setProperty("--text",light?"#182238":"#f4f7ff");document.documentElement.style.setProperty("--muted",light?"#596781":"#9aa8c4");document.documentElement.style.setProperty("--border",light?"#d5deed":"#293550");document.body.style.background=light?"#f3f6fc":"radial-gradient(circle at top right,#192752 0,#0b1020 45%)"});
+$("fontBtn").addEventListener("click",()=>{fontLarge=!fontLarge;document.body.style.fontSize=fontLarge?"18px":"";$("fontBtn").textContent=fontLarge?"A−":"A+"});
+document.querySelectorAll("[data-nav]").forEach(btn=>btn.addEventListener("click",()=>showView(btn.dataset.nav)));
+function loadProfile(){const name=localStorage.getItem("techmock_profile_name")||"Student";$("profileName").value=name==="Student"?"":name;$("profileNameDisplay").textContent=name;document.querySelector(".profile-avatar").textContent=(name.trim()[0]||"S").toUpperCase()}
+$("saveProfile").addEventListener("click",()=>{const name=$("profileName").value.trim()||"Student";localStorage.setItem("techmock_profile_name",name);loadProfile();alert("Profile saved on this device.")});
+$("profileToHistory").addEventListener("click",()=>showView("history"));
+
+// ===== ADVANCED FRONTEND FEATURES (demo/local only) =====
+const UPI_PLACEHOLDER = "YOUR-UPI-ID@BANK"; // Replace only with your own verified merchant UPI ID.
+let viewStack = ["home"];
+function setBackVisibility(id){$("backBtn").classList.toggle("hide", id==="home");}
+const originalShowView = showView;
+showView = function(id){
+  const currentView = document.querySelector(".view.active");
+  const currentId = currentView ? currentView.id.replace("View","") : "home";
+  if(id !== currentId){
+    if(viewStack[viewStack.length-1] !== currentId) viewStack.push(currentId);
+    if(viewStack[viewStack.length-1] !== id) viewStack.push(id);
+    if(viewStack.length > 30) viewStack = viewStack.slice(-30);
+  }
+  originalShowView(id);
+  setBackVisibility(id);
+};
+$("backBtn").addEventListener("click",()=>{
+  if(viewStack.length > 1){
+    const active = document.querySelector(".view.active");
+    const activeId = active ? active.id.replace("View","") : "home";
+    while(viewStack.length && viewStack[viewStack.length-1] === activeId) viewStack.pop();
+    const previous = viewStack.pop() || "home";
+    viewStack.push(previous);
+    originalShowView(previous);
+    setBackVisibility(previous);
+  } else { originalShowView("home"); setBackVisibility("home"); }
+});
+window.addEventListener("popstate",()=>{
+  const active = document.querySelector(".view.active");
+  const id = active ? active.id.replace("View","") : "home";
+  if(id !== "home") { originalShowView("home"); setBackVisibility("home"); }
+});
+history.pushState({techmock:true},"","#home");
+
+function getTransactions(){try{return JSON.parse(localStorage.getItem("techmock_transactions")||"[]")}catch(e){return []}}
+function saveTransactions(list){localStorage.setItem("techmock_transactions",JSON.stringify(list))}
+function renderTransactions(){
+ const items=getTransactions();
+ $("transactionList").innerHTML=items.length?items.map(t=>`<div class="history-row"><div><strong>${escapeHtml(t.plan)}</strong><div class="muted" style="font-size:12px">${escapeHtml(t.date)}</div><div class="muted" style="font-size:12px">${escapeHtml(t.status)}</div></div><strong>₹${Number(t.amount).toFixed(0)}</strong></div>`).join(""):'<div class="empty">No transactions yet.</div>';
+}
+function renderAccount(){
+ const login=localStorage.getItem("techmock_demo_login");
+ $("loginStatus").textContent=login?("Demo logged in as: "+login):"Not logged in";
+ $("planStatus").textContent="Current access: "+(localStorage.getItem("techmock_access_plan")||"Free");
+ $("upiIdField").value=localStorage.getItem("techmock_upi_placeholder")||"";
+ let code=localStorage.getItem("techmock_referral_code");
+ if(!code){code="TM"+Math.random().toString(36).slice(2,8).toUpperCase();localStorage.setItem("techmock_referral_code",code)}
+ $("referralCode").value=code;
+ $("questionBankStatus").textContent=(JSON.parse(localStorage.getItem("techmock_question_bank")||"[]").length)+" imported questions saved on this device.";
+ renderTransactions();
+}
+$("loginBtn").addEventListener("click",()=>{
+ const email=$("loginEmail").value.trim(), pass=$("loginPassword").value;
+ if(!email || !pass){alert("Enter email/mobile and password for demo login.");return}
+ localStorage.setItem("techmock_demo_login",email);
+ $("loginPassword").value="";
+ renderAccount();
+ alert("Demo login successful on this device. This is not secure production authentication.");
+});
+$("logoutBtn").addEventListener("click",()=>{localStorage.removeItem("techmock_demo_login");renderAccount();alert("Logged out on this device.")});
+document.addEventListener("click",e=>{
+ const plan=e.target.closest("[data-plan]");
+ if(plan){
+   const name=plan.dataset.plan, price=Number(plan.dataset.price);
+   if(!confirm("Demo only: unlock "+name+" for ₹"+price+" without taking a real payment?"))return;
+   localStorage.setItem("techmock_access_plan",name+" (DEMO UNLOCK)");
+   const tx=getTransactions();tx.unshift({plan:name,amount:price,date:new Date().toLocaleString(),status:"DEMO ONLY — payment not verified"});
+   saveTransactions(tx.slice(0,100));renderAccount();
+   alert("Demo access unlocked locally. No payment was collected; do not use this as real paid access.");
+ }
+});
+$("saveUpiBtn").addEventListener("click",()=>{
+ const value=$("upiIdField").value.trim();
+ if(value && !/^[\w.-]+@[\w.-]+$/.test(value)){alert("UPI ID format looks incorrect. Example: name@bank");return}
+ localStorage.setItem("techmock_upi_placeholder",value||UPI_PLACEHOLDER);
+ alert("UPI placeholder saved on this device. This does not create or verify payments.");
+});
+$("copyReferralBtn").addEventListener("click",async()=>{
+ const code=$("referralCode").value;
+ try{await navigator.clipboard.writeText(code);alert("Referral code copied: "+code)}
+ catch(err){$("referralCode").select();alert("Select and copy this referral code: "+code)}
+});
+// Referral share handler is registered below with the referral URL.
+$("importQuestionsBtn").addEventListener("click",()=>{
+ try{
+   const parsed=JSON.parse($("questionBankInput").value);
+   if(!Array.isArray(parsed))throw new Error("Paste a JSON array.");
+   if(parsed.length>10000)throw new Error("Maximum 10,000 questions per import.");
+   for(let i=0;i<parsed.length;i++){
+     const qx=parsed[i];
+     if(!qx || !qx.examId || !qx.text || !Array.isArray(qx.options) || qx.options.length<2 || !Number.isInteger(qx.answer) || qx.answer<0 || qx.answer>=qx.options.length || !qx.explanation){
+       throw new Error("Question "+(i+1)+" is missing required fields.");
+     }
+   }
+   localStorage.setItem("techmock_question_bank",JSON.stringify(parsed));
+   $("questionBankStatus").textContent=parsed.length+" imported questions saved on this device.";
+   alert("Question bank validated and saved locally. To use these in live tests, connect this bank to the exam loader or backend.");
+ }catch(err){alert("Question import error: "+err.message)}
+});
+const oldLoadProfile = loadProfile;
+loadProfile = function(){oldLoadProfile();renderAccount();};
+
+// ===== REFERRAL WALLET FRONTEND DEMO: server verification is required for real money =====
+function moneyINR(v){return "₹"+Number(v||0).toFixed(2)}
+function getReferralWallet(){try{return JSON.parse(localStorage.getItem("techmock_referral_wallet")||'{"available":0,"pending":0,"successfulReferrals":0}')}catch(e){return {available:0,pending:0,successfulReferrals:0}}}
+function getWithdrawalRequests(){try{return JSON.parse(localStorage.getItem("techmock_withdrawals")||"[]")}catch(e){return []}}
+function renderReferralWallet(){
+ const w=getReferralWallet();
+ $("walletAvailable").textContent=moneyINR(w.available);$("walletPending").textContent=moneyINR(w.pending);$("walletReferrals").textContent=String(w.successfulReferrals||0);
+ const a=getWithdrawalRequests();$("withdrawalList").innerHTML=a.length?a.map(r=>`<div class="wallet-row"><div><strong>${moneyINR(r.amount)}</strong><div class="muted">${escapeHtml(r.upi)} • ${escapeHtml(r.date)}</div></div><strong>${escapeHtml(r.status)}</strong></div>`).join(""):'<div class="empty">No withdrawal requests yet.</div>';
+}
+$("withdrawBtn").addEventListener("click",()=>{
+ const upi=$("studentUpi").value.trim(),amount=Number($("withdrawAmount").value),w=getReferralWallet();
+ if(!/^[\w.-]+@[\w.-]+$/.test(upi)){alert("Valid UPI ID enter karein. Example: name@bank");return}
+ if(!Number.isFinite(amount)||amount<100){alert("Minimum withdrawal amount ₹100 hai.");return}
+ if(amount>w.available){alert("Available wallet balance se zyada withdrawal nahi kar sakte.");return}
+ const a=getWithdrawalRequests();a.unshift({id:"WD"+Date.now(),upi,amount,date:new Date().toLocaleString(),status:"Pending admin review"});localStorage.setItem("techmock_withdrawals",JSON.stringify(a.slice(0,100)));
+ w.available=Math.round((w.available-amount)*100)/100;localStorage.setItem("techmock_referral_wallet",JSON.stringify(w));$("withdrawAmount").value="";$("withdrawStatus").textContent="Demo request saved on this device. No money has been transferred.";renderReferralWallet();alert("Demo withdrawal request saved. Real UPI payout is not connected.");
+});
+// Replace the generic share handler with a referral-code link.
+$("shareBtn").addEventListener("click",async()=>{const code=$("referralCode").value;const link=location.href.split("?")[0]+"?ref="+encodeURIComponent(code);const msg="Join TechMock Pro. Use my referral code: "+code+"\n"+link;try{if(navigator.share)await navigator.share({title:"TechMock Pro referral",text:msg});else if(navigator.clipboard){await navigator.clipboard.writeText(msg);alert("Referral message copied.")}else alert(msg)}catch(e){/* sharing cancelled */}});
+const renderAccountWithWallet=renderAccount;renderAccount=function(){renderAccountWithWallet();renderReferralWallet()};
+renderReferralWallet();
+renderHome();
+document.body.classList.add("home-mode");
+setBackVisibility("home");
+</script>
+</body>
+</html>
