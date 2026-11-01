@@ -3,784 +3,739 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b1020">
 <title>TechMock Pro | All Exams</title>
 
 <style>
-/* 🎨 DESIGN SETTINGS — YAHAN COLORS BADAL SAKTE HO */
 :root {
   --bg:#0b1020;
   --panel:#151d35;
-  --panel2:#202c48;
+  --panel2:#1c2745;
   --text:#eef2ff;
-  --muted:#aab6d0;
-  --gold:#f4c95d;
-  --green:#17865f;
-  --red:#b83d4b;
-  --border:#33415f;
-  --font:17px;
+  --muted:#aab5d0;
+  --gold:#f5c451;
+  --blue:#7195ff;
+  --green:#35c98b;
+  --red:#ff667c;
+  --border:#2b3859;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
 }
 body.light {
   --bg:#f2f5fc;
   --panel:#ffffff;
-  --panel2:#e6ebf5;
-  --text:#15203a;
-  --muted:#596680;
-  --gold:#9a6900;
-  --border:#d3dced;
+  --panel2:#e8edf8;
+  --text:#17213b;
+  --muted:#586681;
+  --gold:#a56b00;
+  --blue:#315edb;
+  --green:#16845b;
+  --red:#d52c4b;
+  --border:#d4dced;
 }
-* {box-sizing:border-box}
-body {
-  margin:0;background:var(--bg);color:var(--text);
-  font:var(--font)/1.6 Arial,sans-serif;
+button,select { font:inherit; }
+button {
+  cursor:pointer;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:11px 15px;
+  color:var(--text);
+  background:var(--panel2);
 }
-button,select,input {font:inherit}
-button {cursor:pointer}
-button:focus-visible,select:focus-visible {
-  outline:3px solid var(--gold);outline-offset:2px
+button:disabled { opacity:.4; cursor:not-allowed; }
+button:hover:not(:disabled) { filter:brightness(1.1); }
+.primary {
+  color:#111827;
+  background:var(--gold);
+  border-color:var(--gold);
+  font-weight:700;
+}
+.secondary { background:var(--panel); }
+.danger {
+  background:var(--red);
+  color:white;
+  border-color:var(--red);
 }
 header {
-  display:flex;justify-content:space-between;align-items:center;
-  gap:12px;flex-wrap:wrap;padding:15px 5%;
-  background:var(--panel);border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:10
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:16px 5%;
+  background:var(--panel);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:5;
 }
-.logo {font-size:23px;font-weight:900;color:var(--gold)}
-.logo span {color:var(--text)}
-.head-actions {display:flex;gap:7px;flex-wrap:wrap}
-button,.select {
-  padding:10px 14px;border-radius:10px;border:1px solid var(--border);
-  background:var(--panel2);color:var(--text);font-weight:700
-}
-.primary {background:var(--gold);color:#151515;border-color:var(--gold)}
-main {max-width:1050px;margin:auto;padding:22px 15px 50px}
+.logo { font-size:23px; font-weight:800; }
+.logo span { color:var(--gold); }
+.header-actions { display:flex; gap:7px; flex-wrap:wrap; }
+.container { width:min(1100px,92%); margin:25px auto; }
 .hero {
-  padding:28px 23px;border-radius:20px;border:1px solid var(--border);
+  padding:35px 24px;
+  border:1px solid var(--border);
+  border-radius:20px;
   background:linear-gradient(135deg,var(--panel),var(--panel2));
-  margin-bottom:22px
 }
-h1 {font-size:clamp(32px,6vw,48px);line-height:1.15;margin:10px 0}
-h2 {line-height:1.25}
-.muted {color:var(--muted)}
-.gold {color:var(--gold)}
-.eyebrow {font-size:12px;font-weight:900;letter-spacing:2px;color:var(--gold)}
-.grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card {
-  padding:19px;border:1px solid var(--border);border-radius:15px;
-  background:var(--panel);margin-bottom:13px
+.hero h1 { font-size:clamp(28px,5vw,44px); margin:0 0 12px; }
+.hero p,.muted { color:var(--muted); line-height:1.6; }
+.gold { color:var(--gold); }
+.section-title { margin:28px 0 14px; }
+.exam-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
 }
-.card p {color:var(--muted)}
-.exam-icon {font-size:29px}
-.row {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.stats {display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}
-.stat {background:var(--panel2);border-radius:11px;padding:12px}
-.stat small {display:block;color:var(--muted)}
-.stat strong {font-size:21px}
-.progress {height:7px;background:var(--panel2);border-radius:9px;overflow:hidden}
-.progress div {height:100%;width:0;background:var(--gold)}
-.question {font-size:1.15em;font-weight:800;margin:20px 0}
+.exam-card {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+}
+.exam-card h3 { margin-top:0; }
+.exam-card p { color:var(--muted); min-height:42px; }
+.exam-card button { width:100%; margin-top:10px; }
+.stats {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:12px;
+  margin-top:20px;
+}
+.stat {
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:17px;
+  border-radius:12px;
+}
+.stat strong { display:block; font-size:24px; color:var(--gold); }
+.hidden { display:none !important; }
+.panel {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+}
+.toolbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.timer { color:var(--gold); font-size:22px; font-weight:bold; }
+.progress {
+  height:8px;
+  background:var(--panel2);
+  border-radius:10px;
+  overflow:hidden;
+  margin:12px 0 20px;
+}
+.progress div {
+  height:100%;
+  width:0;
+  background:var(--gold);
+  transition:width .2s;
+}
+.question-text {
+  font-size:20px;
+  line-height:1.55;
+  margin:15px 0 22px;
+}
+.options { display:grid; gap:10px; }
 .option {
- display:flex;align-items:flex-start;gap:10px;padding:12px;margin:9px 0;
- border:1px solid var(--border);border-radius:10px;cursor:pointer;
- background:var(--bg)
+  width:100%;
+  text-align:left;
+  padding:15px;
+  background:var(--panel2);
+  border:1px solid var(--border);
 }
-.option:has(input:checked) {border-color:var(--gold);background:var(--panel2)}
-.option input {margin-top:7px;accent-color:var(--gold)}
-.controls {display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
-.palette {display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.pal {width:42px;height:42px;padding:5px}
-.pal.answered {background:var(--green);color:white}
-.pal.review {background:#7451a8;color:white}
-.pal.current {outline:2px solid var(--gold);outline-offset:2px}
-.hidden {display:none!important}
-#timer {font-size:23px;font-weight:900;color:var(--gold)}
-.score {font-size:45px;color:var(--gold);font-weight:900}
-.result-item {border-bottom:1px solid var(--border);padding:12px 0}
-footer {text-align:center;padding:25px;color:var(--muted);border-top:1px solid var(--border)}
-@media(max-width:600px) {
- header {padding:12px}
- .logo {font-size:19px}
- main {padding:15px 11px 35px}
- .grid {grid-template-columns:1fr}
- .hero {padding:22px 17px}
- .stats {gap:6px}
- .stat {padding:8px}
- .stat strong {font-size:18px}
+.option.selected {
+  border:2px solid var(--blue);
+  background:var(--panel);
+}
+.option .letter { font-weight:bold; margin-right:10px; color:var(--gold); }
+.test-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 250px;
+  gap:18px;
+}
+.palette {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+  margin-top:12px;
+}
+.pal {
+  padding:10px 0;
+  border-radius:8px;
+  text-align:center;
+}
+.pal.answered { background:var(--green); color:#061b13; }
+.pal.marked { outline:2px solid var(--gold); }
+.pal.current { border:2px solid var(--blue); }
+.legend { color:var(--muted); font-size:12px; line-height:1.8; }
+.test-actions {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+.result-score { font-size:46px; color:var(--gold); font-weight:800; }
+.review-item {
+  border-bottom:1px solid var(--border);
+  padding:17px 0;
+  line-height:1.6;
+}
+.correct-text { color:var(--green); }
+.wrong-text { color:var(--red); }
+select {
+  background:var(--panel2);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px;
+}
+footer {
+  padding:25px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+@media(max-width:760px) {
+  .test-layout { grid-template-columns:1fr; }
+  header { position:static; }
+  .container { width:94%; margin:16px auto; }
+  .hero { padding:25px 18px; }
+  .question-text { font-size:18px; }
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
- <div class="logo">TECHMOCK <span>PRO</span></div>
- <div class="head-actions">
-  <button onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
-  <button onclick="changeFont(-1)">A−</button>
-  <button onclick="changeFont(1)">A+</button>
-  <button onclick="login()">👤 Profile</button>
- </div>
+  <div class="logo">TechMock <span>Pro</span></div>
+  <div class="header-actions">
+    <button class="secondary" onclick="changeFont(-1)">A−</button>
+    <button class="secondary" onclick="changeFont(1)">A+</button>
+    <button class="secondary" onclick="toggleTheme()">☼ Theme</button>
+    <button class="secondary" onclick="goHome()">Home</button>
+  </div>
 </header>
 
-<main>
-<!-- 🏠 HOME PAGE -->
-<section id="home">
- <div class="hero">
-  <div class="eyebrow">PRACTICE • IMPROVE • ACHIEVE</div>
-  <h1>Your Exam.<br><span class="gold">Your Rank.</span></h1>
-  <p class="muted">Smart practice for school and entrance exams.</p>
-  <p id="welcome" class="gold"></p>
- </div>
+<main class="container">
 
- <h2>🎯 Choose Your Exam</h2>
- <div class="grid">
-  <div class="card">
-   <div class="exam-icon">📐</div>
-   <h3>Class 10</h3>
-   <p>Maths and Science</p>
-   <button class="primary" onclick="prepareTest('class10')">Start Test →</button>
-  </div>
-  <div class="card">
-   <div class="exam-icon">📚</div>
-   <h3>Class 12 PCM</h3>
-   <p>Physics, Chemistry and Mathematics</p>
-   <button class="primary" onclick="prepareTest('class12')">Start Test →</button>
-  </div>
-  <div class="card">
-   <div class="exam-icon">⚛️</div>
-   <h3>JEE Main</h3>
-   <p>Entrance-level PCM practice</p>
-   <button class="primary" onclick="prepareTest('jeeMain')">Start Test →</button>
-  </div>
-  <div class="card">
-   <div class="exam-icon">🎓</div>
-   <h3>NIMCET / MCA</h3>
-   <p>Maths, reasoning, computer awareness and English</p>
-   <button class="primary" onclick="prepareTest('nimcet')">Start Test →</button>
-  </div>
- </div>
+  <!-- HOME PAGE -->
+  <section id="home">
+    <div class="hero">
+      <p class="gold"><b>YOUR ONLINE EXAM PRACTICE PLATFORM</b></p>
+      <h1>Prepare smarter.<br><span class="gold">Perform better.</span></h1>
+      <p>Choose an exam, practise MCQs, track your score and review every answer.</p>
+      <button class="primary" onclick="document.getElementById('exams').scrollIntoView({behavior:'smooth'})">
+        Explore Exams ↓
+      </button>
+    </div>
 
- <div class="card">
-  <h3>🏆 My Practice History</h3>
-  <div id="history">Complete a test to see your result here.</div>
- </div>
-</section>
+    <div class="stats">
+      <div class="stat"><strong id="totalQuestions">0</strong><span class="muted">Sample Questions</span></div>
+      <div class="stat"><strong>4</strong><span class="muted">Exam Categories</span></div>
+      <div class="stat"><strong>100%</strong><span class="muted">Mobile Friendly</span></div>
+    </div>
 
-<!-- 📝 TEST SCREEN -->
-<section id="test" class="hidden">
- <div class="row">
-  <div>
-   <div class="eyebrow" id="testLabel">PRACTICE TEST</div>
-   <h2 id="testTitle">Mock Test</h2>
-  </div>
-  <div id="timer">30:00</div>
- </div>
+    <h2 class="section-title" id="exams">Choose Your Exam</h2>
+    <div class="exam-grid">
+      <div class="exam-card">
+        <h3>📘 Class 10</h3>
+        <p>Mathematics, Science and general school practice.</p>
+        <button class="primary" onclick="prepareTest('class10')">Start Practice</button>
+      </div>
+      <div class="exam-card">
+        <h3>📗 Class 12</h3>
+        <p>Mathematics, Physics and Chemistry practice.</p>
+        <button class="primary" onclick="prepareTest('class12')">Start Practice</button>
+      </div>
+      <div class="exam-card">
+        <h3>🚀 JEE Main</h3>
+        <p>Physics, Chemistry and Mathematics MCQs.</p>
+        <button class="primary" onclick="prepareTest('jeeMain')">Start Practice</button>
+      </div>
+      <div class="exam-card">
+        <h3>💻 NIMCET</h3>
+        <p>Mathematics, reasoning and computer awareness.</p>
+        <button class="primary" onclick="prepareTest('nimcet')">Start Practice</button>
+      </div>
+    </div>
 
- <div class="stats">
-  <div class="stat"><small>Question</small><strong id="qCount">1/1</strong></div>
-  <div class="stat"><small>Answered</small><strong id="answered">0</strong></div>
-  <div class="stat"><small>Maximum Marks</small><strong id="maximum">20</strong></div>
- </div>
- <div class="progress"><div id="progressBar"></div></div>
+    <p class="muted">
+      Note: The questions included below are starter examples. Add your complete question bank
+      in the QUESTION_BANK section to build a larger mock-test library.
+    </p>
+  </section>
 
- <div class="card">
-  <div class="row">
-   <strong id="subject">Mathematics</strong>
-   <span class="muted">Correct +4 | Incorrect −1</span>
-  </div>
-  <div id="question" class="question"></div>
-  <div id="options"></div>
-  <div class="controls">
-   <button onclick="previous()">← Previous</button>
-   <button onclick="markReview()">⚑ Review</button>
-   <button class="primary" onclick="next()">Save & Next →</button>
-  </div>
- </div>
+  <!-- TEST PAGE -->
+  <section id="test" class="hidden">
+    <div class="toolbar">
+      <div>
+        <h2 id="examTitle" style="margin:0 0 5px">Mock Test</h2>
+        <span class="muted" id="testInfo">MCQ Practice</span>
+      </div>
+      <div class="timer" id="timer">10:00</div>
+    </div>
 
- <div class="card">
-  <strong>🧭 Question Palette</strong>
-  <p class="muted">Green = answered | Purple = review | Outline = current</p>
-  <div id="palette" class="palette"></div>
-  <div class="controls">
-   <button onclick="exitTest()">Exit</button>
-   <button class="primary" onclick="submitTest(false)">Submit Test ✓</button>
-  </div>
- </div>
-</section>
+    <div class="progress"><div id="progressBar"></div></div>
 
-<!-- 🏆 RESULT SCREEN -->
-<section id="result" class="hidden">
- <div class="hero">
-  <div class="eyebrow">TEST COMPLETED</div>
-  <h1>Your Result</h1>
-  <div class="score" id="score">0</div>
-  <p id="resultMessage" class="muted"></p>
- </div>
- <div class="stats">
-  <div class="stat"><small>Correct</small><strong id="correctOut">0</strong></div>
-  <div class="stat"><small>Incorrect</small><strong id="wrongOut">0</strong></div>
-  <div class="stat"><small>Unanswered</small><strong id="skipOut">0</strong></div>
- </div>
- <div class="card">
-  <h3>📊 Performance</h3>
-  <p>Accuracy: <strong id="accuracy">0%</strong></p>
-  <p>Time used: <strong id="timeUsed">0</strong></p>
-  <h3>📖 Answer Review</h3>
-  <div id="reviewAnswers"></div>
-  <div class="controls">
-   <button class="primary" onclick="prepareTest(activeExam)">Try Again</button>
-   <button onclick="goHome()">Home</button>
-  </div>
- </div>
-</section>
+    <div class="test-layout">
+      <div class="panel">
+        <div class="toolbar">
+          <b id="qCount">Question 1 of 1</b>
+          <span class="muted" id="qSubject">Subject</span>
+        </div>
+
+        <div id="questionText" class="question-text"></div>
+        <div id="options" class="options"></div>
+
+        <div class="test-actions">
+          <button onclick="previousQuestion()" id="prevBtn">← Previous</button>
+          <button onclick="toggleMark()" id="markBtn">☆ Mark for Review</button>
+          <button class="primary" onclick="nextQuestion()" id="nextBtn">Save & Next →</button>
+          <button class="danger" onclick="confirmSubmit()">Submit Test</button>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3 style="margin-top:0">Question Palette</h3>
+        <div class="legend">
+          <span class="correct-text">● Answered</span><br>
+          <span class="gold">● Marked for review</span><br>
+          <span>● Not answered</span><br>
+          <span style="color:var(--blue)">● Current question</span>
+        </div>
+        <div id="palette" class="palette"></div>
+        <button class="primary" style="width:100%;margin-top:18px" onclick="confirmSubmit()">
+          Finish Test
+        </button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- RESULT PAGE -->
+  <section id="result" class="hidden">
+    <div class="panel">
+      <p class="gold"><b>TEST COMPLETED</b></p>
+      <h1>Your Result</h1>
+      <div class="result-score" id="scorePercent">0%</div>
+      <p id="resultMessage" class="muted"></p>
+
+      <div class="stats">
+        <div class="stat"><strong id="correctCount">0</strong><span class="muted">Correct</span></div>
+        <div class="stat"><strong id="wrongCount">0</strong><span class="muted">Incorrect</span></div>
+        <div class="stat"><strong id="unansweredCount">0</strong><span class="muted">Unanswered</span></div>
+        <div class="stat"><strong id="finalScore">0/0</strong><span class="muted">Score</span></div>
+      </div>
+
+      <div class="test-actions">
+        <button class="primary" onclick="showReview()">Review Answers</button>
+        <button onclick="restartTest()">Retake Test</button>
+        <button onclick="goHome()">Back to Home</button>
+      </div>
+    </div>
+
+    <div id="review" class="panel hidden" style="margin-top:20px">
+      <h2>Answer Review</h2>
+      <div id="reviewList"></div>
+    </div>
+  </section>
 </main>
 
-<footer>
- <strong>TECHMOCK PRO</strong><br>
- Free practice version • More features can be added later
-</footer>
+<footer>TechMock Pro · Practice consistently and improve step by step.</footer>
 
 <script>
-"use strict";
-
-/* =====================================================
- 🔰 QUESTION BANK START
- ➕ NAYA QUESTION ADD KARNE KI JAGAH
-
- FORMAT:
- {
-   subject:"Maths",
-   q:"Yahan question likho",
-   options:["Option A","Option B","Option C","Option D"],
-   correct:0, // 💡 0=A, 1=B, 2=C, 3=D
-   explain:"Yahan answer ki explanation"
- }
-
- ⚠️ Har question ke baad comma lagao, last question ke baad nahi.
- ===================================================== */
+/* =========================================================
+   QUESTION BANK
+   correct is the zero-based option index:
+   0 = A, 1 = B, 2 = C, 3 = D
+   ========================================================= */
 
 const QUESTION_BANK = {
+  class10: [
+    {
+      subject:"Mathematics",
+      q:"What is the value of 7 × 8?",
+      options:["48","54","56","64"],
+      correct:2,
+      explain:"7 × 8 = 56."
+    },
+    {
+      subject:"Mathematics",
+      q:"Solve: 2x + 6 = 16.",
+      options:["3","4","5","6"],
+      correct:2,
+      explain:"2x = 16 − 6 = 10, so x = 5."
+    },
+    {
+      subject:"Science",
+      q:"What is the chemical formula of water?",
+      options:["CO₂","H₂O","O₂","NaCl"],
+      correct:1,
+      explain:"A water molecule contains two hydrogen atoms and one oxygen atom."
+    },
+    {
+      subject:"Science",
+      q:"Which planet is known as the Red Planet?",
+      options:["Venus","Jupiter","Mars","Mercury"],
+      correct:2,
+      explain:"Mars is commonly called the Red Planet."
+    },
+    {
+      subject:"Mathematics",
+      q:"What is the square of 12?",
+      options:["124","144","132","122"],
+      correct:1,
+      explain:"12² = 12 × 12 = 144."
+    }
+  ],
 
- // 📐 CLASS 10 — MATHS + SCIENCE
- class10: [
-  {subject:"Maths",q:"The roots of x² − 5x + 6 = 0 are:",options:["1 and 6","2 and 3","−2 and −3","1 and 5"],correct:1,explain:"(x−2)(x−3)=0, so roots are 2 and 3."},
-  {subject:"Maths",q:"The value of sin 30° is:",options:["1","√3/2","1/2","0"],correct:2,explain:"sin 30° = 1/2."},
-  {subject:"Maths",q:"The distance between (0,0) and (3,4) is:",options:["3","4","5","7"],correct:2,explain:"Distance = √(3²+4²)=5."},
-  {subject:"Maths",q:"The sum of the first 10 positive integers is:",options:["45","50","55","60"],correct:2,explain:"n(n+1)/2 = 10×11/2 = 55."},
-  {subject:"Maths",q:"A quadratic polynomial has how many roots at most?",options:["1","2","3","4"],correct:1,explain:"A quadratic equation has at most two roots."},
-  {subject:"Science",q:"Which gas is released during photosynthesis?",options:["Oxygen","Nitrogen","Hydrogen","Carbon monoxide"],correct:0,explain:"Oxygen is released during photosynthesis."},
-  {subject:"Science",q:"The SI unit of electric current is:",options:["Volt","Ohm","Ampere","Watt"],correct:2,explain:"Electric current is measured in amperes."},
-  {subject:"Science",q:"A solution with pH 2 is:",options:["Acidic","Neutral","Basic","Always pure water"],correct:0,explain:"A pH below 7 is acidic."}
- ],
+  class12: [
+    {
+      subject:"Mathematics",
+      q:"What is the derivative of x² with respect to x?",
+      options:["x","2x","x³","2"],
+      correct:1,
+      explain:"Using the power rule, d(xⁿ)/dx = nxⁿ⁻¹. Therefore, the derivative is 2x."
+    },
+    {
+      subject:"Physics",
+      q:"What is the SI unit of electric current?",
+      options:["Volt","Ohm","Ampere","Watt"],
+      correct:2,
+      explain:"Electric current is measured in amperes (A)."
+    },
+    {
+      subject:"Chemistry",
+      q:"A solution with pH 7 at approximately 25°C is:",
+      options:["Acidic","Neutral","Basic","Always concentrated"],
+      correct:1,
+      explain:"At approximately 25°C, a neutral aqueous solution has pH 7."
+    },
+    {
+      subject:"Mathematics",
+      q:"What is the value of sin 90°?",
+      options:["0","1","−1","1/2"],
+      correct:1,
+      explain:"sin 90° = 1."
+    },
+    {
+      subject:"Physics",
+      q:"The SI unit of power is:",
+      options:["Joule","Newton","Watt","Pascal"],
+      correct:2,
+      explain:"Power is measured in watts."
+    }
+  ],
 
- // 📚 CLASS 12 — PHYSICS + CHEMISTRY + MATHS
- class12: [
-  {subject:"Maths",q:"The derivative of x³ is:",options:["x²","2x","3x²","3x"],correct:2,explain:"Power rule: d(x³)/dx = 3x²."},
-  {subject:"Maths",q:"The integral of 1 dx is:",options:["0","x+C","1+C","x²+C"],correct:1,explain:"The integral of 1 is x+C."},
-  {subject:"Maths",q:"The determinant of [[1,2],[3,4]] is:",options:["2","−2","10","−10"],correct:1,explain:"Determinant = 1×4 − 2×3 = −2."},
-  {subject:"Physics",q:"The SI unit of electric charge is:",options:["Ampere","Coulomb","Volt","Ohm"],correct:1,explain:"Charge is measured in coulombs."},
-  {subject:"Physics",q:"The SI unit of power is:",options:["Joule","Newton","Watt","Pascal"],correct:2,explain:"Power is measured in watts."},
-  {subject:"Physics",q:"Ohm's law is expressed as:",options:["V=IR","P=VI²","F=ma²","E=mc"],correct:0,explain:"Ohm's law: voltage = current × resistance."},
-  {subject:"Chemistry",q:"The pH of a neutral aqueous solution at 25°C is approximately:",options:["1","5","7","14"],correct:2,explain:"Neutral water has pH approximately 7 at 25°C."},
-  {subject:"Chemistry",q:"The oxidation state of oxygen in most compounds is:",options:["+1","−1","−2","+2"],correct:2,explain:"Oxygen usually has oxidation state −2."}
- ],
+  jeeMain: [
+    {
+      subject:"Mathematics",
+      q:"If f(x) = x³, then f′(x) is:",
+      options:["x²","2x","3x²","3x"],
+      correct:2,
+      explain:"By the power rule, d(x³)/dx = 3x²."
+    },
+    {
+      subject:"Physics",
+      q:"The SI unit of force is:",
+      options:["Joule","Newton","Watt","Tesla"],
+      correct:1,
+      explain:"Force is measured in newtons (N)."
+    },
+    {
+      subject:"Chemistry",
+      q:"The atomic number of carbon is:",
+      options:["4","6","8","12"],
+      correct:1,
+      explain:"Carbon has 6 protons, so its atomic number is 6."
+    },
+    {
+      subject:"Mathematics",
+      q:"What is the determinant of [[1, 2], [3, 4]]?",
+      options:["2","−2","10","−10"],
+      correct:1,
+      explain:"The determinant is (1 × 4) − (2 × 3) = 4 − 6 = −2."
+    },
+    {
+      subject:"Physics",
+      q:"If velocity is constant, acceleration is:",
+      options:["Zero","Constant but non-zero","Increasing","Infinite"],
+      correct:0,
+      explain:"With constant velocity, the change in velocity is zero, so acceleration is zero."
+    }
+  ],
 
- // ⚛️ JEE MAIN — STARTER PRACTICE QUESTIONS
- jeeMain: [
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechMock Pro | JEE Main Mock Test</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#0b1020;color:#eef2ff}
-header{padding:18px;background:#151d35;border-bottom:2px solid #d4af37}
-header h1{margin:0;color:#f5cc55;font-size:25px}
-header p{margin:6px 0 0;color:#bac5e2}
-.wrap{max-width:1000px;margin:auto;padding:16px}
-.card{background:#151d35;border:1px solid #303b5c;border-radius:14px;padding:18px;margin-bottom:15px}
-button,select{padding:11px 14px;border:0;border-radius:8px;font-weight:bold;cursor:pointer}
-button{background:#f5cc55;color:#12182b;margin:4px}
-button:hover{opacity:.85}
-button:disabled{opacity:.35;cursor:not-allowed}
-.primary{background:#28c997;color:#061c17}
-.danger{background:#ff7777;color:#270707}
-.stats{display:flex;gap:10px;flex-wrap:wrap}
-.stat{flex:1;min-width:120px;background:#222d4b;padding:12px;border-radius:9px}
-.stat strong{display:block;font-size:21px;color:#f5cc55;margin-top:5px}
-#timer{color:#ff8585}
-#question{font-size:19px;line-height:1.6;white-space:pre-wrap}
-.option{display:block;width:100%;text-align:left;margin:9px 0;background:#222d4b;color:#fff;border:1px solid #465477;font-weight:normal}
-.option.selected{border:2px solid #f5cc55;background:#354568}
-.palette{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
-.palette button{margin:0;padding:9px 0;font-size:13px}
-.answered{background:#28c997;color:#061c17}
-.current{outline:2px solid white}
-.marked{background:#b28aff;color:#160b2b}
-.hidden{display:none}
-small{color:#bdc9e4}
-h2{color:#f5cc55}
-.result-row{padding:10px 0;border-bottom:1px solid #303b5c}
-@media(max-width:500px){.wrap{padding:9px}.card{padding:13px}.palette{grid-template-columns:repeat(5,1fr)}#question{font-size:17px}}
-</style>
-</head>
-<body>
-<header>
-<h1>⚡ TechMock Pro</h1>
-<p>JEE Main Practice Mock Test · Maths · Physics · Chemistry</p>
-</header>
-
-<div class="wrap">
-<div class="card" id="intro">
-<h2>JEE Main Mock Test</h2>
-<p>100 practice MCQs · 90 minutes · +4 correct · −1 incorrect · 0 unanswered</p>
-<p><small>Original practice questions for revision. This is not an official JEE Main paper.</small></p>
-<button class="primary" onclick="startTest()">Start Test</button>
-</div>
-
-<div id="test" class="hidden">
-<div class="card">
-<div class="stats">
-<div class="stat">Time remaining<strong id="timer">90:00</strong></div>
-<div class="stat">Answered<strong id="answered">0/100</strong></div>
-<div class="stat">Current subject<strong id="subject">Maths</strong></div>
-</div>
-</div>
-
-<div class="card">
-<div id="qcount">Question 1 of 100</div>
-<h2 id="qsubject">Mathematics</h2>
-<div id="question"></div>
-<div id="options"></div>
-<div style="margin-top:15px">
-<button onclick="previous()">← Previous</button>
-<button onclick="clearAnswer()">Clear</button>
-<button onclick="toggleMark()">Mark for Review</button>
-<button class="primary" onclick="next()">Save & Next →</button>
-</div>
-</div>
-
-<div class="card">
-<h3>Question Palette</h3>
-<p><small>Green = answered · Purple = marked for review · White outline = current</small></p>
-<div class="palette" id="palette"></div>
-<br>
-<button class="danger" onclick="submitTest()">Submit Test</button>
-</div>
-</div>
-
-<div id="results" class="card hidden">
-<h2>Test Result</h2>
-<div class="stats">
-<div class="stat">Score<strong id="score">0</strong></div>
-<div class="stat">Correct<strong id="correct">0</strong></div>
-<div class="stat">Incorrect<strong id="wrong">0</strong></div>
-<div class="stat">Unanswered<strong id="unanswered">0</strong></div>
-</div>
-<h3 id="percentage"></h3>
-<h3>Subject-wise performance</h3>
-<div id="subjectResults"></div>
-<button onclick="showReview()">Review Answers</button>
-<button onclick="location.reload()">Restart Test</button>
-<div id="review" class="hidden"></div>
-</div>
-</div>
-
-<script>
-/*
-Each question format:
-[subject, question, option A, option B, option C, option D, correct answer index]
-Answer indexes: 0=A, 1=B, 2=C, 3=D
-*/
-
-const Q = [
-["Maths","If f(x)=x²+3x, find f(2).","8","10","12","14",1],
-["Maths","Roots of x²−5x+6=0 are:","1, 6","−2, −3","2, 3","−1, −6",2],
-["Maths","Derivative of sin x is:","−sin x","cos x","tan x","−cos x",1],
-["Maths","Integral of 2x dx is:","x²+C","2x²+C","x+C","x³+C",0],
-["Maths","Determinant of [[1,2],[3,4]] is:","2","−2","10","−10",1],
-["Maths","Sum of first 10 positive integers is:","45","50","55","60",2],
-["Maths","Slope of the line y=3x+2 is:","2","−3","1/3","3",3],
-["Maths","Distance between (0,0) and (3,4) is:","4","5","6","7",1],
-["Maths","Value of sin²x+cos²x is:","0","2","1","sin x",2],
-["Maths","log₁₀100 equals:","1","2","10","100",1],
-["Maths","If 2ˣ=16, x equals:","2","3","4","8",2],
-["Maths","Number of permutations of 4 distinct objects is:","12","16","20","24",3],
-["Maths","Probability of getting a head on a fair coin is:","1/4","1/2","1/3","1",1],
-["Maths","The centre of x²+y²=25 is:","(5,5)","(−5,0)","(0,0)","(0,5)",2],
-["Maths","Magnitude of vector (3,4) is:","3","4","5","7",2],
-["Maths","If A={1,2}, B={2,3}, then A∩B is:","{1}","{2}","{3}","{1,2,3}",1],
-["Maths","Sum of roots of ax²+bx+c=0 is:","b/a","−b/a","c/a","−c/a",1],
-["Maths","Value of cos 60° is:","1","√3/2","1/2","0",2],
-["Maths","The derivative of x³ is:","x²","2x","3x²","3x",2],
-["Maths","Integral of cos x dx is:","−sin x+C","sin x+C","cos x+C","−cos x+C",1],
-["Maths","The order of a 2×3 matrix is:","3×2","2×3","2×2","3×3",1],
-["Maths","If vectors are perpendicular, their dot product is:","1","−1","0","Their magnitudes",2],
-["Maths","Value of tan 45° is:","0","1","√3","1/√3",1],
-["Maths","The discriminant of ax²+bx+c=0 is:","b²−4ac","b²+4ac","4ac−b","a²−4bc",0],
-["Maths","How many subsets does a set of 3 elements have?","3","6","8","9",2],
-["Maths","The limit of sin x/x as x→0 is:","0","1","∞","−1",1],
-["Maths","If aₙ=2n+1, then a₅ is:","9","10","11","12",2],
-["Maths","Area of a circle of radius r is:","2πr","πr²","πd","4πr²",1],
-["Maths","If z=3+4i, |z| equals:","3","4","5","7",2],
-["Maths","The equation of the x-axis is:","x=0","y=0","x=y","x+y=1",1],
-["Maths","The value of 5! is:","25","60","100","120",3],
-["Maths","If log₂x=3, x equals:","6","8","9","16",1],
-["Maths","The slope of a line perpendicular to slope 2 is:","2","−2","1/2","−1/2",3],
-["Maths","The average of 2, 4, 6, 8 is:","4","5","6","8",1],
-
-["Physics","SI unit of force is:","Joule","Newton","Watt","Pascal",1],
-["Physics","Speed equals:","Distance/time","Time/distance","Mass×acceleration","Force/time",0],
-["Physics","Acceleration due to gravity near Earth is approximately:","4.9 m/s²","9.8 m/s²","19.6 m/s²","98 m/s²",1],
-["Physics","SI unit of electric current is:","Volt","Ohm","Ampere","Coulomb",2],
-["Physics","Ohm's law is:","V=IR","P=VI²","F=ma²","Q=It²",0],
-["Physics","Energy of a photon is:","mc²","hf","mv","IR",1],
-["Physics","SI unit of power is:","Joule","Newton","Watt","Tesla",2],
-["Physics","A convex lens is generally:","Converging","Diverging","Opaque","A mirror",0],
-["Physics","Charge on an electron is:","Positive","Negative","Neutral","Variable positive",1],
-["Physics","Approximate speed of light in vacuum is:","3×10⁶ m/s","3×10⁸ m/s","3×10⁵ m/s","3×10¹⁰ m/s",1],
-["Physics","Momentum is defined as:","mv","ma","m/v","F/m",0],
-["Physics","SI unit of frequency is:","Decibel","Hertz","Metre","Second",1],
-["Physics","Work done by a perpendicular force on displacement is:","Maximum","Zero","Negative always","Infinite",1],
-["Physics","Which is a scalar quantity?","Velocity","Force","Displacement","Mass",3],
-["Physics","SI unit of resistance is:","Ohm","Ampere","Volt","Watt",0],
-["Physics","Kinetic energy is:","mv","mv²","½mv²","mgh²",2],
-["Physics","The acceleration of a body moving at constant velocity is:","Zero","Constant nonzero","Increasing","Infinite",0],
-["Physics","Which wave can travel through vacuum?","Sound","Water wave","Light","Seismic wave only",2],
-["Physics","SI unit of pressure is:","Joule","Pascal","Tesla","Coulomb",1],
-["Physics","The image formed by a plane mirror is:","Real","Virtual","Always inverted vertically","Always smaller",1],
-["Physics","In a series circuit, which quantity is the same through each resistor?","Voltage","Current","Resistance","Power",1],
-["Physics","The charge of a proton is:","Negative","Zero","Positive","Variable",2],
-["Physics","The dimensional formula of velocity is:","[LT⁻¹]","[LT⁻²]","[MLT⁻¹]","[ML²T⁻²]",0],
-["Physics","A transformer works on the principle of:","Electrolysis","Mutual induction","Photoelectric effect","Friction",1],
-["Physics","The time period of a simple pendulum depends mainly on:","Mass of bob","Length and gravity","Colour of bob","Bob's charge",1],
-["Physics","Which device converts electrical energy to mechanical energy?","Motor","Generator","Fuse","Voltmeter",0],
-["Physics","The SI unit of magnetic field is:","Tesla","Weber per second only","Henry","Ohm",0],
-["Physics","For uniform circular motion, acceleration points:","Tangentially","Outward","Towards centre","Along velocity",2],
-["Physics","Which law explains action and reaction?","Newton's first","Newton's second","Newton's third","Hooke's law",2],
-["Physics","The equivalent resistance of 2Ω and 3Ω in series is:","1.2Ω","5Ω","6Ω","2.5Ω",1],
-["Physics","A fuse wire is connected in a circuit in:","Parallel","Series","Either always","No connection",1],
-["Physics","Which particle has no electric charge?","Proton","Electron","Neutron","Positron",2],
-["Physics","The unit of capacitance is:","Farad","Tesla","Henry","Watt",0],
-
-["Chemistry","Atomic number equals the number of:","Neutrons","Protons","Nucleons","Shells",1],
-["Chemistry","The pH of a neutral solution at 25°C is:","0","5","7","14",2],
-["Chemistry","The chemical formula of water is:","H₂O","HO₂","H₂O₂","OH",0],
-["Chemistry","Avogadro's constant is approximately:","6.022×10²³ mol⁻¹","3×10⁸","9.8","1.6×10⁻¹⁹",0],
-["Chemistry","Which gas is released when an acid reacts with a carbonate?","Oxygen","Hydrogen","Carbon dioxide","Nitrogen",2],
-["Chemistry","The bond in NaCl is mainly:","Covalent","Ionic","Metallic","Hydrogen",1],
-["Chemistry","Which element has symbol K?","Krypton","Calcium","Potassium","Copper",2],
-["Chemistry","The oxidation state of oxygen in most compounds is:","+2","−2","−1 always","+1",1],
-["Chemistry","The strongest intermolecular attraction among these is typically:","London forces","Hydrogen bonding","Weak dispersion only","No attraction",1],
-["Chemistry","Which is a noble gas?","Chlorine","Oxygen","Neon","Hydrogen",2],
-["Chemistry","The number of electrons in a neutral carbon atom is:","4","6","8","12",1],
-["Chemistry","The molecular formula of methane is:","CH₄","C₂H₆","C₂H₄","CO₂",0],
-["Chemistry","Which solution has the lowest pH?","pH 2","pH 7","pH 9","pH 12",0],
-["Chemistry","A catalyst generally:","Raises equilibrium constant","Lowers activation energy","Changes products always","Gets consumed completely",1],
-["Chemistry","The SI unit for amount of substance is:","Gram","Mole","Litre","Molarity",1],
-["Chemistry","Which is an alkali metal?","Sodium","Magnesium","Aluminium","Iron",0],
-["Chemistry","The functional group in alcohols is:","−COOH","−CHO","−OH","−NH₂",2],
-["Chemistry","The formula of sulphuric acid is:","HCl","H₂SO₄","HNO₃","H₂CO₃",1],
-["Chemistry","Which is an example of a physical change?","Rusting iron","Burning paper","Melting ice","Digesting food",2],
-["Chemistry","The number of neutrons in carbon-12 is:","6","12","18","0",0],
-["Chemistry","Which gas is commonly used in photosynthesis?","Oxygen","Carbon dioxide","Nitrogen","Hydrogen",1],
-["Chemistry","The main ore of aluminium is:","Haematite","Bauxite","Galena","Cinnabar",1],
-["Chemistry","Which of these is a strong acid?","HCl","CH₃COOH","H₂O","NH₄OH",0],
-["Chemistry","The pH of an acidic aqueous solution is usually:","Below 7","Exactly 7","Above 7","Always 14",0],
-["Chemistry","Which particle determines the identity of an element?","Neutron count","Proton count","Electron shell count","Mass only",1],
-["Chemistry","The shape of methane molecule is:","Linear","Trigonal planar","Tetrahedral","Square planar",2],
-["Chemistry","Which is a greenhouse gas?","Carbon dioxide","Argon","Helium","Neon",0],
-["Chemistry","The process of gaining electrons is called:","Oxidation","Reduction","Sublimation","Neutralisation",1],
-["Chemistry","Which polymer is used in common plastic bags?","Polyethylene","Starch only","Cellulose only","Protein",0],
-["Chemistry","The formula of baking soda is:","NaCl","NaHCO₃","Na₂CO₃","CaCO₃",1],
-["Chemistry","Which element is liquid at room temperature?","Iron","Mercury","Sodium","Calcium",1],
-["Chemistry","The bond formed by sharing electron pairs is:","Ionic","Covalent","Metallic only","Nuclear",1],
-["Chemistry","Which method separates an insoluble solid from a liquid?","Filtration","Distillation only","Chromatography only","Crystallisation only",0]
-];
-
-let current=0, answers=Array(100).fill(null), marked=Array(100).fill(false);
-let seconds=90*60, timer=null, submitted=false;
-
-function startTest(){
- document.getElementById("intro").classList.add("hidden");
- document.getElementById("test").classList.remove("hidden");
- renderPalette(); renderQuestion();
- timer=setInterval(()=>{
-   if(submitted)return;
-   seconds--;
-   document.getElementById("timer").textContent=
-    String(Math.floor(seconds/60)).padStart(2,"0")+":"+
-    String(seconds%60).padStart(2,"0");
-   if(seconds<=0)submitTest(true);
- },1000);
-}
-
-function renderQuestion(){
- const q=Q[current];
- document.getElementById("qcount").textContent=`Question ${current+1} of ${Q.length}`;
- document.getElementById("qsubject").textContent=q[0];
- document.getElementById("subject").textContent=q[0];
- document.getElementById("question").textContent=q[1];
- const box=document.getElementById("options");box.innerHTML="";
- ["A","B","C","D"].forEach((letter,i)=>{
-  const b=document.createElement("button");
-  b.className="option"+(answers[current]===i?" selected":"");
-  b.textContent=letter+". "+q[i+2];
-  b.onclick=()=>{answers[current]=i;renderQuestion();renderPalette();};
-  box.appendChild(b);
- });
- document.getElementById("answered").textContent=
-  answers.filter(a=>a!==null).length+"/100";
- renderPalette();
-}
-
-function renderPalette(){
- const p=document.getElementById("palette");p.innerHTML="";
- Q.forEach((q,i)=>{
-  const b=document.createElement("button");
-  b.textContent=i+1;
-  if(answers[i]!==null)b.classList.add("answered");
-  if(marked[i])b.classList.add("marked");
-  if(i===current)b.classList.add("current");
-  b.onclick=()=>{current=i;renderQuestion();};
-  p.appendChild(b);
- });
-}
-function next(){if(current<Q.length-1){current++;renderQuestion();}}
-function previous(){if(current>0){current--;renderQuestion();}}
-function clearAnswer(){answers[current]=null;renderQuestion();}
-function toggleMark(){marked[current]=!marked[current];renderPalette();}
-
-function submitTest(auto=false){
- if(submitted)return;
- if(!auto&&!confirm("Submit your test now?"))return;
- submitted=true;clearInterval(timer);
- let correct=0,wrong=0,blank=0;
- const subs={Maths:{c:0,w:0,b:0},Physics:{c:0,w:0,b:0},Chemistry:{c:0,w:0,b:0}};
- Q.forEach((q,i)=>{
-  if(answers[i]===null){blank++;subs[q[0]].b++;}
-  else if(answers[i]===q[6]){correct++;subs[q[0]].c++;}
-  else{wrong++;subs[q[0]].w++;}
- });
- const score=correct*4-wrong;
- document.getElementById("test").classList.add("hidden");
- document.getElementById("results").classList.remove("hidden");
- document.getElementById("score").textContent=score+" / 400";
- document.getElementById("correct").textContent=correct;
- document.getElementById("wrong").textContent=wrong;
- document.getElementById("unanswered").textContent=blank;
- document.getElementById("percentage").textContent=
-  "Score percentage: "+(score/400*100).toFixed(2)+"%";
- const sr=document.getElementById("subjectResults");sr.innerHTML="";
- Object.keys(subs).forEach(s=>{
-  const d=subs[s];
-  sr.innerHTML+=`<div class="result-row"><b>${s}</b>: Correct ${d.c}, Incorrect ${d.w}, Unanswered ${d.b}; Score ${d.c*4-d.w}</div>`;
- });
- window.scrollTo(0,0);
-}
-function showReview(){
- const r=document.getElementById("review");r.classList.remove("hidden");r.innerHTML="<h2>Answer Review</h2>";
- Q.forEach((q,i)=>{
-  const chosen=answers[i]===null?"Not answered":String.fromCharCode(65+answers[i])+". "+q[answers[i]+2];
-  const right=String.fromCharCode(65+q[6])+". "+q[q[6]+2];
-  r.innerHTML+=`<div class="result-row"><b>${i+1}
-  ,q:"If f(x)=2x+3, then f(4) equals:",options:["8","11","12","14"],correct:1,explain:"2×4+3=11."},
-  {subject:"Mathematics",q:"The derivative of sin x is:",options:["−sin x","cos x","tan x","−cos x"],correct:1,explain:"d(sin x)/dx = cos x."},
-  {subject:"Mathematics",q:"The value of i² is:",options:["1","−1","i","0"],correct:1,explain:"The imaginary unit satisfies i²=−1."},
-
-
- // 🎓 NIMCET / MCA — STARTER PRACTICE QUESTIONS
- nimcet: [
-  {subject:"Mathematics",q:"If 3x+5=20, then x equals:",options:["3","5","7","15"],correct:1,explain:"3x=15, so x=5."},
-  {subject:"Mathematics",q:"The sum of the angles of a triangle is:",options:["90°","180°","270°","360°"],correct:1,explain:"The interior angles of a triangle sum to 180°."},
-  {subject:"Mathematics",q:"What is the next number: 2, 4, 8, 16, __?",options:["18","24","30","32"],correct:3,explain:"Each term doubles."},
-  {subject:"Reasoning",q:"Choose the odd one out:",options:["Apple","Mango","Carrot","Banana"],correct:2,explain:"Carrot is commonly classified as a vegetable; the others are fruits."},
-  {subject:"Reasoning",q:"If all roses are flowers, which statement must be true?",options:["All flowers are roses","Every rose is a flower","No roses are flowers","All flowers are red"],correct:1,explain:"This repeats the given logical relationship."},
-  {subject:"Computer",q:"CPU stands for:",options:["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Power Unit"],correct:0,explain:"CPU means Central Processing Unit."},
-  {subject:"Computer",q:"Which is an input device?",options:["Monitor","Printer","Keyboard","Speaker"],correct:2,explain:"A keyboard is used to enter data."},
-  {subject:"English",q:"Choose the synonym of 'rapid':",options:["Slow","Fast","Weak","Quiet"],correct:1,explain:"Rapid means fast or quick."}
- ] 
+  nimcet: [
+    {
+      subject:"Mathematics",
+      q:"If x + 5 = 12, then x equals:",
+      options:["5","6","7","8"],
+      correct:2,
+      explain:"Subtract 5 from both sides: x = 12 − 5 = 7."
+    },
+    {
+      subject:"Logical Reasoning",
+      q:"Find the next number: 2, 4, 8, 16, __.",
+      options:["18","24","30","32"],
+      correct:3,
+      explain:"Each number is multiplied by 2. The next number is 16 × 2 = 32."
+    },
+    {
+      subject:"Computer Awareness",
+      q:"Which of these is commonly used to write and run programs?",
+      options:["Compiler","Monitor","Keyboard only","Speaker"],
+      correct:0,
+      explain:"A compiler translates source code into another form, often machine code or an intermediate representation."
+    },
+    {
+      subject:"Mathematics",
+      q:"What is the value of 5! (5 factorial)?",
+      options:["25","60","120","720"],
+      correct:2,
+      explain:"5! = 5 × 4 × 3 × 2 × 1 = 120."
+    },
+    {
+      subject:"Computer Awareness",
+      q:"Which one is a programming language?",
+      options:["HTML only","C","Monitor","Mouse"],
+      correct:1,
+      explain:"C is a general-purpose programming language."
+    }
+  ]
 };
 
-/* 🔰 QUESTION BANK END
- ⚠️ Neeche ka TEST ENGINE bina samjhe edit mat karna.
- ===================================================== */
+/* =========================================================
+   TEST ENGINE — defined only once
+   ========================================================= */
 
-/* ⏱️ TIMER + MARKS SETTINGS */
-const TEST_MINUTES = 30;
-const POSITIVE_MARKS = 4;
-const NEGATIVE_MARKS = 1;
+const EXAM_NAMES = {
+  class10:"Class 10 Practice Test",
+  class12:"Class 12 Practice Test",
+  jeeMain:"JEE Main Practice Test",
+  nimcet:"NIMCET Practice Test"
+};
 
-let activeExam = "jeeMain";
+let activeExam = "nimcet";
 let questions = [];
-let answers = [];
-let reviews = [];
 let current = 0;
-let secondsLeft = 0;
-let timerId = null;
-let startedAt = 0;
-let submitted = false;
+let answers = [];
+let marked = [];
+let timeLeft = 600;
+let timerInterval = null;
+let testFinished = false;
+let baseFont = 16;
 
-const $ = id => document.getElementById(id);
+function $(id) {
+  return document.getElementById(id);
+}
 
-function toggleTheme() {
- document.body.classList.toggle("light");
- const light = document.body.classList.contains("light");
- $("themeBtn").textContent = light ? "🌙 Dark" : "☀️ Light";
- try { localStorage.setItem("tm-theme",light?"light":"dark"); } catch(e){}
-}
-function changeFont(n) {
- const root = document.documentElement;
- const old = parseInt(getComputedStyle(root).getPropertyValue("--font")) || 17;
- const next = Math.max(14,Math.min(25,old+n));
- root.style.setProperty("--font",next+"px");
-}
-function login() {
- const old = prompt("Apna display name likho:");
- if (old && old.trim()) {
-  try { localStorage.setItem("tm-name",old.trim().slice(0,40)); } catch(e){}
-  $("welcome").textContent = "Welcome, "+old.trim()+"! 👋";
- }
-}
-function showSection(name) {
- ["home","test","result"].forEach(id => $(id).classList.toggle("hidden",id!==name));
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function goHome() {
- stopTimer();
- showSection("home");
- renderHistory();
-}
-function stopTimer() {
- if(timerId) clearInterval(timerId);
- timerId = null;
+function showPage(page) {
+  ["home","test","result"].forEach(id => $(id).classList.add("hidden"));
+  $(page).classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function prepareTest(exam) {
- if(!QUESTION_BANK[exam] || !QUESTION_BANK[exam].length) {
-  alert("Is exam ke question bank mein questions add karo.");return;
- }
- activeExam = exam;
- questions = QUESTION_BANK[exam].map(q=>({...q,options:[...q.options]}));
- answers = Array(questions.length).fill(null);
- reviews = Array(questions.length).fill(false);
- current = 0;
- secondsLeft = TEST_MINUTES*60;
- startedAt = Date.now();
- submitted = false;
- stopTimer();
- $("testTitle").textContent = {
-  class10:"Class 10 Mock Test",
-  class12:"Class 12 PCM Mock Test",
-  jeeMain:"JEE Main Mock Test",
-  nimcet:"NIMCET / MCA Mock Test"
- }[exam];
- $("testLabel").textContent = "TECHMOCK PRO • PRACTICE MODE";
- showSection("test");
- renderQuestion();
- timerId = setInterval(()=>{
-  secondsLeft--;
-  updateTimer();
-  if(secondsLeft<=0) submitTest(true);
- },1000);
- updateTimer();
+  if (!QUESTION_BANK[exam] || QUESTION_BANK[exam].length === 0) {
+    alert("Is exam ke liye abhi questions add nahi kiye gaye hain.");
+    return;
+  }
+
+  clearInterval(timerInterval);
+
+  activeExam = exam;
+  questions = QUESTION_BANK[exam].map(q => ({
+    ...q,
+    options:[...q.options]
+  }));
+
+  current = 0;
+  answers = Array(questions.length).fill(null);
+  marked = Array(questions.length).fill(false);
+  timeLeft = 600;
+  testFinished = false;
+
+  $("examTitle").textContent = EXAM_NAMES[exam];
+  $("testInfo").textContent =
+    questions.length + " questions · 10 minutes · Practice mode";
+
+  showPage("test");
+  renderQuestion();
+  startTimer();
 }
-function updateTimer() {
- const m = Math.floor(secondsLeft/60);
- const s = secondsLeft%60;
- $("timer").textContent = String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
- $("timer").style.color = secondsLeft<=300 ? "var(--red)" : "var(--gold)";
-}
+
 function renderQuestion() {
- const q = questions[current];
- $("qCount").textContent = (current+1)+"/"+questions.length;
- $("answered").textContent = answers.filter(a=>a!==null).length;
- $("maximum").textContent = questions.length*POSITIVE_MARKS;
- $("subject").textContent = q.subject;
- $("question").textContent = (current+1)+". "+q.q;
- $("progressBar").style.width = ((current+1)/questions.length*100)+"%";
- $("options").replaceChildren();
+  if (!questions.length || testFinished) return;
 
- q.options.forEach((option,i)=>{
-  const label = document.createElement("label");
-  label.className = "option";
-  const radio = document.createElement("input");
-  radio.type = "radio";
-  radio.name = "answer";
-  radio.checked = answers[current]===i;
-  radio.addEventListener("change",()=>{
-   answers[current]=i;
-   $("answered").textContent = answers.filter(a=>a!==null).length;
-   renderPalette();
+  const q = questions[current];
+
+  $("qCount").textContent =
+    "Question " + (current + 1) + " of " + questions.length;
+  $("qSubject").textContent = q.subject || "General";
+  $("questionText").textContent = q.q;
+
+  $("options").innerHTML = "";
+
+  q.options.forEach((option,index) => {
+    const btn = document.createElement("button");
+    btn.className = "option" + (answers[current] === index ? " selected" : "");
+    btn.innerHTML =
+      '<span class="letter">' + String.fromCharCode(65 + index) +
+      '.</span><span></span>';
+    btn.querySelector("span:last-child").textContent = option;
+    btn.onclick = () => selectAnswer(index);
+    $("options").appendChild(btn);
   });
-  const span = document.createElement("span");
-  span.textContent = String.fromCharCode(65+i)+". "+option;
-  label.append(radio,span);
-  $("options").append(label);
- });
- renderPalette();
+
+  $("prevBtn").disabled = current === 0;
+  $("nextBtn").textContent =
+    current === questions.length - 1 ? "Save Answer" : "Save & Next →";
+
+  $("markBtn").textContent = marked[current]
+    ? "★ Remove Review Mark"
+    : "☆ Mark for Review";
+
+  $("progressBar").style.width =
+    (((current + 1) / questions.length) * 100) + "%";
+
+  renderPalette();
 }
+
+function selectAnswer(index) {
+  if (testFinished) return;
+  answers[current] = index;
+  renderQuestion();
+}
+
+function previousQuestion() {
+  if (current > 0) {
+    current--;
+    renderQuestion();
+  }
+}
+
+function nextQuestion() {
+  if (current < questions.length - 1) {
+    current++;
+    renderQuestion();
+  } else {
+    renderPalette();
+    alert("Last question. You can review your answers or submit the test.");
+  }
+}
+
+function toggleMark() {
+  marked[current] = !marked[current];
+  renderQuestion();
+}
+
 function renderPalette() {
- $("palette").replaceChildren();
- questions.forEach((q,i)=>{
-  const b = document.createElement("button");
-  b.className = "pal";
-  b.textContent = i+1;
-  if(answers[i]!==null) b.classList.add("answered");
-  if(reviews[i]) b.classList.add("review");
-  if(i===current) b.classList.add("current");
-  b.onclick=()=>{current=i;renderQuestion();};
-  $("palette").append(b);
- });
-}
-function next() {
- if(current<questions.length-1){current++;renderQuestion();}
- else alert("Last question hai. Answers check karke submit karo.");
-}
-function previous() {
- if(current>0){current--;renderQuestion();}
-}
-function markReview() {
- reviews[current]=!reviews[current];
- renderPalette();
+  const palette = $("palette");
+  palette.innerHTML = "";
+
+  questions.forEach((q,index) => {
+    const btn = document.createElement("button");
+    btn.className = "pal";
+
+    if (answers[index] !== null) btn.classList.add("answered");
+    if (marked[index]) btn.classList.add("marked");
+    if (index === current) btn.classList.add("current");
+
+    btn.textContent = index + 1;
+    btn.title = "Question " + (index + 1);
+
+    btn.onclick = () => {
+      current = index;
+      renderQuestion();
+    };
+
+    palette.appendChild(btn);
+  });
 }
 
-function submitTest(auto) {
- if(submitted)return;
- if(!auto && !confirm("Kya test submit karna hai?"))return;
- submitted=true;
- stopTimer();
+function startTimer() {
+  clearInterval(timerInterval);
+  updateTimer();
 
- let correct=0,wrong=0,skip=0;
- questions.forEach((q,i)=>{
-  if(answers[i]===null) skip++;
-  else if(answers[i]===q.correct) correct++;
-  else wrong++;
- });
- const score=correct*POSITIVE_MARKS-wrong*NEGATIVE_MARKS;
- const max=questions.length*POSITIVE_MARKS;
- const accuracy=(correct+wrong)?Math.round(correct/(correct+wrong)*100):0;
- const elapsed=Math.floor((Date.now()-startedAt)/1000);
+  timerInterval = setInterval(() => {
+    if (testFinished) {
+      clearInterval(timerInterval);
+      return;
+    }
 
- $("score").textContent=score+" / "+max;
- $("correctOut").textContent=correct;
- $("wrongOut").textContent=wrong;
- $("skipOut").textContent=skip;
- $("accuracy").textContent=accuracy+"%";
- $("timeUsed").textContent=Math.floor(elapsed/60)+" min "+elapsed%60+" sec";
- $("resultMessage").textContent=auto?"Time over! Test automatically submitted.":"Test submitted successfully.";
+    timeLeft--;
+    updateTimer();
 
- $("reviewAnswers").replaceChildren();
- questions.forEach((q,i)=>{
-  const box=document.createElement("div");
-  box.className="result-item";
-  const title=document.createElement("strong");
-  title.textContent=(i+1)+". "+q.q;
-  const your=document.createElement("p");
-  your.textContent="Your answer: "+(answers[i]===null?"Not answered":q.options[answers[i]]);
-  const right=document.createElement("p");
-  right.className="gold";
-  right.textContent="Correct answer: "+q.options[q.correct];
-  const exp=document.cre
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      submitTest(true);
+    }
+  },1000);
+}
+
+function updateTimer() {
+  const minutes = Math.floor(Math.max(0,timeLeft) / 60);
+  const seconds = Math.max(0,timeLeft) % 60;
+
+  $("timer").textContent =
+    String(minutes).padStart(2,"0") + ":" +
+    String(seconds).padStart(2,"0");
+
+  $("timer").style.color = timeLeft <= 60
+    ? "var(--red)"
+    : "var(--gold)";
+}
+
+function confirmSubmit() {
+  if (testFinished) return;
+
+  const unanswered = answers.filter(a => a === null).length;
+
+  const message = unanswered
+    ? "You have " + unanswered + " unanswered question(s). Submit anyway?"
+    : "Are you sure you want to submit your test?";
+
+  if (confirm(message)) submitTest(false);
+}
+
+function submitTest(autoSubmitted) {
+  if (testFinished) return;
+
+  testFinished = true;
+  clearInterval(timerInterval);
+
+  let correct = 0;
+  let wrong = 0;
+  let unanswered = 0;
+
+  questions.forEach((q,index) => {
+    if (answers[index] === null) {
+      unanswered++;
+    } else if (answers[index] === q.correct) {
+      correct++;
+    } else {
+      wrong++;
+    }
+  });
+
+  const percent = Math.round((correct / questions.length) * 100);
+
+  $("scorePercent").textContent = percent + "%";
+  $("correctCount").textContent = correct;
+  $("wrongCount").textContent = wrong;
+  $("unansweredCount").textContent = un
