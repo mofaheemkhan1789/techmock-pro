@@ -5,225 +5,231 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b1020">
-<title>TechMock Pro | Exam Practice</title>
+<title>TechMock Pro | All Exams</title>
+
 <style>
-:root{
- --bg:#0b1020;--panel:#151d35;--panel2:#1b2742;
- --text:#eef2ff;--muted:#a9b5cf;--gold:#f4c95d;
- --border:#2b3855;--good:#36c98f;--bad:#ff7272;
- --font:17px
+/* 🎨 DESIGN SETTINGS — YAHAN COLORS BADAL SAKTE HO */
+:root {
+  --bg:#0b1020;
+  --panel:#151d35;
+  --panel2:#202c48;
+  --text:#eef2ff;
+  --muted:#aab6d0;
+  --gold:#f4c95d;
+  --green:#17865f;
+  --red:#b83d4b;
+  --border:#33415f;
+  --font:17px;
 }
-body.light{
- --bg:#f3f5fb;--panel:#fff;--panel2:#e9edf7;
- --text:#172039;--muted:#5d6880;--border:#d7deed;
- --gold:#a87300
+body.light {
+  --bg:#f2f5fc;
+  --panel:#ffffff;
+  --panel2:#e6ebf5;
+  --text:#15203a;
+  --muted:#596680;
+  --gold:#9a6900;
+  --border:#d3dced;
 }
-*{box-sizing:border-box}
-body{
- margin:0;background:var(--bg);color:var(--text);
- font:var(--font)/1.6 Arial,sans-serif;transition:.2s
+* {box-sizing:border-box}
+body {
+  margin:0;background:var(--bg);color:var(--text);
+  font:var(--font)/1.6 Arial,sans-serif;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible{
- outline:3px solid var(--gold);outline-offset:2px
+button,select,input {font:inherit}
+button {cursor:pointer}
+button:focus-visible,select:focus-visible {
+  outline:3px solid var(--gold);outline-offset:2px
 }
-header{
- display:flex;align-items:center;justify-content:space-between;
- gap:12px;padding:15px 5%;background:var(--panel);
- border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5
+header {
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;flex-wrap:wrap;padding:15px 5%;
+  background:var(--panel);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:10
 }
-.brand{font-size:21px;font-weight:900;color:var(--gold)}
-.brand span{color:var(--text)}
-.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.btn{
- border:1px solid var(--border);border-radius:10px;padding:9px 13px;
- color:var(--text);background:var(--panel2);font-weight:700
+.logo {font-size:23px;font-weight:900;color:var(--gold)}
+.logo span {color:var(--text)}
+.head-actions {display:flex;gap:7px;flex-wrap:wrap}
+button,.select {
+  padding:10px 14px;border-radius:10px;border:1px solid var(--border);
+  background:var(--panel2);color:var(--text);font-weight:700
 }
-.btn.primary{background:var(--gold);color:#151515;border-color:var(--gold)}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-main{max-width:1050px;margin:auto;padding:25px 16px 55px}
-.hero{
- padding:30px 24px;border:1px solid var(--border);border-radius:20px;
- background:linear-gradient(135deg,var(--panel),var(--panel2));
- margin-bottom:25px
+.primary {background:var(--gold);color:#151515;border-color:var(--gold)}
+main {max-width:1050px;margin:auto;padding:22px 15px 50px}
+.hero {
+  padding:28px 23px;border-radius:20px;border:1px solid var(--border);
+  background:linear-gradient(135deg,var(--panel),var(--panel2));
+  margin-bottom:22px
 }
-.eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:12px}
-h1{font-size:clamp(30px,6vw,49px);line-height:1.15;margin:12px 0}
-h2{line-height:1.25}
-.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card{
- background:var(--panel);border:1px solid var(--border);
- border-radius:16px;padding:20px
+h1 {font-size:clamp(32px,6vw,48px);line-height:1.15;margin:10px 0}
+h2 {line-height:1.25}
+.muted {color:var(--muted)}
+.gold {color:var(--gold)}
+.eyebrow {font-size:12px;font-weight:900;letter-spacing:2px;color:var(--gold)}
+.grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card {
+  padding:19px;border:1px solid var(--border);border-radius:15px;
+  background:var(--panel);margin-bottom:13px
 }
-.card h3{margin:7px 0}
-.symbol{font-size:27px}
-.card p{color:var(--muted);margin:5px 0 15px}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.hidden{display:none!important}
-.settings{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}
-.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
-.stat{background:var(--panel2);border-radius:12px;padding:12px}
-.stat strong{display:block;font-size:22px}
-.stat small{color:var(--muted)}
-.progress{height:7px;background:var(--panel2);border-radius:9px;overflow:hidden}
-.progress div{height:100%;background:var(--gold);width:0}
-.question-box{margin-top:20px}
-.qtop{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-#timer{font-size:20px;font-weight:900;color:var(--gold)}
-#question{font-size:1.18em;font-weight:800;margin:20px 0}
-.option{
- display:flex;gap:12px;align-items:flex-start;padding:13px;
- margin:10px 0;border:1px solid var(--border);border-radius:11px;
- cursor:pointer;background:var(--bg)
+.card p {color:var(--muted)}
+.exam-icon {font-size:29px}
+.row {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.stats {display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}
+.stat {background:var(--panel2);border-radius:11px;padding:12px}
+.stat small {display:block;color:var(--muted)}
+.stat strong {font-size:21px}
+.progress {height:7px;background:var(--panel2);border-radius:9px;overflow:hidden}
+.progress div {height:100%;width:0;background:var(--gold)}
+.question {font-size:1.15em;font-weight:800;margin:20px 0}
+.option {
+ display:flex;align-items:flex-start;gap:10px;padding:12px;margin:9px 0;
+ border:1px solid var(--border);border-radius:10px;cursor:pointer;
+ background:var(--bg)
 }
-.option:has(input:checked){border-color:var(--gold);background:var(--panel2)}
-.option input{margin-top:6px;accent-color:var(--gold)}
-.palette{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.pal{
- width:42px;height:42px;border:1px solid var(--border);border-radius:9px;
- color:var(--text);background:var(--panel);font-weight:800
-}
-.pal.answered{background:#1b7659;color:white}
-.pal.current{outline:2px solid var(--gold);outline-offset:2px}
-.pal.review{background:#7256a9;color:white}
-.test-controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
-.result-score{font-size:46px;color:var(--gold);font-weight:900}
-.result-row{padding:13px 0;border-bottom:1px solid var(--border)}
-footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid var(--border)}
-dialog{
- width:min(420px,calc(100% - 28px));border:1px solid var(--border);
- border-radius:16px;background:var(--panel);color:var(--text);padding:22px
-}
-dialog::backdrop{background:#000b}
-.field{display:block;width:100%;padding:11px;border-radius:9px;
- border:1px solid var(--border);background:var(--bg);color:var(--text);margin:8px 0 15px}
-@media(max-width:600px){
- header{padding:12px;align-items:flex-start}
- .brand{font-size:18px}.actions{justify-content:flex-end}
- .grid{grid-template-columns:1fr}.hero{padding:23px 17px}
- main{padding:18px 12px 40px}.statrow{gap:6px}
- .stat{padding:9px}.stat strong{font-size:19px}
+.option:has(input:checked) {border-color:var(--gold);background:var(--panel2)}
+.option input {margin-top:7px;accent-color:var(--gold)}
+.controls {display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+.palette {display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pal {width:42px;height:42px;padding:5px}
+.pal.answered {background:var(--green);color:white}
+.pal.review {background:#7451a8;color:white}
+.pal.current {outline:2px solid var(--gold);outline-offset:2px}
+.hidden {display:none!important}
+#timer {font-size:23px;font-weight:900;color:var(--gold)}
+.score {font-size:45px;color:var(--gold);font-weight:900}
+.result-item {border-bottom:1px solid var(--border);padding:12px 0}
+footer {text-align:center;padding:25px;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:600px) {
+ header {padding:12px}
+ .logo {font-size:19px}
+ main {padding:15px 11px 35px}
+ .grid {grid-template-columns:1fr}
+ .hero {padding:22px 17px}
+ .stats {gap:6px}
+ .stat {padding:8px}
+ .stat strong {font-size:18px}
 }
 </style>
 </head>
 <body>
+
 <header>
- <div class="brand">TECHMOCK <span>PRO</span></div>
- <div class="actions">
-  <button class="btn" id="themeBtn" onclick="toggleTheme()">☀️ Light</button>
-  <button class="btn" onclick="changeFont(-1)">A−</button>
-  <button class="btn" onclick="changeFont(1)">A+</button>
-  <button class="btn primary" onclick="openLogin()">Login</button>
+ <div class="logo">TECHMOCK <span>PRO</span></div>
+ <div class="head-actions">
+  <button onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
+  <button onclick="changeFont(-1)">A−</button>
+  <button onclick="changeFont(1)">A+</button>
+  <button onclick="login()">👤 Profile</button>
  </div>
 </header>
 
 <main>
+<!-- 🏠 HOME PAGE -->
 <section id="home">
  <div class="hero">
-  <div class="eyebrow">PREPARE • PRACTICE • PROGRESS</div>
-  <h1>Your Exam.<br><span style="color:var(--gold)">Your Rank.</span></h1>
-  <p class="muted">Practice with timed tests, track your score and build confidence one question at a time.</p>
-  <div class="settings">
-   <button class="btn primary" onclick="startTest()">Start JEE Main Mock Test →</button>
-  </div>
-  <small class="muted">Starter version • Free practice</small>
+  <div class="eyebrow">PRACTICE • IMPROVE • ACHIEVE</div>
+  <h1>Your Exam.<br><span class="gold">Your Rank.</span></h1>
+  <p class="muted">Smart practice for school and entrance exams.</p>
+  <p id="welcome" class="gold"></p>
  </div>
 
- <div class="section-head">
-  <h2>Choose your exam</h2><span class="muted">More exams coming</span>
- </div>
+ <h2>🎯 Choose Your Exam</h2>
  <div class="grid">
   <div class="card">
-   <div class="symbol">⚛️</div><h3>JEE Main</h3>
+   <div class="exam-icon">📐</div>
+   <h3>Class 10</h3>
+   <p>Maths and Science</p>
+   <button class="primary" onclick="prepareTest('class10')">Start Test →</button>
+  </div>
+  <div class="card">
+   <div class="exam-icon">📚</div>
+   <h3>Class 12 PCM</h3>
    <p>Physics, Chemistry and Mathematics</p>
-   <button class="btn primary" onclick="startTest()">Start test →</button>
+   <button class="primary" onclick="prepareTest('class12')">Start Test →</button>
   </div>
   <div class="card">
-   <div class="symbol">🎓</div><h3>NIMCET / MCA</h3>
-   <p>Mathematics, reasoning and computer awareness</p>
-   <button class="btn" onclick="alert('NIMCET test module will be added next.')">Coming soon</button>
+   <div class="exam-icon">⚛️</div>
+   <h3>JEE Main</h3>
+   <p>Entrance-level PCM practice</p>
+   <button class="primary" onclick="prepareTest('jeeMain')">Start Test →</button>
   </div>
   <div class="card">
-   <div class="symbol">📐</div><h3>Class 10 Maths</h3>
-   <p>Build your fundamentals</p>
-   <button class="btn" onclick="alert('Class 10 question bank is not added yet.')">Coming soon</button>
-  </div>
-  <div class="card">
-   <div class="symbol">📚</div><h3>Class 12 PCM</h3>
-   <p>Physics, Chemistry and Mathematics</p>
-   <button class="btn" onclick="alert('Class 12 question bank is not added yet.')">Coming soon</button>
-  </div>
-  <div class="card">
-   <div class="symbol">🧠</div><h3>Reasoning</h3>
-   <p>Sharpen your logical thinking</p>
-   <button class="btn" onclick="alert('Reasoning question bank is not added yet.')">Coming soon</button>
-  </div>
-  <div class="card">
-   <div class="symbol">📊</div><h3>My performance</h3>
-   <p>Review results saved on this browser</p>
-   <button class="btn" onclick="showHistory()">View history</button>
+   <div class="exam-icon">🎓</div>
+   <h3>NIMCET / MCA</h3>
+   <p>Maths, reasoning, computer awareness and English</p>
+   <button class="primary" onclick="prepareTest('nimcet')">Start Test →</button>
   </div>
  </div>
- <div id="history" class="card hidden" style="margin-top:18px"></div>
+
+ <div class="card">
+  <h3>🏆 My Practice History</h3>
+  <div id="history">Complete a test to see your result here.</div>
+ </div>
 </section>
 
+<!-- 📝 TEST SCREEN -->
 <section id="test" class="hidden">
- <div class="section-head">
-  <div><div class="eyebrow">JEE MAIN • PRACTICE MODE</div><h2>Mock Test</h2></div>
+ <div class="row">
+  <div>
+   <div class="eyebrow" id="testLabel">PRACTICE TEST</div>
+   <h2 id="testTitle">Mock Test</h2>
+  </div>
   <div id="timer">30:00</div>
  </div>
- <div class="statrow">
-  <div class="stat"><small>Question</small><strong id="qCount">1/10</strong></div>
-  <div class="stat"><small>Answered</small><strong id="answeredCount">0</strong></div>
-  <div class="stat"><small>Maximum score</small><strong id="maxScore">40</strong></div>
+
+ <div class="stats">
+  <div class="stat"><small>Question</small><strong id="qCount">1/1</strong></div>
+  <div class="stat"><small>Answered</small><strong id="answered">0</strong></div>
+  <div class="stat"><small>Maximum Marks</small><strong id="maximum">20</strong></div>
  </div>
  <div class="progress"><div id="progressBar"></div></div>
- <div class="card question-box">
-  <div class="qtop">
+
+ <div class="card">
+  <div class="row">
    <strong id="subject">Mathematics</strong>
-   <span class="muted" id="marks">+4 correct • −1 incorrect</span>
+   <span class="muted">Correct +4 | Incorrect −1</span>
   </div>
-  <div id="question"></div>
+  <div id="question" class="question"></div>
   <div id="options"></div>
-  <div class="test-controls">
-   <button class="btn" onclick="previousQuestion()">← Previous</button>
-   <button class="btn" onclick="toggleReview()">⚑ Mark for review</button>
-   <button class="btn primary" onclick="nextQuestion()">Save & Next →</button>
+  <div class="controls">
+   <button onclick="previous()">← Previous</button>
+   <button onclick="markReview()">⚑ Review</button>
+   <button class="primary" onclick="next()">Save & Next →</button>
   </div>
  </div>
- <div class="card" style="margin-top:16px">
-  <strong>Question palette</strong>
-  <p class="muted">Green = answered • Purple = marked for review • Outline = current</p>
-  <div class="palette" id="palette"></div>
-  <div class="test-controls">
-   <button class="btn" onclick="goHome()">Exit test</button>
-   <button class="btn primary" onclick="submitTest(false)">Submit test</button>
+
+ <div class="card">
+  <strong>🧭 Question Palette</strong>
+  <p class="muted">Green = answered | Purple = review | Outline = current</p>
+  <div id="palette" class="palette"></div>
+  <div class="controls">
+   <button onclick="exitTest()">Exit</button>
+   <button class="primary" onclick="submitTest(false)">Submit Test ✓</button>
   </div>
  </div>
 </section>
 
+<!-- 🏆 RESULT SCREEN -->
 <section id="result" class="hidden">
  <div class="hero">
   <div class="eyebrow">TEST COMPLETED</div>
-  <h1>Your result</h1>
-  <div class="result-score" id="finalScore">0/40</div>
-  <p class="muted" id="resultMessage"></p>
+  <h1>Your Result</h1>
+  <div class="score" id="score">0</div>
+  <p id="resultMessage" class="muted"></p>
  </div>
- <div class="statrow">
+ <div class="stats">
   <div class="stat"><small>Correct</small><strong id="correctOut">0</strong></div>
   <div class="stat"><small>Incorrect</small><strong id="wrongOut">0</strong></div>
   <div class="stat"><small>Unanswered</small><strong id="skipOut">0</strong></div>
  </div>
  <div class="card">
-  <div class="result-row">Accuracy: <strong id="accuracyOut">0%</strong></div>
-  <div class="result-row">Time used: <strong id="timeOut">0 min</strong></div>
-  <h3>Answer review</h3>
+  <h3>📊 Performance</h3>
+  <p>Accuracy: <strong id="accuracy">0%</strong></p>
+  <p>Time used: <strong id="timeUsed">0</strong></p>
+  <h3>📖 Answer Review</h3>
   <div id="reviewAnswers"></div>
-  <div class="test-controls">
-   <button class="btn primary" onclick="startTest()">Try again</button>
-   <button class="btn" onclick="goHome()">Back to home</button>
+  <div class="controls">
+   <button class="primary" onclick="prepareTest(activeExam)">Try Again</button>
+   <button onclick="goHome()">Home</button>
   </div>
  </div>
 </section>
@@ -231,249 +237,258 @@ dialog::backdrop{background:#000b}
 
 <footer>
  <strong>TECHMOCK PRO</strong><br>
- <small>Practice responsibly. Results in this starter version are for practice only.</small>
+ Free practice version • More features can be added later
 </footer>
-
-<dialog id="loginDialog">
- <h2>Welcome to TechMock Pro</h2>
- <p class="muted">Demo profile for this browser</p>
- <label for="userName">Your display name</label>
- <input class="field" id="userName" maxlength="40" placeholder="Enter your name">
- <button class="btn primary" onclick="saveDemoProfile()">Continue</button>
- <button class="btn" onclick="closeLogin()">Cancel</button>
- <p class="muted" style="font-size:12px">This is not a secure account system. Do not enter a password or sensitive information.</p>
-</dialog>
 
 <script>
 "use strict";
 
-/*
- ADD QUESTIONS HERE:
- Copy one question object, change its fields and add a comma between objects.
- correct is the zero-based option index: 0, 1, 2 or 3.
- subject can be Mathematics, Physics or Chemistry.
-*/
-const QUESTION_BANK = [
- {subject:"Mathematics",q:"If f(x) = 2x + 3, what is f(4)?",options:["8","11","12","14"],correct:1,explain:"f(4) = 2 × 4 + 3 = 11."},
- {subject:"Mathematics",q:"The derivative of x² is:",options:["x","2x","x³","2"],correct:1,explain:"Using the power rule, d(x²)/dx = 2x."},
- {subject:"Mathematics",q:"What is the value of sin²θ + cos²θ?",options:["0","1","2","Depends on θ"],correct:1,explain:"This is a fundamental trigonometric identity."},
- {subject:"Mathematics",q:"The roots of x² − 5x + 6 = 0 are:",options:["1, 6","−2, −3","2, 3","−2, 3"],correct:2,explain:"Factor: (x − 2)(x − 3) = 0."},
- {subject:"Physics",q:"The SI unit of force is:",options:["Joule","Watt","Newton","Pascal"],correct:2,explain:"Force is measured in newtons (N)."},
- {subject:"Physics",q:"Speed is defined as:",options:["Distance ÷ time","Time ÷ distance","Mass × acceleration","Force ÷ area"],correct:0,explain:"Average speed equals total distance divided by total time."},
- {subject:"Physics",q:"Which quantity is a vector?",options:["Mass","Temperature","Time","Velocity"],correct:3,explain:"Velocity has magnitude and direction."},
- {subject:"Chemistry",q:"The chemical symbol for sodium is:",options:["So","S","Na","N"],correct:2,explain:"Na comes from the Latin name natrium."},
- {subject:"Chemistry",q:"A solution with pH 3 is:",options:["Acidic","Neutral","Basic","Always pure water"],correct:0,explain:"At ordinary conditions, pH below 7 is acidic."},
- {subject:"Chemistry",q:"The atomic number of carbon is:",options:["4","6","8","12"],correct:1,explain:"Carbon has 6 protons, so its atomic number is 6."}
-];
+/* =====================================================
+ 🔰 QUESTION BANK START
+ ➕ NAYA QUESTION ADD KARNE KI JAGAH
 
+ FORMAT:
+ {
+   subject:"Maths",
+   q:"Yahan question likho",
+   options:["Option A","Option B","Option C","Option D"],
+   correct:0, // 💡 0=A, 1=B, 2=C, 3=D
+   explain:"Yahan answer ki explanation"
+ }
+
+ ⚠️ Har question ke baad comma lagao, last question ke baad nahi.
+ ===================================================== */
+
+const QUESTION_BANK = {
+
+ // 📐 CLASS 10 — MATHS + SCIENCE
+ class10: [
+  {subject:"Maths",q:"The roots of x² − 5x + 6 = 0 are:",options:["1 and 6","2 and 3","−2 and −3","1 and 5"],correct:1,explain:"(x−2)(x−3)=0, so roots are 2 and 3."},
+  {subject:"Maths",q:"The value of sin 30° is:",options:["1","√3/2","1/2","0"],correct:2,explain:"sin 30° = 1/2."},
+  {subject:"Maths",q:"The distance between (0,0) and (3,4) is:",options:["3","4","5","7"],correct:2,explain:"Distance = √(3²+4²)=5."},
+  {subject:"Maths",q:"The sum of the first 10 positive integers is:",options:["45","50","55","60"],correct:2,explain:"n(n+1)/2 = 10×11/2 = 55."},
+  {subject:"Maths",q:"A quadratic polynomial has how many roots at most?",options:["1","2","3","4"],correct:1,explain:"A quadratic equation has at most two roots."},
+  {subject:"Science",q:"Which gas is released during photosynthesis?",options:["Oxygen","Nitrogen","Hydrogen","Carbon monoxide"],correct:0,explain:"Oxygen is released during photosynthesis."},
+  {subject:"Science",q:"The SI unit of electric current is:",options:["Volt","Ohm","Ampere","Watt"],correct:2,explain:"Electric current is measured in amperes."},
+  {subject:"Science",q:"A solution with pH 2 is:",options:["Acidic","Neutral","Basic","Always pure water"],correct:0,explain:"A pH below 7 is acidic."}
+ ],
+
+ // 📚 CLASS 12 — PHYSICS + CHEMISTRY + MATHS
+ class12: [
+  {subject:"Maths",q:"The derivative of x³ is:",options:["x²","2x","3x²","3x"],correct:2,explain:"Power rule: d(x³)/dx = 3x²."},
+  {subject:"Maths",q:"The integral of 1 dx is:",options:["0","x+C","1+C","x²+C"],correct:1,explain:"The integral of 1 is x+C."},
+  {subject:"Maths",q:"The determinant of [[1,2],[3,4]] is:",options:["2","−2","10","−10"],correct:1,explain:"Determinant = 1×4 − 2×3 = −2."},
+  {subject:"Physics",q:"The SI unit of electric charge is:",options:["Ampere","Coulomb","Volt","Ohm"],correct:1,explain:"Charge is measured in coulombs."},
+  {subject:"Physics",q:"The SI unit of power is:",options:["Joule","Newton","Watt","Pascal"],correct:2,explain:"Power is measured in watts."},
+  {subject:"Physics",q:"Ohm's law is expressed as:",options:["V=IR","P=VI²","F=ma²","E=mc"],correct:0,explain:"Ohm's law: voltage = current × resistance."},
+  {subject:"Chemistry",q:"The pH of a neutral aqueous solution at 25°C is approximately:",options:["1","5","7","14"],correct:2,explain:"Neutral water has pH approximately 7 at 25°C."},
+  {subject:"Chemistry",q:"The oxidation state of oxygen in most compounds is:",options:["+1","−1","−2","+2"],correct:2,explain:"Oxygen usually has oxidation state −2."}
+ ],
+
+ // ⚛️ JEE MAIN — STARTER PRACTICE QUESTIONS
+ jeeMain: [
+  {subject:"Mathematics",q:"If f(x)=2x+3, then f(4) equals:",options:["8","11","12","14"],correct:1,explain:"2×4+3=11."},
+  {subject:"Mathematics",q:"The derivative of sin x is:",options:["−sin x","cos x","tan x","−cos x"],correct:1,explain:"d(sin x)/dx = cos x."},
+  {subject:"Mathematics",q:"The value of i² is:",options:["1","−1","i","0"],correct:1,explain:"The imaginary unit satisfies i²=−1."},
+  {subject:"Mathematics",q:"The probability of a certain event is:",options:["0","1/2","1","−1"],correct:2,explain:"A certain event has probability 1."},
+  {subject:"Physics",q:"The dimensional formula of force is:",options:["MLT⁻²","ML²T⁻²","M⁰LT⁻¹","ML⁻¹T⁻²"],correct:0,explain:"Force = mass × acceleration."},
+  {subject:"Physics",q:"If velocity changes from 0 to 20 m/s in 4 s, acceleration is:",options:["4 m/s²","5 m/s²","10 m/s²","80 m/s²"],correct:1,explain:"a=(20−0)/4=5 m/s²."},
+  {subject:"Physics",q:"The SI unit of Planck's constant is:",options:["J s","J/s","N/m","kg/m"],correct:0,explain:"Planck's constant has units of energy × time."},
+  {subject:"Chemistry",q:"The atomic number of carbon is:",options:["4","6","8","12"],correct:1,explain:"Carbon has six protons."},
+  {subject:"Chemistry",q:"Which bond involves sharing electron pairs?",options:["Ionic","Covalent","Metallic only","No bond"],correct:1,explain:"Covalent bonds involve shared electron pairs."},
+  {subject:"Chemistry",q:"At 25°C, one mole of an ideal gas occupies approximately at 1 atm:",options:["2.24 L","22.4 L","224 L","1 L"],correct:1,explain:"The approximate molar volume is 22.4 L at 0°C and 1 atm; this question uses the traditional STP convention."}
+ ],
+
+ // 🎓 NIMCET / MCA — STARTER PRACTICE QUESTIONS
+ nimcet: [
+  {subject:"Mathematics",q:"If 3x+5=20, then x equals:",options:["3","5","7","15"],correct:1,explain:"3x=15, so x=5."},
+  {subject:"Mathematics",q:"The sum of the angles of a triangle is:",options:["90°","180°","270°","360°"],correct:1,explain:"The interior angles of a triangle sum to 180°."},
+  {subject:"Mathematics",q:"What is the next number: 2, 4, 8, 16, __?",options:["18","24","30","32"],correct:3,explain:"Each term doubles."},
+  {subject:"Reasoning",q:"Choose the odd one out:",options:["Apple","Mango","Carrot","Banana"],correct:2,explain:"Carrot is commonly classified as a vegetable; the others are fruits."},
+  {subject:"Reasoning",q:"If all roses are flowers, which statement must be true?",options:["All flowers are roses","Every rose is a flower","No roses are flowers","All flowers are red"],correct:1,explain:"This repeats the given logical relationship."},
+  {subject:"Computer",q:"CPU stands for:",options:["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Power Unit"],correct:0,explain:"CPU means Central Processing Unit."},
+  {subject:"Computer",q:"Which is an input device?",options:["Monitor","Printer","Keyboard","Speaker"],correct:2,explain:"A keyboard is used to enter data."},
+  {subject:"English",q:"Choose the synonym of 'rapid':",options:["Slow","Fast","Weak","Quiet"],correct:1,explain:"Rapid means fast or quick."}
+ ] 
+};
+
+/* 🔰 QUESTION BANK END
+ ⚠️ Neeche ka TEST ENGINE bina samjhe edit mat karna.
+ ===================================================== */
+
+/* ⏱️ TIMER + MARKS SETTINGS */
 const TEST_MINUTES = 30;
 const POSITIVE_MARKS = 4;
 const NEGATIVE_MARKS = 1;
 
+let activeExam = "jeeMain";
 let questions = [];
 let answers = [];
-let marked = [];
+let reviews = [];
 let current = 0;
-let remaining = TEST_MINUTES * 60;
+let secondsLeft = 0;
 let timerId = null;
 let startedAt = 0;
-let finished = false;
+let submitted = false;
 
 const $ = id => document.getElementById(id);
 
-function safeGet(key,fallback){
- try { const value=localStorage.getItem(key); return value===null?fallback:value; }
- catch(e){ return fallback; }
-}
-function safeSet(key,value){
- try { localStorage.setItem(key,value); } catch(e){}
-}
-
-function toggleTheme(){
+function toggleTheme() {
  document.body.classList.toggle("light");
- const light=document.body.classList.contains("light");
- safeSet("tmp-theme",light?"light":"dark");
- $("themeBtn").textContent=light?"🌙 Dark":"☀️ Light";
+ const light = document.body.classList.contains("light");
+ $("themeBtn").textContent = light ? "🌙 Dark" : "☀️ Light";
+ try { localStorage.setItem("tm-theme",light?"light":"dark"); } catch(e){}
 }
-function changeFont(amount){
- const old=parseInt(safeGet("tmp-font","17"),10)||17;
- const size=Math.max(14,Math.min(24,old+amount));
- document.documentElement.style.setProperty("--font",size+"px");
- safeSet("tmp-font",String(size));
+function changeFont(n) {
+ const root = document.documentElement;
+ const old = parseInt(getComputedStyle(root).getPropertyValue("--font")) || 17;
+ const next = Math.max(14,Math.min(25,old+n));
+ root.style.setProperty("--font",next+"px");
 }
-function openLogin(){
- $("userName").value=safeGet("tmp-name","");
- $("loginDialog").showModal();
+function login() {
+ const old = prompt("Apna display name likho:");
+ if (old && old.trim()) {
+  try { localStorage.setItem("tm-name",old.trim().slice(0,40)); } catch(e){}
+  $("welcome").textContent = "Welcome, "+old.trim()+"! 👋";
+ }
 }
-function closeLogin(){ $("loginDialog").close(); }
-function saveDemoProfile(){
- const name=$("userName").value.trim();
- if(!name){alert("Please enter a display name.");return;}
- safeSet("tmp-name",name);
- closeLogin();
- alert("Demo profile saved on this browser. Hello, "+name+"!");
-}
-
-function showSection(name){
- ["home","test","result"].forEach(id=>$(id).classList.toggle("hidden",id!==name));
+function showSection(name) {
+ ["home","test","result"].forEach(id => $(id).classList.toggle("hidden",id!==name));
  window.scrollTo({top:0,behavior:"smooth"});
 }
-function goHome(){
- if(timerId){clearInterval(timerId);timerId=null;}
+function goHome() {
+ stopTimer();
  showSection("home");
+ renderHistory();
+}
+function stopTimer() {
+ if(timerId) clearInterval(timerId);
+ timerId = null;
 }
 
-function startTest(){
- if(!QUESTION_BANK.length){alert("Add questions to QUESTION_BANK first.");return;}
- questions=QUESTION_BANK.map(q=>({...q,options:[...q.options]}));
- answers=Array(questions.length).fill(null);
- marked=Array(questions.length).fill(false);
- current=0;remaining=TEST_MINUTES*60;finished=false;
- startedAt=Date.now();
- if(timerId)clearInterval(timerId);
+function prepareTest(exam) {
+ if(!QUESTION_BANK[exam] || !QUESTION_BANK[exam].length) {
+  alert("Is exam ke question bank mein questions add karo.");return;
+ }
+ activeExam = exam;
+ questions = QUESTION_BANK[exam].map(q=>({...q,options:[...q.options]}));
+ answers = Array(questions.length).fill(null);
+ reviews = Array(questions.length).fill(false);
+ current = 0;
+ secondsLeft = TEST_MINUTES*60;
+ startedAt = Date.now();
+ submitted = false;
+ stopTimer();
+ $("testTitle").textContent = {
+  class10:"Class 10 Mock Test",
+  class12:"Class 12 PCM Mock Test",
+  jeeMain:"JEE Main Mock Test",
+  nimcet:"NIMCET / MCA Mock Test"
+ }[exam];
+ $("testLabel").textContent = "TECHMOCK PRO • PRACTICE MODE";
  showSection("test");
  renderQuestion();
- renderPalette();
- updateTimer();
- timerId=setInterval(()=>{
-  remaining--;
+ timerId = setInterval(()=>{
+  secondsLeft--;
   updateTimer();
-  if(remaining<=0)submitTest(true);
+  if(secondsLeft<=0) submitTest(true);
  },1000);
+ updateTimer();
 }
-
-function updateTimer(){
- const mins=Math.floor(remaining/60);
- const secs=remaining%60;
- $("timer").textContent=String(mins).padStart(2,"0")+":"+String(secs).padStart(2,"0");
- $("timer").style.color=remaining<=300?"var(--bad)":"var(--gold)";
+function updateTimer() {
+ const m = Math.floor(secondsLeft/60);
+ const s = secondsLeft%60;
+ $("timer").textContent = String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+ $("timer").style.color = secondsLeft<=300 ? "var(--red)" : "var(--gold)";
 }
-function renderQuestion(){
- const q=questions[current];
- $("qCount").textContent=(current+1)+"/"+questions.length;
- $("subject").textContent=q.subject;
- $("question").textContent=(current+1)+". "+q.q;
- $("marks").textContent="+"+POSITIVE_MARKS+" correct • −"+NEGATIVE_MARKS+" incorrect";
- $("answeredCount").textContent=answers.filter(a=>a!==null).length;
- $("maxScore").textContent=questions.length*POSITIVE_MARKS;
- $("progressBar").style.width=((current+1)/questions.length*100)+"%";
+function renderQuestion() {
+ const q = questions[current];
+ $("qCount").textContent = (current+1)+"/"+questions.length;
+ $("answered").textContent = answers.filter(a=>a!==null).length;
+ $("maximum").textContent = questions.length*POSITIVE_MARKS;
+ $("subject").textContent = q.subject;
+ $("question").textContent = (current+1)+". "+q.q;
+ $("progressBar").style.width = ((current+1)/questions.length*100)+"%";
  $("options").replaceChildren();
- q.options.forEach((option,index)=>{
-  const label=document.createElement("label");
-  label.className="option";
-  const input=document.createElement("input");
-  input.type="radio";input.name="answer";input.value=index;
-  input.checked=answers[current]===index;
-  input.addEventListener("change",()=>{
-   answers[current]=index;
+
+ q.options.forEach((option,i)=>{
+  const label = document.createElement("label");
+  label.className = "option";
+  const radio = document.createElement("input");
+  radio.type = "radio";
+  radio.name = "answer";
+  radio.checked = answers[current]===i;
+  radio.addEventListener("change",()=>{
+   answers[current]=i;
+   $("answered").textContent = answers.filter(a=>a!==null).length;
    renderPalette();
-   $("answeredCount").textContent=answers.filter(a=>a!==null).length;
   });
-  const span=document.createElement("span");
-  span.textContent=String.fromCharCode(65+index)+". "+option;
-  label.append(input,span);$("options").append(label);
+  const span = document.createElement("span");
+  span.textContent = String.fromCharCode(65+i)+". "+option;
+  label.append(radio,span);
+  $("options").append(label);
  });
  renderPalette();
 }
-function renderPalette(){
+function renderPalette() {
  $("palette").replaceChildren();
  questions.forEach((q,i)=>{
-  const b=document.createElement("button");
-  b.className="pal";
-  b.textContent=i+1;
-  if(answers[i]!==null)b.classList.add("answered");
-  if(marked[i])b.classList.add("review");
-  if(i===current)b.classList.add("current");
-  b.setAttribute("aria-label","Go to question "+(i+1));
+  const b = document.createElement("button");
+  b.className = "pal";
+  b.textContent = i+1;
+  if(answers[i]!==null) b.classList.add("answered");
+  if(reviews[i]) b.classList.add("review");
+  if(i===current) b.classList.add("current");
   b.onclick=()=>{current=i;renderQuestion();};
   $("palette").append(b);
  });
 }
-function nextQuestion(){
+function next() {
  if(current<questions.length-1){current++;renderQuestion();}
- else alert("Last question reached. Review your answers or submit the test.");
+ else alert("Last question hai. Answers check karke submit karo.");
 }
-function previousQuestion(){
+function previous() {
  if(current>0){current--;renderQuestion();}
 }
-function toggleReview(){
- marked[current]=!marked[current];
+function markReview() {
+ reviews[current]=!reviews[current];
  renderPalette();
 }
 
-function submitTest(autoSubmit){
- if(finished)return;
- if(!autoSubmit&&!confirm("Submit your test and view the result?"))return;
- finished=true;
- if(timerId){clearInterval(timerId);timerId=null;}
+function submitTest(auto) {
+ if(submitted)return;
+ if(!auto && !confirm("Kya test submit karna hai?"))return;
+ submitted=true;
+ stopTimer();
+
  let correct=0,wrong=0,skip=0;
  questions.forEach((q,i)=>{
-  if(answers[i]===null)skip++;
-  else if(answers[i]===q.correct)correct++;
+  if(answers[i]===null) skip++;
+  else if(answers[i]===q.correct) correct++;
   else wrong++;
  });
  const score=correct*POSITIVE_MARKS-wrong*NEGATIVE_MARKS;
  const max=questions.length*POSITIVE_MARKS;
  const accuracy=(correct+wrong)?Math.round(correct/(correct+wrong)*100):0;
- const elapsed=Math.round((Date.now()-startedAt)/1000);
- $("finalScore").textContent=score+"/"+max;
+ const elapsed=Math.floor((Date.now()-startedAt)/1000);
+
+ $("score").textContent=score+" / "+max;
  $("correctOut").textContent=correct;
  $("wrongOut").textContent=wrong;
  $("skipOut").textContent=skip;
- $("accuracyOut").textContent=accuracy+"%";
- $("timeOut").textContent=Math.floor(elapsed/60)+" min "+(elapsed%60)+" sec";
- $("resultMessage").textContent=autoSubmit?"Time is up. Your test has been submitted.":"Test submitted. Review your answers below.";
+ $("accuracy").textContent=accuracy+"%";
+ $("timeUsed").textContent=Math.floor(elapsed/60)+" min "+elapsed%60+" sec";
+ $("resultMessage").textContent=auto?"Time over! Test automatically submitted.":"Test submitted successfully.";
+
  $("reviewAnswers").replaceChildren();
  questions.forEach((q,i)=>{
-  const div=document.createElement("div");
-  div.className="result-row";
+  const box=document.createElement("div");
+  box.className="result-item";
   const title=document.createElement("strong");
   title.textContent=(i+1)+". "+q.q;
-  const detail=document.createElement("p");
-  detail.className="muted";
-  detail.textContent="Your answer: "+(answers[i]===null?"Not answered":q.options[answers[i]])+
-   " | Correct answer: "+q.options[q.correct];
-  const explanation=document.createElement("p");
-  explanation.textContent=q.explain||"";
-  div.append(title,detail,explanation);
-  $("reviewAnswers").append(div);
- });
- saveHistory({date:new Date().toLocaleString(),score,max,correct,wrong,skip,accuracy});
- showSection("result");
-}
-
-function saveHistory(item){
- try{
-  const history=JSON.parse(safeGet("tmp-history","[]"));
-  history.unshift(item);
-  safeSet("tmp-history",JSON.stringify(history.slice(0,20)));
- }catch(e){}
-}
-function showHistory(){
- const box=$("history");
- box.classList.remove("hidden");
- box.replaceChildren();
- const title=document.createElement("h3");title.textContent="Recent practice results";box.append(title);
- let history=[];
- try{history=JSON.parse(safeGet("tmp-history","[]"));}catch(e){}
- if(!history.length){
-  const p=document.createElement("p");p.className="muted";p.textContent="No results yet. Complete a mock test first.";box.append(p);return;
- }
- history.forEach(item=>{
-  const p=document.createElement("p");
-  p.textContent=item.date+" — Score: "+item.score+"/"+item.max+
-   " • Accuracy: "+item.accuracy+"%";
-  box.append(p);
- });
-}
-
-(function init(){
- if(safeGet("tmp-theme","dark")==="light"){
-  document.body.classList.add("light");$("themeBtn").textContent="🌙 Dark";
- }
- const size=parseInt(safeGet("tmp-font","17"),10);
- if(size>=14&&size<=24)document.documentElement.style.setProperty("--font",size+"px");
-})();
-</script>
-</body>
-</html>
+  const your=document.createElement("p");
+  your.textContent="Your answer: "+(answers[i]===null?"Not answered":q.options[answers[i]]);
+  const right=document.createElement("p");
+  right.className="gold";
+  right.textContent="Correct answer: "+q.options[q.correct];
+  const exp=document.cre
