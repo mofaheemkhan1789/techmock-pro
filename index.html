@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1120">
+<meta name="description" content="TechMock Pro - Free mock tests and exam practice">
+<title>TechMock Pro | Mock Tests</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0b1120;color:#f8fafc}
+header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #263248}
+.logo{font-size:23px;font-weight:800;color:#f4c95d}
+.logo span{color:white}
+select,button{padding:11px;border-radius:9px;border:1px solid #475569;background:#172338;color:white}
+.hero{padding:55px 6% 40px;text-align:center;background:radial-gradient(ellipse at top,#203657,#0b1120 70%)}
+.tag{color:#f4c95d;font-size:13px;font-weight:bold;letter-spacing:2px}
+h1{font-size:clamp(34px,7vw,58px);margin:18px 0}
+h1 span{color:#f4c95d}
+.hero p{color:#cbd5e1;line-height:1.7;max-width:550px;margin:0 auto 25px}
+.primary{background:#f4c95d;color:#111827;border:0;font-weight:bold;cursor:pointer}
+section{padding:25px 6% 45px}
+h2{font-size:25px}
+.sub{color:#94a3b8;font-size:14px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
+.card{background:#131e31;border:1px solid #29374d;border-radius:15px;padding:20px 16px;transition:.2s}
+.card:hover{border-color:#f4c95d;transform:translateY(-3px)}
+.emoji{font-size:28px}
+.card h3{margin:14px 0 8px;font-size:17px}
+.card p{color:#aebbd0;font-size:13px;line-height:1.5;min-height:38px}
+.card button{width:100%;cursor:pointer}
+.notice{padding:18px;background:#131e31;border-radius:12px;color:#cbd5e1;line-height:1.7}
+footer{text-align:center;padding:28px;color:#94a3b8;border-top:1px solid #263248;font-size:13px}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">TechMock <span>Pro</span></div>
+  <select id="language" onchange="changeLanguage()" aria-label="Language">
+    <option value="en">English</option>
+    <option value="hi">हिंदी</option>
+  </select>
+</header>
+
+<div class="hero">
+  <div class="tag" id="tag">LEARN • PRACTICE • IMPROVE</div>
+  <h1 id="headline">Your Exam. <span>Your Rank.</span></h1>
+  <p id="intro">Prepare for Maths and technical entrance exams with practice tests designed for your goals.</p>
+  <button class="primary" id="explore"
+    onclick="document.getElementById('exams').scrollIntoView({behavior:'smooth'})">
+    Explore Mock Tests ↓
+  </button>
+</div>
+
+<section id="exams">
+  <div class="tag" id="choose">CHOOSE YOUR GOAL</div>
+  <h2 id="title">Explore Exam Categories</h2>
+  <p class="sub" id="subtitle">Choose a category to explore available practice tests.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="emoji">📐</div>
+      <h3 id="h1">Class 10 Maths</h3>
+      <p id="p1">Board syllabus and mathematics practice.</p>
+      <button onclick="comingSoon()">Explore Tests →</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">⚛️</div>
+      <h3 id="h2">Class 12 PCM</h3>
+      <p id="p2">Physics, Chemistry and Mathematics.</p>
+      <button onclick="comingSoon()">Explore Tests →</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎯</div>
+      <h3 id="h3">JEE Main</h3>
+      <p id="p3">Engineering entrance practice questions.</p>
+      <button onclick="location.href='jee-main.html'">Explore Tests →</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">💻</div>
+      <h3>NIMCET / MCA</h3>
+      <p>Mathematics, reasoning and computer awareness.</p>
+      <button onclick="comingSoon()">Coming Soon</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🧠</div>
+      <h3>Reasoning</h3>
+      <p>Logical reasoning and aptitude practice.</p>
+      <button onclick="comingSoon()">Coming Soon</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">📝</div>
+      <h3>General Practice</h3>
+      <p>Quick practice sets for revision.</p>
+      <button onclick="comingSoon()">Coming Soon</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="notice">
+    <strong>TechMock Pro Demo</strong><br>
+    JEE Main mock test is available. More exam categories can be added later.
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> TechMock Pro · Practice smart. Improve daily.
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function comingSoon(){
+  alert(document.getElementById("language").value === "hi"
+    ? "Is category ka test jald add kiya jayega."
+    : "A test for this category will be added soon.");
+}
+
+function changeLanguage(){
+  const hi = document.getElementById("language").value === "hi";
+
+  document.getElementById("tag").textContent =
+    hi ? "सीखें • अभ्यास करें • बेहतर बनें" : "LEARN • PRACTICE • IMPROVE";
+
+  document.getElementById("headline").innerHTML = hi
+    ? 'आपकी परीक्षा। <span>आपकी रैंक।</span>'
+    : 'Your Exam. <span>Your Rank.</span>';
+
+  document.getElementById("intro").textContent = hi
+    ? "अपने लक्ष्य के अनुसार गणित और तकनीकी प्रवेश परीक्षाओं की तैयारी करें।"
+    : "Prepare for Maths and technical entrance exams with practice tests designed for your goals.";
+
+  document.getElementById("explore").textContent =
+    hi ? "मॉक टेस्ट देखें ↓" : "Explore Mock Tests ↓";
+
+  document.getElementById("choose").textContent =
+    hi ? "अपना लक्ष्य चुनें" : "CHOOSE YOUR GOAL";
+
+  document.getElementById("title").textContent =
+    hi ? "परीक्षा श्रेणियाँ" : "Explore Exam Categories";
+
+  document.getElementById("subtitle").textContent =
+    hi ? "अभ्यास टेस्ट देखने के लिए श्रेणी चुनें।"
+       : "Choose a category to explore available practice tests.";
+
+  const names = hi
+    ? ["कक्षा 10 गणित","कक्षा 12 PCM","JEE Main"]
+    : ["Class 10 Maths","Class 12 PCM","JEE Main"];
+
+  const descriptions = hi
+    ? ["बोर्ड और गणित का अभ्यास।","भौतिक विज्ञान, रसायन विज्ञान और गणित।","इंजीनियरिंग प्रवेश परीक्षा के प्रश्न।"]
+    : ["Board syllabus and mathematics practice.","Physics, Chemistry and Mathematics.","Engineering entrance practice questions."];
+
+  for(let i=1;i<=3;i++){
+    document.getElementById("h"+i).textContent=names[i-1];
+    document.getElementById("p"+i).textContent=descriptions[i-1];
+  }
+}
+</script>
+</body>
+</html>
