@@ -1,741 +1,168 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b1020">
+<meta name="theme-color" content="#111827">
 <title>TechMock Pro | All Exams</title>
-
 <style>
-:root {
-  --bg:#0b1020;
-  --panel:#151d35;
-  --panel2:#1c2745;
-  --text:#eef2ff;
-  --muted:#aab5d0;
-  --gold:#f5c451;
-  --blue:#7195ff;
-  --green:#35c98b;
-  --red:#ff667c;
-  --border:#2b3859;
+:root{--bg:#0b1020;--panel:#121a2d;--panel2:#18233b;--text:#f4f7ff;--muted:#9aa8c4;--accent:#6d7cff;--accent2:#24c6a5;--border:#293550;--danger:#ff6b7a;--warning:#ffc857}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top right,#192752 0,#0b1020 45%);color:var(--text);min-height:100vh;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700;transition:.15s}button:active{transform:scale(.98)}.primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white}.secondary{background:var(--panel2);border:1px solid var(--border);color:var(--text)}.success{background:var(--accent2);color:#06231d}.danger{background:#4a2030;color:#ffd9df;border:1px solid #743247}.muted{color:var(--muted)}.app{max-width:1100px;margin:auto;padding:18px 18px 100px;min-height:100vh}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#6d7cff,#24c6a5);color:white}.top-actions{display:flex;gap:8px}.hero{padding:28px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(135deg,rgba(109,124,255,.18),rgba(36,198,165,.08));margin-bottom:22px}.eyebrow{color:#aeb8ff;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.08;margin:12px 0}.hero p{max-width:620px;color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{padding:14px;border-radius:15px;background:rgba(10,16,32,.45);border:1px solid var(--border)}.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 14px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.exam-card,.panel{background:rgba(18,26,45,.94);border:1px solid var(--border);border-radius:19px;padding:18px}.exam-card{display:flex;flex-direction:column;gap:12px}.card-top{display:flex;align-items:center;gap:12px}.exam-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:var(--panel2);font-size:24px}.exam-card h3{margin:0 0 4px}.exam-card p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:5px 9px;border:1px solid var(--border);border-radius:999px;color:#c5cee4;font-size:11px}.exam-card button{margin-top:auto;width:100%}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:15px;text-align:left;color:var(--text)}.quick span{display:block;font-size:23px;margin-bottom:8px}.quick strong{display:block;font-size:13px}.quick small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}.view{display:none}.view.active{display:block;animation:screenIn .18s ease}@keyframes screenIn{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.timer{padding:10px 13px;background:#2c2030;border:1px solid #61364b;color:#ffb5c0;border-radius:12px;font-weight:900;font-variant-numeric:tabular-nums}.progress{height:7px;background:#26314a;border-radius:99px;overflow:hidden;margin:12px 0 20px}.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .2s}.test-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:15px}.question-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.question-text{font-size:20px;line-height:1.5;margin:22px 0}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:#151f35;border:1px solid #2b3855;color:var(--text);padding:13px}.option .letter{width:28px;height:28px;flex-shrink:0;display:grid;place-items:center;border:1px solid #405071;border-radius:9px;color:#c9d4ef}.option.selected{border-color:var(--accent);background:#242b55}.option.selected .letter{background:var(--accent);border-color:var(--accent);color:white}.test-nav{display:flex;justify-content:space-between;gap:8px;margin-top:20px}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0 18px}.pal{padding:8px 0;border-radius:8px;background:#222d45;border:1px solid #35425f;color:#dbe4ff;font-size:12px}.pal.current{outline:2px solid var(--accent)}.pal.answered{background:#145a50;border-color:#258b7b}.pal.review{background:#694d19;border-color:#a57c27}.legend{font-size:11px;color:var(--muted);display:grid;gap:8px}.legend span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px;background:#222d45}.legend .lg-a:before{background:#145a50}.legend .lg-r:before{background:#694d19}.result-score{font-size:50px;font-weight:950;margin:10px 0}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.result-box{background:var(--panel2);padding:14px;border-radius:14px}.result-box strong{display:block;font-size:22px}.result-box span{font-size:12px;color:var(--muted)}.review-item{padding:15px 0;border-bottom:1px solid var(--border)}.review-item:last-child{border:0}.correct{color:#55e0bd}.incorrect{color:#ff8795}.history-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--border)}.history-row:last-child{border:0}.empty{padding:25px;text-align:center;color:var(--muted)}.notice{border:1px solid #665326;background:#322a19;color:#ffe3a1;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:15px}.footer{text-align:center;color:#6f7e9b;font-size:12px;padding:18px 0 10px}.hide{display:none!important}.bottom-nav{position:fixed;z-index:1000;left:0;right:0;bottom:0;padding:8px max(10px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));background:rgba(10,15,29,.96);backdrop-filter:blur(18px);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:1100px;margin:0 auto}.nav-btn{background:transparent;color:var(--muted);padding:7px 3px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;min-height:52px}.nav-btn .nav-icon{font-size:20px;line-height:1.1}.nav-btn.active{background:rgba(109,124,255,.18);color:#b9c0ff}.nav-btn.active .nav-icon{filter:drop-shadow(0 0 5px rgba(109,124,255,.3))}.screen-title{display:flex;align-items:center;gap:10px}.screen-title h2{margin:0}textarea{font:inherit}.profile-avatar{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));font-size:28px;font-weight:900}
+@media(max-width:700px){.app{padding:13px 13px 95px}.hero{padding:21px}.grid{grid-template-columns:1fr}.test-layout{grid-template-columns:1fr}.palette-panel{order:-1}.palette{grid-template-columns:repeat(8,1fr)}.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:18px}.quick-grid{grid-template-columns:repeat(3,1fr)}.quick{padding:11px}.quick strong{font-size:12px}.topbar{align-items:flex-start}.brand{font-size:17px}.top-actions button{padding:9px 10px}.question-text{font-size:18px}.result-grid{gap:7px}.hero{margin-bottom:15px}.section-head{margin:18px 0 12px}.exam-card{padding:15px}.result-box{padding:11px}.result-box strong{font-size:19px}}
+@media(max-width:380px){.top-actions{gap:4px}.top-actions button{padding:7px 8px;font-size:11px}.quick-grid{grid-template-columns:1fr}.quick{display:flex;gap:12px;align-items:center}.quick span{margin:0}.palette{grid-template-columns:repeat(6,1fr)}}
+
+/* Home is a single-screen dashboard; other sections may scroll when needed. */
+body.home-mode{height:100dvh;min-height:0;overflow:hidden}
+body.home-mode .app{height:100dvh;min-height:0;overflow:hidden;padding-bottom:78px;display:flex;flex-direction:column}
+body.home-mode .topbar{flex:0 0 auto;margin-bottom:10px}
+body.home-mode #homeView{display:flex;flex:1 1 auto;min-height:0;flex-direction:column;overflow:hidden;gap:10px}
+body.home-mode #homeView .hero{flex:0 0 auto;padding:15px 17px;margin:0;border-radius:18px}
+body.home-mode #homeView .hero h1{font-size:clamp(23px,5vw,32px);margin:7px 0}
+body.home-mode #homeView .hero p{font-size:12px;line-height:1.35;margin:6px 0}
+body.home-mode #homeView .stats{margin-top:10px;gap:7px}
+body.home-mode #homeView .stat{padding:8px 10px}
+body.home-mode #homeView .stat strong{font-size:18px}
+body.home-mode #homeView .stat span{font-size:10px}
+body.home-mode #homeView .section-head{flex:0 0 auto;margin:1px 0 0}
+body.home-mode #homeView .section-head h2{font-size:16px}
+body.home-mode #homeView .section-head p{font-size:11px;margin-top:2px}
+body.home-mode #homeView #examGrid{flex:1 1 auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px}
+body.home-mode #homeView .exam-card{min-height:0;padding:10px;gap:6px;border-radius:14px;overflow:hidden}
+body.home-mode #homeView .exam-icon{width:34px;height:34px;border-radius:10px;font-size:18px}
+body.home-mode #homeView .card-top{gap:8px}
+body.home-mode #homeView .exam-card h3{font-size:13px;margin:0}
+body.home-mode #homeView .exam-card .muted{font-size:10px!important}
+body.home-mode #homeView .exam-card p{display:none}
+body.home-mode #homeView .chips{display:none}
+body.home-mode #homeView .exam-card button{padding:8px 5px;font-size:11px;border-radius:9px}
+body.home-mode #homeView .section-head:has(h2) ~ .quick-grid,
+body.home-mode #homeView .section-head:has(h2) ~ .quick-grid + .notice{display:none}
+body.home-mode .footer{display:none}
+body:not(.home-mode) .app{min-height:100dvh}
+@media(max-width:700px){
+  body.home-mode .app{padding:10px 10px 78px}
+  body.home-mode .brand{font-size:15px}
+  body.home-mode .logo{width:34px;height:34px;border-radius:11px}
+  body.home-mode .topbar{align-items:center}
+  body.home-mode .top-actions button{padding:7px 9px;font-size:12px}
+  body.home-mode #homeView .hero{padding:12px 13px}
+  body.home-mode #homeView .eyebrow{font-size:9px;letter-spacing:1px}
+  body.home-mode #homeView .hero h1{font-size:24px}
+  body.home-mode #homeView .stats{margin-top:8px}
+  body.home-mode #homeView .stat{padding:7px}
+  body.home-mode #homeView .stat strong{font-size:16px}
+  body.home-mode #homeView .exam-card{padding:8px}
 }
-* { box-sizing:border-box; }
-body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  font-size:16px;
+@media(max-height:700px){
+  body.home-mode #homeView .hero{padding:9px 12px}
+  body.home-mode #homeView .hero h1{font-size:21px;margin:5px 0}
+  body.home-mode #homeView .hero p{display:none}
+  body.home-mode #homeView .stats{margin-top:6px}
+  body.home-mode #homeView .section-head p{display:none}
 }
-body.light {
-  --bg:#f2f5fc;
-  --panel:#ffffff;
-  --panel2:#e8edf8;
-  --text:#17213b;
-  --muted:#586681;
-  --gold:#a56b00;
-  --blue:#315edb;
-  --green:#16845b;
-  --red:#d52c4b;
-  --border:#d4dced;
-}
-button,select { font:inherit; }
-button {
-  cursor:pointer;
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:11px 15px;
-  color:var(--text);
-  background:var(--panel2);
-}
-button:disabled { opacity:.4; cursor:not-allowed; }
-button:hover:not(:disabled) { filter:brightness(1.1); }
-.primary {
-  color:#111827;
-  background:var(--gold);
-  border-color:var(--gold);
-  font-weight:700;
-}
-.secondary { background:var(--panel); }
-.danger {
-  background:var(--red);
-  color:white;
-  border-color:var(--red);
-}
-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  padding:16px 5%;
-  background:var(--panel);
-  border-bottom:1px solid var(--border);
-  position:sticky;
-  top:0;
-  z-index:5;
-}
-.logo { font-size:23px; font-weight:800; }
-.logo span { color:var(--gold); }
-.header-actions { display:flex; gap:7px; flex-wrap:wrap; }
-.container { width:min(1100px,92%); margin:25px auto; }
-.hero {
-  padding:35px 24px;
-  border:1px solid var(--border);
-  border-radius:20px;
-  background:linear-gradient(135deg,var(--panel),var(--panel2));
-}
-.hero h1 { font-size:clamp(28px,5vw,44px); margin:0 0 12px; }
-.hero p,.muted { color:var(--muted); line-height:1.6; }
-.gold { color:var(--gold); }
-.section-title { margin:28px 0 14px; }
-.exam-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:15px;
-}
-.exam-card {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:20px;
-}
-.exam-card h3 { margin-top:0; }
-.exam-card p { color:var(--muted); min-height:42px; }
-.exam-card button { width:100%; margin-top:10px; }
-.stats {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-  gap:12px;
-  margin-top:20px;
-}
-.stat {
-  background:var(--panel);
-  border:1px solid var(--border);
-  padding:17px;
-  border-radius:12px;
-}
-.stat strong { display:block; font-size:24px; color:var(--gold); }
-.hidden { display:none !important; }
-.panel {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:20px;
-}
-.toolbar {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:16px;
-}
-.timer { color:var(--gold); font-size:22px; font-weight:bold; }
-.progress {
-  height:8px;
-  background:var(--panel2);
-  border-radius:10px;
-  overflow:hidden;
-  margin:12px 0 20px;
-}
-.progress div {
-  height:100%;
-  width:0;
-  background:var(--gold);
-  transition:width .2s;
-}
-.question-text {
-  font-size:20px;
-  line-height:1.55;
-  margin:15px 0 22px;
-}
-.options { display:grid; gap:10px; }
-.option {
-  width:100%;
-  text-align:left;
-  padding:15px;
-  background:var(--panel2);
-  border:1px solid var(--border);
-}
-.option.selected {
-  border:2px solid var(--blue);
-  background:var(--panel);
-}
-.option .letter { font-weight:bold; margin-right:10px; color:var(--gold); }
-.test-layout {
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 250px;
-  gap:18px;
-}
-.palette {
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  gap:8px;
-  margin-top:12px;
-}
-.pal {
-  padding:10px 0;
-  border-radius:8px;
-  text-align:center;
-}
-.pal.answered { background:var(--green); color:#061b13; }
-.pal.marked { outline:2px solid var(--gold); }
-.pal.current { border:2px solid var(--blue); }
-.legend { color:var(--muted); font-size:12px; line-height:1.8; }
-.test-actions {
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-.result-score { font-size:46px; color:var(--gold); font-weight:800; }
-.review-item {
-  border-bottom:1px solid var(--border);
-  padding:17px 0;
-  line-height:1.6;
-}
-.correct-text { color:var(--green); }
-.wrong-text { color:var(--red); }
-select {
-  background:var(--panel2);
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:10px;
-}
-footer {
-  padding:25px;
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
-}
-@media(max-width:760px) {
-  .test-layout { grid-template-columns:1fr; }
-  header { position:static; }
-  .container { width:94%; margin:16px auto; }
-  .hero { padding:25px 18px; }
-  .question-text { font-size:18px; }
-}
+
 </style>
 </head>
-
 <body>
-<header>
-  <div class="logo">TechMock <span>Pro</span></div>
-  <div class="header-actions">
-    <button class="secondary" onclick="changeFont(-1)">A−</button>
-    <button class="secondary" onclick="changeFont(1)">A+</button>
-    <button class="secondary" onclick="toggleTheme()">☼ Theme</button>
-    <button class="secondary" onclick="goHome()">Home</button>
-  </div>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">TM</div><div>TechMock <span style="color:#8e9aff">Pro</span><div class="muted" style="font-size:10px;font-weight:600;letter-spacing:1px">PRACTICE • IMPROVE • ACHIEVE</div></div></div>
+  <div class="top-actions"><button class="secondary hide" id="backBtn" title="Go back">← Back</button><button class="secondary" id="themeBtn" title="Toggle theme">☼ Theme</button><button class="secondary" id="fontBtn" title="Change text size">A+</button></div>
 </header>
 
-<main class="container">
-
-  <!-- HOME PAGE -->
-  <section id="home">
-    <div class="hero">
-      <p class="gold"><b>YOUR ONLINE EXAM PRACTICE PLATFORM</b></p>
-      <h1>Prepare smarter.<br><span class="gold">Perform better.</span></h1>
-      <p>Choose an exam, practise MCQs, track your score and review every answer.</p>
-      <button class="primary" onclick="document.getElementById('exams').scrollIntoView({behavior:'smooth'})">
-        Explore Exams ↓
-      </button>
-    </div>
-
+<section id="homeView" class="view active">
+  <div class="hero">
+    <div class="eyebrow">Your exam prep companion</div>
+    <h1>Practice smarter.<br><span style="color:#9ba6ff">Score higher.</span></h1>
+    <p>Take timed mock tests, build consistency with daily practice, and understand your performance — all in one place.</p>
     <div class="stats">
-      <div class="stat"><strong id="totalQuestions">0</strong><span class="muted">Sample Questions</span></div>
-      <div class="stat"><strong>4</strong><span class="muted">Exam Categories</span></div>
-      <div class="stat"><strong>100%</strong><span class="muted">Mobile Friendly</span></div>
+      <div class="stat"><strong id="statTests">0</strong><span>Tests completed</span></div>
+      <div class="stat"><strong id="statAvg">—</strong><span>Average score</span></div>
+      <div class="stat"><strong id="statBest">—</strong><span>Best score</span></div>
     </div>
+  </div>
+  <div class="section-head"><div><h2>Choose your exam</h2><p>Start with a short demo test.</p></div></div>
+  <div class="grid" id="examGrid"></div>
+  <div class="section-head"><div><h2>Study tools</h2><p>Keep your preparation organised.</p></div></div>
+  <div class="quick-grid">
+    <button class="quick" data-go="practice"><span>⚡</span><strong>Daily Practice</strong><small>Quick topic-wise questions</small></button>
+    <button class="quick" data-go="syllabus"><span>📚</span><strong>Syllabus</strong><small>Browse subject outlines</small></button>
+    <button class="quick" data-go="history"><span>📈</span><strong>My Performance</strong><small>Review saved attempts</small></button>
+  </div>
+  <div class="notice">Demo version: questions and scores are stored on this device only. Account login, cloud sync, verified payments and paid content require a secure backend.</div>
+</section>
 
-    <h2 class="section-title" id="exams">Choose Your Exam</h2>
-    <div class="exam-grid">
-      <div class="exam-card">
-        <h3>📘 Class 10</h3>
-        <p>Mathematics, Science and general school practice.</p>
-        <button class="primary" onclick="prepareTest('class10')">Start Practice</button>
-      </div>
-      <div class="exam-card">
-        <h3>📗 Class 12</h3>
-        <p>Mathematics, Physics and Chemistry practice.</p>
-        <button class="primary" onclick="prepareTest('class12')">Start Practice</button>
-      </div>
-      <div class="exam-card">
-        <h3>🚀 JEE Main</h3>
-        <p>Physics, Chemistry and Mathematics MCQs.</p>
-        <button class="primary" onclick="prepareTest('jeeMain')">Start Practice</button>
-      </div>
-      <div class="exam-card">
-        <h3>💻 NIMCET</h3>
-        <p>Mathematics, reasoning and computer awareness.</p>
-        <button class="primary" onclick="prepareTest('nimcet')">Start Practice</button>
-      </div>
-    </div>
-
-    <p class="muted">
-      Note: The questions included below are starter examples. Add your complete question bank
-      in the QUESTION_BANK section to build a larger mock-test library.
-    </p>
-  </section>
-
-  <!-- TEST PAGE -->
-  <section id="test" class="hidden">
-    <div class="toolbar">
-      <div>
-        <h2 id="examTitle" style="margin:0 0 5px">Mock Test</h2>
-        <span class="muted" id="testInfo">MCQ Practice</span>
-      </div>
-      <div class="timer" id="timer">10:00</div>
-    </div>
-
-    <div class="progress"><div id="progressBar"></div></div>
-
-    <div class="test-layout">
-      <div class="panel">
-        <div class="toolbar">
-          <b id="qCount">Question 1 of 1</b>
-          <span class="muted" id="qSubject">Subject</span>
-        </div>
-
-        <div id="questionText" class="question-text"></div>
-        <div id="options" class="options"></div>
-
-        <div class="test-actions">
-          <button onclick="previousQuestion()" id="prevBtn">← Previous</button>
-          <button onclick="toggleMark()" id="markBtn">☆ Mark for Review</button>
-          <button class="primary" onclick="nextQuestion()" id="nextBtn">Save & Next →</button>
-          <button class="danger" onclick="confirmSubmit()">Submit Test</button>
-        </div>
-      </div>
-
-      <aside class="panel">
-        <h3 style="margin-top:0">Question Palette</h3>
-        <div class="legend">
-          <span class="correct-text">● Answered</span><br>
-          <span class="gold">● Marked for review</span><br>
-          <span>● Not answered</span><br>
-          <span style="color:var(--blue)">● Current question</span>
-        </div>
-        <div id="palette" class="palette"></div>
-        <button class="primary" style="width:100%;margin-top:18px" onclick="confirmSubmit()">
-          Finish Test
-        </button>
-      </aside>
-    </div>
-  </section>
-
-  <!-- RESULT PAGE -->
-  <section id="result" class="hidden">
+<section id="testView" class="view">
+  <div class="toolbar"><button class="secondary" id="exitTest">← Dashboard</button><div><strong id="testExamName">Mock Test</strong><div class="muted" id="testSub" style="font-size:12px">Demo test</div></div><div class="timer" id="timer">05:00</div></div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <div class="test-layout">
     <div class="panel">
-      <p class="gold"><b>TEST COMPLETED</b></p>
-      <h1>Your Result</h1>
-      <div class="result-score" id="scorePercent">0%</div>
-      <p id="resultMessage" class="muted"></p>
-
-      <div class="stats">
-        <div class="stat"><strong id="correctCount">0</strong><span class="muted">Correct</span></div>
-        <div class="stat"><strong id="wrongCount">0</strong><span class="muted">Incorrect</span></div>
-        <div class="stat"><strong id="unansweredCount">0</strong><span class="muted">Unanswered</span></div>
-        <div class="stat"><strong id="finalScore">0/0</strong><span class="muted">Score</span></div>
-      </div>
-
-      <div class="test-actions">
-        <button class="primary" onclick="showReview()">Review Answers</button>
-        <button onclick="restartTest()">Retake Test</button>
-        <button onclick="goHome()">Back to Home</button>
-      </div>
+      <div class="question-meta"><span id="questionCounter">Question 1 of 5</span><span id="questionMarks">+4 / -1</span></div>
+      <div class="question-text" id="questionText"></div>
+      <div class="options" id="options"></div>
+      <div class="test-nav"><button class="secondary" id="prevBtn">← Previous</button><button class="secondary" id="reviewBtn">☆ Mark review</button><button class="primary" id="nextBtn">Next →</button></div>
     </div>
+    <aside class="panel palette-panel">
+      <strong>Question palette</strong><div class="muted" style="font-size:12px;margin-top:5px">Tap a number to jump.</div>
+      <div class="palette" id="palette"></div>
+      <div class="legend"><span class="lg-a">Answered</span><span class="lg-r">Marked for review</span><span>Not answered</span></div>
+      <button class="primary" style="width:100%;margin-top:18px" id="submitBtn">Submit test</button>
+    </aside>
+  </div>
+</section>
 
-    <div id="review" class="panel hidden" style="margin-top:20px">
-      <h2>Answer Review</h2>
-      <div id="reviewList"></div>
+<section id="resultView" class="view">
+  <div class="panel">
+    <div class="eyebrow">Test completed</div><h1 style="margin:8px 0">Your result</h1><div class="muted" id="resultExam"></div>
+    <div class="result-score" id="scoreValue">0/20</div><div class="muted" id="scoreMessage"></div>
+    <div class="result-grid" style="margin-top:22px">
+      <div class="result-box"><strong id="correctCount">0</strong><span>Correct</span></div>
+      <div class="result-box"><strong id="wrongCount">0</strong><span>Incorrect</span></div>
+      <div class="result-box"><strong id="unansweredCount">0</strong><span>Unanswered</span></div>
     </div>
-  </section>
-</main>
+    <div class="test-nav"><button class="secondary" id="homeFromResult">Dashboard</button><button class="secondary" id="reviewAnswersBtn">Review answers</button><button class="primary" id="retryBtn">Try again</button></div>
+  </div>
+  <div class="panel" id="answerReview" style="margin-top:15px;display:none"><h2>Answer explanations</h2><div id="reviewList"></div></div>
+</section>
 
-<footer>TechMock Pro · Practice consistently and improve step by step.</footer>
+<section id="practiceView" class="view">
+  <div class="toolbar"><button class="secondary" data-home>← Dashboard</button><h2 style="margin:0">Daily Practice</h2></div>
+  <div class="grid">
+    <div class="exam-card"><div class="card-top"><div class="exam-icon">🧮</div><div><h3>Quantitative Aptitude</h3><p>Maths, arithmetic and algebra</p></div></div><button class="primary" data-practice="math">Practice now</button></div>
+    <div class="exam-card"><div class="card-top"><div class="exam-icon">🧠</div><div><h3>Logical Reasoning</h3><p>Patterns, logic and problem solving</p></div></div><button class="primary" data-practice="reasoning">Practice now</button></div>
+    <div class="exam-card"><div class="card-top"><div class="exam-icon">💻</div><div><h3>Computer Awareness</h3><p>Computer fundamentals</p></div></div><button class="primary" data-practice="computer">Practice now</button></div>
+    <div class="exam-card"><div class="card-top"><div class="exam-icon">📖</div><div><h3>English</h3><p>Grammar and vocabulary</p></div></div><button class="primary" data-practice="english">Practice now</button></div>
+  </div>
+</section>
 
-<script>
-/* =========================================================
-   QUESTION BANK
-   correct is the zero-based option index:
-   0 = A, 1 = B, 2 = C, 3 = D
-   ========================================================= */
+<section id="syllabusView" class="view">
+  <div class="toolbar"><button class="secondary" data-home>← Dashboard</button><h2 style="margin:0">Syllabus outline</h2></div>
+  <div class="panel">
+    <h3>Class 10</h3><p class="muted">Mathematics, Science, Social Science, English and Hindi.</p><hr style="border-color:var(--border)">
+    <h3>Class 12</h3><p class="muted">Physics, Chemistry, Mathematics/Biology, English and relevant electives.</p><hr style="border-color:var(--border)">
+    <h3>JEE Main</h3><p class="muted">Physics, Chemistry and Mathematics: core concepts, formulas and problem solving.</p><hr style="border-color:var(--border)">
+    <h3>NIMCET</h3><p class="muted">Mathematics, Analytical Ability & Logical Reasoning, Computer Awareness and General English.</p>
+    <div class="notice">This is a general outline for the demo. Always verify topics and exam patterns against the latest official exam notification.</div>
+  </div>
+</section>
 
-const QUESTION_BANK = {
-  class10: [
-    {
-      subject:"Mathematics",
-      q:"What is the value of 7 × 8?",
-      options:["48","54","56","64"],
-      correct:2,
-      explain:"7 × 8 = 56."
-    },
-    {
-      subject:"Mathematics",
-      q:"Solve: 2x + 6 = 16.",
-      options:["3","4","5","6"],
-      correct:2,
-      explain:"2x = 16 − 6 = 10, so x = 5."
-    },
-    {
-      subject:"Science",
-      q:"What is the chemical formula of water?",
-      options:["CO₂","H₂O","O₂","NaCl"],
-      correct:1,
-      explain:"A water molecule contains two hydrogen atoms and one oxygen atom."
-    },
-    {
-      subject:"Science",
-      q:"Which planet is known as the Red Planet?",
-      options:["Venus","Jupiter","Mars","Mercury"],
-      correct:2,
-      explain:"Mars is commonly called the Red Planet."
-    },
-    {
-      subject:"Mathematics",
-      q:"What is the square of 12?",
-      options:["124","144","132","122"],
-      correct:1,
-      explain:"12² = 12 × 12 = 144."
-    }
-  ],
+<section id="historyView" class="view">
+  <div class="toolbar"><button class="secondary" data-home>← Dashboard</button><h2 style="margin:0">My Performance</h2></div>
+  <div class="panel"><div class="toolbar"><div><strong>Recent attempts</strong><div class="muted" style="font-size:12px">Saved locally on this device</div></div><button class="danger" id="clearHistory">Clear history</button></div><div id="historyList"></div></div>
+</section>
 
-  class12: [
-    {
-      subject:"Mathematics",
-      q:"What is the derivative of x² with respect to x?",
-      options:["x","2x","x³","2"],
-      correct:1,
-      explain:"Using the power rule, d(xⁿ)/dx = nxⁿ⁻¹. Therefore, the derivative is 2x."
-    },
-    {
-      subject:"Physics",
-      q:"What is the SI unit of electric current?",
-      options:["Volt","Ohm","Ampere","Watt"],
-      correct:2,
-      explain:"Electric current is measured in amperes (A)."
-    },
-    {
-      subject:"Chemistry",
-      q:"A solution with pH 7 at approximately 25°C is:",
-      options:["Acidic","Neutral","Basic","Always concentrated"],
-      correct:1,
-      explain:"At approximately 25°C, a neutral aqueous solution has pH 7."
-    },
-    {
-      subject:"Mathematics",
-      q:"What is the value of sin 90°?",
-      options:["0","1","−1","1/2"],
-      correct:1,
-      explain:"sin 90° = 1."
-    },
-    {
-      subject:"Physics",
-      q:"The SI unit of power is:",
-      options:["Joule","Newton","Watt","Pascal"],
-      correct:2,
-      explain:"Power is measured in watts."
-    }
-  ],
+<section id="profileView" class="view">
+  <div class="section-head" style="margin-top:5px"><div><h2>My Profile</h2><p>Your local study profile</p></div></div>
+  <div class="panel">
+    <div class="card-top" style="margin-bottom:18px"><div class="profile-avatar">S</div><div style="flex:1"><h3 id="profileNameDisplay" style="margin:0 0 5px">Student</h3><p class="muted" style="margin:0;font-size:13px">Mock test learner</p></div></div>
+    <label for="profileName" class="muted" style="font-size:12px;display:block;margin-bottom:7px">Your display name</label>
+    <input id="profileName" type="text" maxlength="35" placeholder="Enter your name" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:12px">
+    <button class="primary" id="saveProfile" style="width:100%">Save profile</button>
+    <div class="notice">This profile is stored only in this browser on this device. Secure accounts and syncing across devices will be added with the backend.</div>
+  </div>
 
-  jeeMain: [
-    {
-      subject:"Mathematics",
-      q:"If f(x) = x³, then f′(x) is:",
-      options:["x²","2x","3x²","3x"],
-      correct:2,
-      explain:"By the power rule, d(x³)/dx = 3x²."
-    },
-    {
-      subject:"Physics",
-      q:"The SI unit of force is:",
-      options:["Joule","Newton","Watt","Tesla"],
-      correct:1,
-      explain:"Force is measured in newtons (N)."
-    },
-    {
-      subject:"Chemistry",
-      q:"The atomic number of carbon is:",
-      options:["4","6","8","12"],
-      correct:1,
-      explain:"Carbon has 6 protons, so its atomic number is 6."
-    },
-    {
-      subject:"Mathematics",
-      q:"What is the determinant of [[1, 2], [3, 4]]?",
-      options:["2","−2","10","−10"],
-      correct:1,
-      explain:"The determinant is (1 × 4) − (2 × 3) = 4 − 6 = −2."
-    },
-    {
-      subject:"Physics",
-      q:"If velocity is constant, acceleration is:",
-      options:["Zero","Constant but non-zero","Increasing","Infinite"],
-      correct:0,
-      explain:"With constant velocity, the change in velocity is zero, so acceleration is zero."
-    }
-  ],
-
-  nimcet: [
-    {
-      subject:"Mathematics",
-      q:"If x + 5 = 12, then x equals:",
-      options:["5","6","7","8"],
-      correct:2,
-      explain:"Subtract 5 from both sides: x = 12 − 5 = 7."
-    },
-    {
-      subject:"Logical Reasoning",
-      q:"Find the next number: 2, 4, 8, 16, __.",
-      options:["18","24","30","32"],
-      correct:3,
-      explain:"Each number is multiplied by 2. The next number is 16 × 2 = 32."
-    },
-    {
-      subject:"Computer Awareness",
-      q:"Which of these is commonly used to write and run programs?",
-      options:["Compiler","Monitor","Keyboard only","Speaker"],
-      correct:0,
-      explain:"A compiler translates source code into another form, often machine code or an intermediate representation."
-    },
-    {
-      subject:"Mathematics",
-      q:"What is the value of 5! (5 factorial)?",
-      options:["25","60","120","720"],
-      correct:2,
-      explain:"5! = 5 × 4 × 3 × 2 × 1 = 120."
-    },
-    {
-      subject:"Computer Awareness",
-      q:"Which one is a programming language?",
-      options:["HTML only","C","Monitor","Mouse"],
-      correct:1,
-      explain:"C is a general-purpose programming language."
-    }
-  ]
-};
-
-/* =========================================================
-   TEST ENGINE — defined only once
-   ========================================================= */
-
-const EXAM_NAMES = {
-  class10:"Class 10 Practice Test",
-  class12:"Class 12 Practice Test",
-  jeeMain:"JEE Main Practice Test",
-  nimcet:"NIMCET Practice Test"
-};
-
-let activeExam = "nimcet";
-let questions = [];
-let current = 0;
-let answers = [];
-let marked = [];
-let timeLeft = 600;
-let timerInterval = null;
-let testFinished = false;
-let baseFont = 16;
-
-function $(id) {
-  return document.getElementById(id);
-}
-
-function showPage(page) {
-  ["home","test","result"].forEach(id => $(id).classList.add("hidden"));
-  $(page).classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function prepareTest(exam) {
-  if (!QUESTION_BANK[exam] || QUESTION_BANK[exam].length === 0) {
-    alert("Is exam ke liye abhi questions add nahi kiye gaye hain.");
-    return;
-  }
-
-  clearInterval(timerInterval);
-
-  activeExam = exam;
-  questions = QUESTION_BANK[exam].map(q => ({
-    ...q,
-    options:[...q.options]
-  }));
-
-  current = 0;
-  answers = Array(questions.length).fill(null);
-  marked = Array(questions.length).fill(false);
-  timeLeft = 600;
-  testFinished = false;
-
-  $("examTitle").textContent = EXAM_NAMES[exam];
-  $("testInfo").textContent =
-    questions.length + " questions · 10 minutes · Practice mode";
-
-  showPage("test");
-  renderQuestion();
-  startTimer();
-}
-
-function renderQuestion() {
-  if (!questions.length || testFinished) return;
-
-  const q = questions[current];
-
-  $("qCount").textContent =
-    "Question " + (current + 1) + " of " + questions.length;
-  $("qSubject").textContent = q.subject || "General";
-  $("questionText").textContent = q.q;
-
-  $("options").innerHTML = "";
-
-  q.options.forEach((option,index) => {
-    const btn = document.createElement("button");
-    btn.className = "option" + (answers[current] === index ? " selected" : "");
-    btn.innerHTML =
-      '<span class="letter">' + String.fromCharCode(65 + index) +
-      '.</span><span></span>';
-    btn.querySelector("span:last-child").textContent = option;
-    btn.onclick = () => selectAnswer(index);
-    $("options").appendChild(btn);
-  });
-
-  $("prevBtn").disabled = current === 0;
-  $("nextBtn").textContent =
-    current === questions.length - 1 ? "Save Answer" : "Save & Next →";
-
-  $("markBtn").textContent = marked[current]
-    ? "★ Remove Review Mark"
-    : "☆ Mark for Review";
-
-  $("progressBar").style.width =
-    (((current + 1) / questions.length) * 100) + "%";
-
-  renderPalette();
-}
-
-function selectAnswer(index) {
-  if (testFinished) return;
-  answers[current] = index;
-  renderQuestion();
-}
-
-function previousQuestion() {
-  if (current > 0) {
-    current--;
-    renderQuestion();
-  }
-}
-
-function nextQuestion() {
-  if (current < questions.length - 1) {
-    current++;
-    renderQuestion();
-  } else {
-    renderPalette();
-    alert("Last question. You can review your answers or submit the test.");
-  }
-}
-
-function toggleMark() {
-  marked[current] = !marked[current];
-  renderQuestion();
-}
-
-function renderPalette() {
-  const palette = $("palette");
-  palette.innerHTML = "";
-
-  questions.forEach((q,index) => {
-    const btn = document.createElement("button");
-    btn.className = "pal";
-
-    if (answers[index] !== null) btn.classList.add("answered");
-    if (marked[index]) btn.classList.add("marked");
-    if (index === current) btn.classList.add("current");
-
-    btn.textContent = index + 1;
-    btn.title = "Question " + (index + 1);
-
-    btn.onclick = () => {
-      current = index;
-      renderQuestion();
-    };
-
-    palette.appendChild(btn);
-  });
-}
-
-function startTimer() {
-  clearInterval(timerInterval);
-  updateTimer();
-
-  timerInterval = setInterval(() => {
-    if (testFinished) {
-      clearInterval(timerInterval);
-      return;
-    }
-
-    timeLeft--;
-    updateTimer();
-
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      submitTest(true);
-    }
-  },1000);
-}
-
-function updateTimer() {
-  const minutes = Math.floor(Math.max(0,timeLeft) / 60);
-  const seconds = Math.max(0,timeLeft) % 60;
-
-  $("timer").textContent =
-    String(minutes).padStart(2,"0") + ":" +
-    String(seconds).padStart(2,"0");
-
-  $("timer").style.color = timeLeft <= 60
-    ? "var(--red)"
-    : "var(--gold)";
-}
-
-function confirmSubmit() {
-  if (testFinished) return;
-
-  const unanswered = answers.filter(a => a === null).length;
-
-  const message = unanswered
-    ? "You have " + unanswered + " unanswered question(s). Submit anyway?"
-    : "Are you sure you want to submit your test?";
-
-  if (confirm(message)) submitTest(false);
-}
-
-function submitTest(autoSubmitted) {
-  if (testFinished) return;
-
-  testFinished = true;
-  clearInterval(timerInterval);
-
-  let correct = 0;
-  let wrong = 0;
-  let unanswered = 0;
-
-  questions.forEach((q,index) => {
-    if (answers[index] === null) {
-      unanswered++;
-    } else if (answers[index] === q.correct) {
-      correct++;
-    } else {
-      wrong++;
-    }
-  });
-
-  const percent = Math.round((correct / questions.length) * 100);
-
-  $("scorePercent").textContent = percent + "%";
-  $("correctCount").textContent = correct;
-  $("wrongCount").textContent = wrong;
-  $("unansweredCount").textContent = un
+  <div class="panel" style="margin-top:14px">
+    <h3 style="margin-top:0">Login / Student account</h3>
+    <p class="muted" style="font-size:12px">Demo login is saved on this device only. Real secure login needs a backend.</p>
+    <label class="muted" for="loginEmail" style="display:block;font-size:12px;margin:8px 0 5px">Email or mobile</label>
+    <input id="loginEmail" type="text" autocomplete="username" placeholder="Email or mobile number" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:10
