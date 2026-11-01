@@ -7,67 +7,16 @@
 <title>TechMock Pro | All Exams</title>
 <style>
 :root{--bg:#0b1020;--panel:#121a2d;--panel2:#18233b;--text:#f4f7ff;--muted:#9aa8c4;--accent:#6d7cff;--accent2:#24c6a5;--border:#293550;--danger:#ff6b7a;--warning:#ffc857}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top right,#192752 0,#0b1020 45%);color:var(--text);min-height:100vh;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700;transition:.15s}button:active{transform:scale(.98)}.primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white}.secondary{background:var(--panel2);border:1px solid var(--border);color:var(--text)}.success{background:var(--accent2);color:#06231d}.danger{background:#4a2030;color:#ffd9df;border:1px solid #743247}.muted{color:var(--muted)}.app{max-width:1100px;margin:auto;padding:18px 18px 100px;min-height:100vh}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#6d7cff,#24c6a5);color:white}.top-actions{display:flex;gap:8px}.hero{padding:28px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(135deg,rgba(109,124,255,.18),rgba(36,198,165,.08));margin-bottom:22px}.eyebrow{color:#aeb8ff;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.08;margin:12px 0}.hero p{max-width:620px;color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{padding:14px;border-radius:15px;background:rgba(10,16,32,.45);border:1px solid var(--border)}.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 14px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.exam-card,.panel{background:rgba(18,26,45,.94);border:1px solid var(--border);border-radius:19px;padding:18px}.exam-card{display:flex;flex-direction:column;gap:12px}.card-top{display:flex;align-items:center;gap:12px}.exam-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:var(--panel2);font-size:24px}.exam-card h3{margin:0 0 4px}.exam-card p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:5px 9px;border:1px solid var(--border);border-radius:999px;color:#c5cee4;font-size:11px}.exam-card button{margin-top:auto;width:100%}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:15px;text-align:left;color:var(--text)}.quick span{display:block;font-size:23px;margin-bottom:8px}.quick strong{display:block;font-size:13px}.quick small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}.view{display:none}.view.active{display:block;animation:screenIn .18s ease}@keyframes screenIn{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.timer{padding:10px 13px;background:#2c2030;border:1px solid #61364b;color:#ffb5c0;border-radius:12px;font-weight:900;font-variant-numeric:tabular-nums}.progress{height:7px;background:#26314a;border-radius:99px;overflow:hidden;margin:12px 0 20px}.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .2s}.test-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:15px}.question-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.question-text{font-size:20px;line-height:1.5;margin:22px 0}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:#151f35;border:1px solid #2b3855;color:var(--text);padding:13px}.option .letter{width:28px;height:28px;flex-shrink:0;display:grid;place-items:center;border:1px solid #405071;border-radius:9px;color:#c9d4ef}.option.selected{border-color:var(--accent);background:#242b55}.option.selected .letter{background:var(--accent);border-color:var(--accent);color:white}.test-nav{display:flex;justify-content:space-between;gap:8px;margin-top:20px}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0 18px}.pal{padding:8px 0;border-radius:8px;background:#222d45;border:1px solid #35425f;color:#dbe4ff;font-size:12px}.pal.current{outline:2px solid var(--accent)}.pal.answered{background:#145a50;border-color:#258b7b}.pal.review{background:#694d19;border-color:#a57c27}.legend{font-size:11px;color:var(--muted);display:grid;gap:8px}.legend span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px;background:#222d45}.legend .lg-a:before{background:#145a50}.legend .lg-r:before{background:#694d19}.result-score{font-size:50px;font-weight:950;margin:10px 0}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.result-box{background:var(--panel2);padding:14px;border-radius:14px}.result-box strong{display:block;font-size:22px}.result-box span{font-size:12px;color:var(--muted)}.review-item{padding:15px 0;border-bottom:1px solid var(--border)}.review-item:last-child{border:0}.correct{color:#55e0bd}.incorrect{color:#ff8795}.history-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--border)}.history-row:last-child{border:0}.empty{padding:25px;text-align:center;color:var(--muted)}.notice{border:1px solid #665326;background:#322a19;color:#ffe3a1;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:15px}.footer{text-align:center;color:#6f7e9b;font-size:12px;padding:18px 0 10px}.hide{display:none!important}.bottom-nav{position:fixed;z-index:1000;left:0;right:0;bottom:0;padding:8px max(10px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));background:rgba(10,15,29,.96);backdrop-filter:blur(18px);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:1100px;margin:0 auto}.nav-btn{background:transparent;color:var(--muted);padding:7px 3px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;min-height:52px}.nav-btn .nav-icon{font-size:20px;line-height:1.1}.nav-btn.active{background:rgba(109,124,255,.18);color:#b9c0ff}.nav-btn.active .nav-icon{filter:drop-shadow(0 0 5px rgba(109,124,255,.3))}.screen-title{display:flex;align-items:center;gap:10px}.screen-title h2{margin:0}textarea{font:inherit}.profile-avatar{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));font-size:28px;font-weight:900}
-@media(max-width:700px){.app{padding:13px 13px 95px}.hero{padding:21px}.grid{grid-template-columns:1fr}.test-layout{grid-template-columns:1fr}.palette-panel{order:-1}.palette{grid-template-columns:repeat(8,1fr)}.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:18px}.quick-grid{grid-template-columns:repeat(3,1fr)}.quick{padding:11px}.quick strong{font-size:12px}.topbar{align-items:flex-start}.brand{font-size:17px}.top-actions button{padding:9px 10px}.question-text{font-size:18px}.result-grid{gap:7px}.hero{margin-bottom:15px}.section-head{margin:18px 0 12px}.exam-card{padding:15px}.result-box{padding:11px}.result-box strong{font-size:19px}}
-@media(max-width:380px){.top-actions{gap:4px}.top-actions button{padding:7px 8px;font-size:11px}.quick-grid{grid-template-columns:1fr}.quick{display:flex;gap:12px;align-items:center}.quick span{margin:0}.palette{grid-template-columns:repeat(6,1fr)}}
-
-/* Home is a single-screen dashboard; other sections may scroll when needed. */
-body.home-mode{height:100dvh;min-height:0;overflow:hidden}
-body.home-mode .app{height:100dvh;min-height:0;overflow:hidden;padding-bottom:78px;display:flex;flex-direction:column}
-body.home-mode .topbar{flex:0 0 auto;margin-bottom:10px}
-body.home-mode #homeView{display:flex;flex:1 1 auto;min-height:0;flex-direction:column;overflow:hidden;gap:10px}
-body.home-mode #homeView .hero{flex:0 0 auto;padding:15px 17px;margin:0;border-radius:18px}
-body.home-mode #homeView .hero h1{font-size:clamp(23px,5vw,32px);margin:7px 0}
-body.home-mode #homeView .hero p{font-size:12px;line-height:1.35;margin:6px 0}
-body.home-mode #homeView .stats{margin-top:10px;gap:7px}
-body.home-mode #homeView .stat{padding:8px 10px}
-body.home-mode #homeView .stat strong{font-size:18px}
-body.home-mode #homeView .stat span{font-size:10px}
-body.home-mode #homeView .section-head{flex:0 0 auto;margin:1px 0 0}
-body.home-mode #homeView .section-head h2{font-size:16px}
-body.home-mode #homeView .section-head p{font-size:11px;margin-top:2px}
-body.home-mode #homeView #examGrid{flex:1 1 auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px}
-body.home-mode #homeView .exam-card{min-height:0;padding:10px;gap:6px;border-radius:14px;overflow:hidden}
-body.home-mode #homeView .exam-icon{width:34px;height:34px;border-radius:10px;font-size:18px}
-body.home-mode #homeView .card-top{gap:8px}
-body.home-mode #homeView .exam-card h3{font-size:13px;margin:0}
-body.home-mode #homeView .exam-card .muted{font-size:10px!important}
-body.home-mode #homeView .exam-card p{display:none}
-body.home-mode #homeView .chips{display:none}
-body.home-mode #homeView .exam-card button{padding:8px 5px;font-size:11px;border-radius:9px}
-body.home-mode #homeView .section-head:has(h2) ~ .quick-grid,
-body.home-mode #homeView .section-head:has(h2) ~ .quick-grid + .notice{display:none}
-body.home-mode .footer{display:none}
-body:not(.home-mode) .app{min-height:100dvh}
-@media(max-width:700px){
-  body.home-mode .app{padding:10px 10px 78px}
-  body.home-mode .brand{font-size:15px}
-  body.home-mode .logo{width:34px;height:34px;border-radius:11px}
-  body.home-mode .topbar{align-items:center}
-  body.home-mode .top-actions button{padding:7px 9px;font-size:12px}
-  body.home-mode #homeView .hero{padding:12px 13px}
-  body.home-mode #homeView .eyebrow{font-size:9px;letter-spacing:1px}
-  body.home-mode #homeView .hero h1{font-size:24px}
-  body.home-mode #homeView .stats{margin-top:8px}
-  body.home-mode #homeView .stat{padding:7px}
-  body.home-mode #homeView .stat strong{font-size:16px}
-  body.home-mode #homeView .exam-card{padding:8px}
-}
-@media(max-height:700px){
-  body.home-mode #homeView .hero{padding:9px 12px}
-  body.home-mode #homeView .hero h1{font-size:21px;margin:5px 0}
-  body.home-mode #homeView .hero p{display:none}
-  body.home-mode #homeView .stats{margin-top:6px}
-  body.home-mode #homeView .section-head p{display:none}
-}
-
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top right,#192752 0,#0b1020 45%);color:var(--text);min-height:100vh}button,input{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700;transition:.15s}button:active{transform:scale(.98)}.primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:white}.secondary{background:var(--panel2);border:1px solid var(--border);color:var(--text)}.success{background:var(--accent2);color:#06231d}.danger{background:#4a2030;color:#ffd9df;border:1px solid #743247}.muted{color:var(--muted)}.app{max-width:1100px;margin:auto;padding:18px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.logo{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#6d7cff,#24c6a5);color:white}.top-actions{display:flex;gap:8px}.hero{padding:28px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(135deg,rgba(109,124,255,.18),rgba(36,198,165,.08));margin-bottom:22px}.eyebrow{color:#aeb8ff;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.08;margin:12px 0}.hero p{max-width:620px;color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{padding:14px;border-radius:15px;background:rgba(10,16,32,.45);border:1px solid var(--border)}.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 14px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.exam-card,.panel{background:rgba(18,26,45,.94);border:1px solid var(--border);border-radius:19px;padding:18px}.exam-card{display:flex;flex-direction:column;gap:12px}.card-top{display:flex;align-items:center;gap:12px}.exam-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:var(--panel2);font-size:24px}.exam-card h3{margin:0 0 4px}.exam-card p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:5px 9px;border:1px solid var(--border);border-radius:999px;color:#c5cee4;font-size:11px}.exam-card button{margin-top:auto;width:100%}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:15px;text-align:left;color:var(--text)}.quick span{display:block;font-size:23px;margin-bottom:8px}.quick strong{display:block;font-size:13px}.quick small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}.view{display:none}.view.active{display:block}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.timer{padding:10px 13px;background:#2c2030;border:1px solid #61364b;color:#ffb5c0;border-radius:12px;font-weight:900;font-variant-numeric:tabular-nums}.progress{height:7px;background:#26314a;border-radius:99px;overflow:hidden;margin:12px 0 20px}.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .2s}.test-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:15px}.question-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.question-text{font-size:20px;line-height:1.5;margin:22px 0}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:#151f35;border:1px solid #2b3855;color:var(--text);padding:13px}.option .letter{width:28px;height:28px;flex-shrink:0;display:grid;place-items:center;border:1px solid #405071;border-radius:9px;color:#c9d4ef}.option.selected{border-color:var(--accent);background:#242b55}.option.selected .letter{background:var(--accent);border-color:var(--accent);color:white}.test-nav{display:flex;justify-content:space-between;gap:8px;margin-top:20px}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0 18px}.pal{padding:8px 0;border-radius:8px;background:#222d45;border:1px solid #35425f;color:#dbe4ff;font-size:12px}.pal.current{outline:2px solid var(--accent)}.pal.answered{background:#145a50;border-color:#258b7b}.pal.review{background:#694d19;border-color:#a57c27}.legend{font-size:11px;color:var(--muted);display:grid;gap:8px}.legend span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px;background:#222d45}.legend .lg-a:before{background:#145a50}.legend .lg-r:before{background:#694d19}.result-score{font-size:50px;font-weight:950;margin:10px 0}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.result-box{background:var(--panel2);padding:14px;border-radius:14px}.result-box strong{display:block;font-size:22px}.result-box span{font-size:12px;color:var(--muted)}.review-item{padding:15px 0;border-bottom:1px solid var(--border)}.review-item:last-child{border:0}.correct{color:#55e0bd}.incorrect{color:#ff8795}.history-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--border)}.history-row:last-child{border:0}.empty{padding:25px;text-align:center;color:var(--muted)}.notice{border:1px solid #665326;background:#322a19;color:#ffe3a1;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:15px}.footer{text-align:center;color:#6f7e9b;font-size:12px;padding:28px 0 10px}.hide{display:none!important}
+@media(max-width:700px){.app{padding:13px}.hero{padding:21px}.grid{grid-template-columns:1fr}.test-layout{grid-template-columns:1fr}.palette-panel{order:-1}.palette{grid-template-columns:repeat(8,1fr)}.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:18px}.quick-grid{grid-template-columns:repeat(3,1fr)}.quick{padding:11px}.quick strong{font-size:12px}.topbar{align-items:flex-start}.brand{font-size:17px}.top-actions button{padding:9px 10px}.question-text{font-size:18px}.result-grid{gap:7px}.result-box{padding:11px}.result-box strong{font-size:19px}}
+@media(max-width:380px){.quick-grid{grid-template-columns:1fr}.quick{display:flex;gap:12px;align-items:center}.quick span{margin:0}.palette{grid-template-columns:repeat(6,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
   <div class="brand"><div class="logo">TM</div><div>TechMock <span style="color:#8e9aff">Pro</span><div class="muted" style="font-size:10px;font-weight:600;letter-spacing:1px">PRACTICE • IMPROVE • ACHIEVE</div></div></div>
-  <div class="top-actions"><button class="secondary hide" id="backBtn" title="Go back">← Back</button><button class="secondary" id="themeBtn" title="Toggle theme">☼ Theme</button><button class="secondary" id="fontBtn" title="Change text size">A+</button></div>
+  <div class="top-actions"><button class="secondary" id="themeBtn" title="Toggle theme">☼ Theme</button><button class="secondary" id="fontBtn" title="Change text size">A+</button></div>
 </header>
 
 <section id="homeView" class="view active">
@@ -150,19 +99,53 @@ body:not(.home-mode) .app{min-height:100dvh}
   <div class="toolbar"><button class="secondary" data-home>← Dashboard</button><h2 style="margin:0">My Performance</h2></div>
   <div class="panel"><div class="toolbar"><div><strong>Recent attempts</strong><div class="muted" style="font-size:12px">Saved locally on this device</div></div><button class="danger" id="clearHistory">Clear history</button></div><div id="historyList"></div></div>
 </section>
-
-<section id="profileView" class="view">
-  <div class="section-head" style="margin-top:5px"><div><h2>My Profile</h2><p>Your local study profile</p></div></div>
-  <div class="panel">
-    <div class="card-top" style="margin-bottom:18px"><div class="profile-avatar">S</div><div style="flex:1"><h3 id="profileNameDisplay" style="margin:0 0 5px">Student</h3><p class="muted" style="margin:0;font-size:13px">Mock test learner</p></div></div>
-    <label for="profileName" class="muted" style="font-size:12px;display:block;margin-bottom:7px">Your display name</label>
-    <input id="profileName" type="text" maxlength="35" placeholder="Enter your name" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:12px">
-    <button class="primary" id="saveProfile" style="width:100%">Save profile</button>
-    <div class="notice">This profile is stored only in this browser on this device. Secure accounts and syncing across devices will be added with the backend.</div>
-  </div>
-
-  <div class="panel" style="margin-top:14px">
-    <h3 style="margin-top:0">Login / Student account</h3>
-    <p class="muted" style="font-size:12px">Demo login is saved on this device only. Real secure login needs a backend.</p>
-    <label class="muted" for="loginEmail" style="display:block;font-size:12px;margin:8px 0 5px">Email or mobile</label>
-    <input id="loginEmail" type="text" autocomplete="username" placeholder="Email or mobile number" style="width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--panel2);color:var(--text);margin-bottom:10
+<div class="footer">TechMock Pro • Demo frontend • Built for learning</div>
+</div>
+<script>
+const EXAMS = [
+ {id:"class10",name:"Class 10",icon:"🎒",desc:"Practice school-level core subjects.",duration:5,questions:[
+  q("math","What is 15% of 200?",["20","25","30","35"],2,"15% × 200 = 30."),
+  q("math","Solve: 3x + 5 = 20.",["3","5","7","10"],1,"3x = 15, so x = 5."),
+  q("science","Which gas do plants absorb during photosynthesis?",["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],2,"Plants use carbon dioxide during photosynthesis."),
+  q("science","What is the SI unit of force?",["Joule","Newton","Watt","Pascal"],1,"Force is measured in newtons."),
+  q("reasoning","Find the next number: 2, 4, 8, 16, __.",["18","24","30","32"],3,"Each number doubles, so the next is 32.")
+ ]},
+ {id:"class12",name:"Class 12",icon:"🎓",desc:"Revise important senior-secondary concepts.",duration:5,questions:[
+  q("math","The derivative of x² is:",["x","2x","x³","2"],1,"Using the power rule, d(x²)/dx = 2x."),
+  q("physics","The SI unit of electric current is:",["Volt","Ohm","Ampere","Coulomb"],2,"Electric current is measured in amperes."),
+  q("chemistry","The pH of a neutral solution at 25°C is:",["0","5","7","14"],2,"A neutral solution has pH 7 at 25°C."),
+  q("math","If sin 30° = ?",["0","1/2","√3/2","1"],1,"sin 30° equals 1/2."),
+  q("physics","Which quantity is measured in joules?",["Power","Energy","Current","Resistance"],1,"The joule is the SI unit of energy.")
+ ]},
+ {id:"jee",name:"JEE Main",icon:"🚀",desc:"Build speed with PCM-style questions.",duration:5,questions:[
+  q("physics","Dimensional formula of force is:",["MLT⁻¹","MLT⁻²","ML²T⁻²","M⁰LT⁻²"],1,"Force = mass × acceleration, so MLT⁻²."),
+  q("chemistry","Atomic number equals the number of:",["Neutrons","Protons","Nucleons","Shells"],1,"Atomic number is the number of protons."),
+  q("math","The value of (a+b)² is:",["a²+b²","a²+2ab+b²","a²−2ab+b²","2a+2b"],1,"Expand the square to get a² + 2ab + b²."),
+  q("physics","For a body moving at constant velocity, net force is:",["Zero","Constant nonzero","Increasing","Infinite"],0,"With zero acceleration, net force is zero."),
+  q("chemistry","A covalent bond involves:",["Transfer of protons","Sharing of electrons","Sharing of neutrons","Transfer of nuclei"],1,"Covalent bonds form by sharing electron pairs.")
+ ]},
+ {id:"nimcet",name:"NIMCET",icon:"💻",desc:"Practice maths, reasoning and computer basics.",duration:5,questions:[
+  q("math","If 2x + 7 = 19, then x = ?",["4","5","6","7"],2,"2x = 12, so x = 6."),
+  q("reasoning","Find the odd one out.",["Square","Triangle","Circle","Cube"],3,"Cube is three-dimensional; the others are plane figures."),
+  q("computer","Which component is commonly called the brain of a computer?",["RAM","CPU","SSD","Monitor"],1,"The CPU executes instructions and processes data."),
+  q("math","What is the next prime number after 7?",["8","9","10","11"],3,"11 is the next prime after 7."),
+  q("english","Choose the synonym of 'rapid'.",["Slow","Quick","Quiet","Weak"],1,"Rapid means fast or quick.")
+ ]}
+];
+function q(topic,text,options,answer,explanation){return {topic,text,options,answer,explanation}}
+const PRACTICE = {
+ math:[q("math","What is 25% of 80?",["10","15","20","25"],2,"25% is one quarter; 80 ÷ 4 = 20."),q("math","Solve: 7 × 8.",["54","56","58","64"],1,"7 × 8 = 56."),q("math","If x = 4, what is x² + 3?",["12","16","19","21"],2,"16 + 3 = 19.")],
+ reasoning:[q("reasoning","Complete the series: 5, 10, 15, 20, __.",["22","25","30","35"],1,"The sequence increases by 5."),q("reasoning","Which is different?",["Apple","Mango","Carrot","Banana"],2,"Carrot is a vegetable; the others are fruits."),q("reasoning","If all roses are flowers, which statement is certain?",["All flowers are roses","Roses are flowers","No roses are flowers","All plants are roses"],1,"This directly follows the premise.")],
+ computer:[q("computer","What does CPU stand for?",["Central Processing Unit","Computer Personal Unit","Central Program Utility","Core Power Unit"],0,"CPU stands for Central Processing Unit."),q("computer","Which is an input device?",["Monitor","Speaker","Keyboard","Projector"],2,"A keyboard sends input to the computer."),q("computer","Which memory is volatile?",["ROM","RAM","DVD","SSD"],1,"RAM generally loses its contents when power is off.")],
+ english:[q("english","Choose the correct spelling.",["Neccessary","Necessary","Necesary","Necessery"],1,"The correct spelling is necessary."),q("english","Choose the antonym of 'ancient'.",["Old","Historic","Modern","Past"],2,"Modern is the opposite of ancient."),q("english","Fill in the blank: She ___ to school daily.",["go","going","goes","gone"],2,"With 'she' in the simple present, use 'goes'.")]
+};
+let activeExam=null, questions=[], answers=[], reviews=[], current=0, timeLeft=300, timerHandle=null, testMode="exam", lastResult=null, fontLarge=false, light=false;
+const $=id=>document.getElementById(id);
+function loadHistory(){try{return JSON.parse(localStorage.getItem("techmock_history")||"[]")}catch(e){return []}}
+function saveHistory(history){localStorage.setItem("techmock_history",JSON.stringify(history))}
+function renderHome(){
+ $("examGrid").innerHTML=EXAMS.map(e=>`<article class="exam-card"><div class="card-top"><div class="exam-icon">${e.icon}</div><div><h3>${e.name}</h3><div class="muted" style="font-size:12px">${e.questions.length} demo questions • ${e.duration} min</div></div></div><p>${e.desc}</p><div class="chips"><span class="chip">Timed test</span><span class="chip">Answer review</span><span class="chip">Free demo</span></div><button class="primary" data-start="${e.id}">Start mock test →</button></article>`).join("");
+ const h=loadHistory();$("statTests").textContent=h.length;
+ if(h.length){$("statAvg").textContent=Math.round(h.reduce((s,x)=>s+x.percent,0)/h.length)+"%";$("statBest").textContent=Math.max(...h.map(x=>x.percent))+"%"}else{$("statAvg").textContent="—";$("statBest").textContent="—"}
+}
+function showView(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));$(id+"View").cl
