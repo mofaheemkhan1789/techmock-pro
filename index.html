@@ -381,6 +381,294 @@ function showReview(){
    <div class="emoji">💻</div><h3>NIMCET</h3>
    <p id="c4">Mathematics, reasoning and computer awareness.</p>
    <button onclick="openTest('NIMCET')">Explore Tests →</button>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIMCET 2022 Mock Test</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#0b1020;color:#f1f5ff}
+header{padding:20px;text-align:center;background:#151d35;border-bottom:2px solid #f5c451}
+h1{color:#f5c451}
+.container{max-width:850px;margin:auto;padding:15px}
+.card{background:#151d35;padding:18px;margin:15px 0;border-radius:12px;border:1px solid #303b59}
+button,select{padding:12px;border:0;border-radius:7px;cursor:pointer;margin:4px}
+button{background:#263452;color:white}
+.primary{background:#f5c451;color:#111;font-weight:bold}
+.option{display:block;width:100%;text-align:left;margin:10px 0;background:#10172a;border:1px solid #384663}
+.option.selected{border:2px solid #f5c451}
+.option.correct{background:#176344}
+.option.wrong{background:#762e3b}
+.row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+#timer{color:#f5c451;font-size:20px;font-weight:bold}
+#nav{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+#nav button{margin:0;padding:10px 0}
+.answered{background:#176344}
+.hidden{display:none}
+.muted{color:#aab5d0}
+</style>
+</head>
+<body>
+
+<header>
+<h1>NIMCET 2022</h1>
+<p>Previous Year Questions | Online Mock Test</p>
+</header>
+
+<div class="container">
+<div class="card" id="setup">
+<h2>Start Your Mock Test</h2>
+<p>Select your subject:</p>
+<select id="subject">
+<option>All Subjects</option>
+<option>Mathematics</option>
+<option>Logical Reasoning</option>
+<option>Computer Awareness</option>
+<option>General English</option>
+</select>
+<p>Duration:</p>
+<select id="duration">
+<option value="30">30 Minutes</option>
+<option value="60">60 Minutes</option>
+<option value="120" selected>120 Minutes</option>
+</select>
+<p class="muted">This starter version includes sample questions.</p>
+<button class="primary" onclick="startTest()">Start Test</button>
+</div>
+
+<div id="quiz" class="hidden">
+<div class="card row">
+<div id="section"></div>
+<div id="timer">120:00</div>
+</div>
+
+<div class="card">
+<p id="number" class="muted"></p>
+<h3 id="question"></h3>
+<div id="options"></div>
+<p id="message" class="muted"></p>
+<div class="row">
+<button onclick="previous()">Previous</button>
+<button onclick="clearChoice()">Clear</button>
+<button class="primary" onclick="next()">Next</button>
+</div>
+</div>
+
+<div class="card">
+<h3>Question Navigator</h3>
+<div id="nav"></div>
+<p id="count"></p>
+<button class="primary" onclick="submitTest()">Submit Test</button>
+</div>
+</div>
+
+<div id="result" class="hidden">
+<div class="card">
+<h2>Test Result</h2>
+<h1 id="score"></h1>
+<p id="details"></p>
+<button class="primary" onclick="review()">Review Answers</button>
+<button onclick="location.reload()">Restart Test</button>
+</div>
+<div id="reviewArea"></div>
+</div>
+</div>
+
+<script>
+const questions=[
+{
+s:"Mathematics",
+q:"Area of the parallelogram formed by y=4x, y=4x+1, x+y=0 and x+y=1 is:",
+o:["1/5","2/5","3/5","4/5"],a:0,
+e:"The area is 1/5 square units."
+},
+{
+s:"Mathematics",
+q:"The function (1+2x)^(1/x), with f(0)=e², is:",
+o:["Differentiable at zero","Continuous at zero","Discontinuous at zero","Undefined at zero"],a:1,
+e:"Its limit at zero is e², so it is continuous there."
+},
+{
+s:"Mathematics",
+q:"The value of 3^(3−log₃5) is:",
+o:["5/27","27/5","9/5","5/9"],a:1,
+e:"3³ / 5 = 27/5."
+},
+{
+s:"Mathematics",
+q:"The area enclosed by |x|+|y|=2 is:",
+o:["16","24","32","8"],a:3,
+e:"The diamond has diagonals 4 and 4. Area = 4×4/2 = 8."
+},
+{
+s:"Logical Reasoning",
+q:"MELT : LIQUID :: FREEZE : ?",
+o:["Push","Condense","Ice","Solid"],a:3,
+e:"Freezing changes a substance into a solid."
+},
+{
+s:"Logical Reasoning",
+q:"Today is Wednesday. What day will it be after 61 days?",
+o:["Sunday","Monday","Tuesday","Saturday"],a:1,
+e:"61 mod 7 = 5. Five days after Wednesday is Monday."
+},
+{
+s:"Logical Reasoning",
+q:"Find the next number: 6, 11, 21, 36, 56, ?",
+o:["82","81","76","52"],a:1,
+e:"The differences are 5, 10, 15, 20, 25. The next term is 81."
+},
+{
+s:"Computer Awareness",
+q:"Floating-point representation is used to represent:",
+o:["Integers only","Real numbers","Boolean values","Whole numbers only"],a:1,
+e:"Floating-point representation can represent fractional real numbers."
+},
+{
+s:"Computer Awareness",
+q:"The range of signed 16-bit two's-complement integers is:",
+o:["−16384 to 16383","0 to 32767","−32768 to 32767","0 to 65535"],a:2,
+e:"The range is −2¹⁵ to 2¹⁵−1."
+},
+{
+s:"Computer Awareness",
+q:"A processor runs at 2500 million cycles per second. Its clock period is:",
+o:["2.5×10⁻¹⁰ s","4×10⁻¹⁰ s","1×10⁻¹⁰ s","None"],a:1,
+e:"Clock period = 1/(2.5×10⁹) = 4×10⁻¹⁰ seconds."
+},
+{
+s:"General English",
+q:"What does 'Bite the bullet' mean?",
+o:["Stop a conflict","Become mad","Accept something difficult","Analyse faults"],a:2,
+e:"It means facing or enduring something difficult."
+},
+{
+s:"General English",
+q:"Technical writing demands _____ use of language.",
+o:["Poetic","Factual","Figurative","Dramatic"],a:1,
+e:"Technical writing uses clear and factual language."
+},
+{
+s:"General English",
+q:"Choose the synonym of LIBERAL.",
+o:["Generous","Affectionate","Sober","Reactionary"],a:0,
+e:"Liberal can mean generous or open-handed."
+}
+];
+
+let bank=[],answers={},pos=0,time=7200,interval,finished=false;
+
+function startTest(){
+ let sub=document.getElementById("subject").value;
+ bank=sub==="All Subjects"?questions:questions.filter(x=>x.s===sub);
+ if(!bank.length)return;
+ time=Number(document.getElementById("duration").value)*60;
+ document.getElementById("setup").classList.add("hidden");
+ document.getElementById("quiz").classList.remove("hidden");
+ render();
+ tick();
+ interval=setInterval(()=>{
+  if(finished)return;
+  time--;
+  tick();
+  if(time<=0)submitTest(true);
+ },1000);
+}
+
+function tick(){
+ document.getElementById("timer").textContent=
+ String(Math.floor(time/60)).padStart(2,"0")+":"+
+ String(time%60).padStart(2,"0");
+}
+
+function render(){
+ let q=bank[pos];
+ document.getElementById("section").textContent=q.s;
+ document.getElementById("number").textContent=
+ "Question "+(pos+1)+" of "+bank.length;
+ document.getElementById("question").textContent=q.q;
+ document.getElementById("message").textContent="";
+ let box=document.getElementById("options");
+ box.innerHTML="";
+ q.o.forEach((v,i)=>{
+  let b=document.createElement("button");
+  b.className="option"+(answers[pos]===i?" selected":"");
+  b.textContent=String.fromCharCode(65+i)+". "+v;
+  b.onclick=()=>{
+   if(finished)return;
+   answers[pos]=i;
+   render();
+  };
+  box.appendChild(b);
+ });
+ let nav=document.getElementById("nav");
+ nav.innerHTML="";
+ bank.forEach((v,i)=>{
+  let b=document.createElement("button");
+  b.textContent=i+1;
+  if(answers[i]!==undefined)b.classList.add("answered");
+  if(i===pos)b.style.outline="2px solid #f5c451";
+  b.onclick=()=>{pos=i;render()};
+  nav.appendChild(b);
+ });
+ document.getElementById("count").textContent=
+ "Answered: "+Object.keys(answers).length+" / "+bank.length;
+}
+
+function previous(){if(pos>0){pos--;render()}}
+function next(){if(pos<bank.length-1){pos++;render()}}
+function clearChoice(){delete answers[pos];render()}
+
+function submitTest(auto=false){
+ if(finished)return;
+ if(!auto&&!confirm("Are you sure you want to submit?"))return;
+ finished=true;
+ clearInterval(interval);
+ let correct=0,attempted=Object.keys(answers).length;
+ bank.forEach((q,i)=>{if(answers[i]===q.a)correct++});
+ document.getElementById("quiz").classList.add("hidden");
+ document.getElementById("result").classList.remove("hidden");
+ document.getElementById("score").textContent=correct+" / "+bank.length;
+ document.getElementById("details").textContent=
+ "Correct: "+correct+" | Incorrect: "+(attempted-correct)+
+ " | Unattempted: "+(bank.length-attempted)+
+ " | Accuracy: "+(attempted?Math.round(correct/attempted*100):0)+"%";
+}
+
+function review(){
+ let area=document.getElementById("reviewArea");
+ area.innerHTML="";
+ bank.forEach((q,i)=>{
+  let card=document.createElement("div");
+  card.className="card";
+  let h=document.createElement("h3");
+  h.textContent=(i+1)+". "+q.s;
+  card.appendChild(h);
+  let p=document.createElement("p");
+  p.textContent=q.q;
+  card.appendChild(p);
+  q.o.forEach((v,j)=>{
+   let line=document.createElement("p");
+   line.textContent=String.fromCharCode(65+j)+". "+v;
+   if(j===q.a)line.style.color="#35cf91";
+   if(answers[i]===j&&j!==q.a)line.style.color="#ff7474";
+   card.appendChild(line);
+  });
+  let exp=document.createElement("p");
+  exp.className="muted";
+  exp.textContent="Explanation: "+q.e;
+  card.appendChild(exp);
+  area.appendChild(card);
+ });
+ area.scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
+
   </div>
  </div>
 </section>
