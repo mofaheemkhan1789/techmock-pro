@@ -132,6 +132,39 @@ body.home-mode #homeView .card-top {
   gap: 12px !important;
 }
 
+/* FIX: compact exam cards */
+#homeView .exam-card {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 12px !important;
+  gap: 8px !important;
+  justify-content: flex-start !important;
+}
+
+/* Keep buttons readable but not oversized */
+#homeView .exam-card button {
+  min-height: 48px !important;
+  height: auto !important;
+  margin-top: 8px !important;
+  padding: 12px 6px !important;
+  font-size: 17px !important;
+}
+
+/* Readable exam titles and descriptions */
+#homeView .exam-card h3 {
+  font-size: 21px !important;
+}
+
+#homeView .exam-card p {
+  font-size: 16px !important;
+}
+
+/* Remove forced height from card grid */
+#homeView .exam-grid {
+  align-items: start !important;
+  grid-auto-rows: auto !important;
+}
+
 </style>
 </head>
 <body>
